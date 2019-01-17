@@ -1,6 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 src/main/resources/application.properties
+src/main/resources/static/bootstrap-4.2.1-dist/
 
 ### STS ###
 .apt_generated

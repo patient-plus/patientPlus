@@ -1,0 +1,15 @@
+:root {
+    --main-background-color: black;
+    --secondary-background-color: white;
+    --main-accent-color: rgb(0, 127, 245);
+}
+
+.main-bg {
+    background-color: var(--main-background-color) !important;
+}
+
+.counter {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+}
