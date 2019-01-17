@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head(post)">
+
+</head>
+<body>
+
+<nav th:replace="partials :: navbar"></nav>
+
+<h1>This is the single post page!</h1>
+<div>
+    <h4 th:text="${post.getTitle()}"></h4>
+    <p th:text="${post.getBody()}"></p>
+</div>
+<div th:if="${owner}">
+    <form th:action="@{/posts/{id}/edit(id=${post.getId()})}" method="GET">
+        <div>
+            <button>Edit</button>
+        </div>
+    </form>
+    <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="POST">
+        <div>
+            <button>Delete</button>
+        </div>
+    </form>
+</div>
+
+
+<footer th:replace="partials :: footer"></footer>
+<span th:replace="partials :: scripts"></span>
+</body>
+</html>

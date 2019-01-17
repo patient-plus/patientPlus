@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Home')">
+
+</head>
+<body>
+
+<nav th:replace="partials :: navbar"></nav>
+
+<div class="uk-container">
+
+    <div th:if="${edit}">
+        <h1>Edit your Post!</h1>
+        <form th:action="@{/posts/{id}/edit(id=${post.getId()})}" method="POST" th:object="${post}">
+            <fieldset>
+                <div>
+                    <input type="text" th:field="*{title}"/>
+                </div>
+                <div>
+                    <textarea rows="5" th:field="*{body}"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Primary</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div th:if="${create}">
+        <h1>Create a Post!</h1>
+        <form th:action="@{/posts/create}" method="POST" th:object="${post}">
+            <fieldset>
+                <div>
+                    <input  type="text" placeholder="Title" th:field="*{title}"/>
+                </div>
+                <div>
+                    <textarea rows="5" placeholder="Description" th:field="*{body}"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Primary</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+
+<footer th:replace="partials :: footer"></footer>
+<span th:replace="partials :: scripts"></span>
+</body>
+</html>
