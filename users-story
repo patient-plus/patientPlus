@@ -1,0 +1,65 @@
+
+As a ‘visitor’ when I ‘go to the home page’ I expect to see ‘an introduction to our application the explains what the goal of it is and allows users to register, sign in, or find a doctor’.
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-> Login
+As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login form’. Must choose either patient login or doctor login
+
+    ->Patient login
+    Fill out login form and submit and then redirected to profile
+
+        ->Views upcoming appts.(with button to see details), update info, and can schedule and/or request refills
+
+            ->REFILLS
+              See list of prescriptions and can click refill button (confirm pharmacy info)
+
+            ->Schedule
+               Shown list of current doctors and click doctor to be sent to appointment form. Can fill out paperwork or skip.
+
+                    ->Paperwork
+                    Patient is taken to forms to describe symptoms before visit and confirm current info
+
+            ->Appointments
+                shown appointment details(time, location) and to-dos like preliminary paperwork
+
+                    ->Paperwork
+                    Patient is taken to forms to describe symptoms before visit and confirm current info
+
+            ->update info
+              Patient is taken to filled out history and can save changes or delete
+
+    -> Doctor Login
+   Fill out doctor login form
+        ->View upcoming appointments with possibility to pull up patient info
+
+            ->Patient info is available and doctor can add notes for visit and click completed when appt is done and add prescriptions to be sent
+
+
+
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-> Register
+As a ‘visitor’ when I ‘go to the register page’ I expect to see ‘a register form’. Must choose to register as doctor or patient.
+
+    ->Patient
+    Fill out registration and automatically logged in and directed to last page they were on or profile with notification
+        to fill out history if not done in registration.
+
+    ->Doctor
+    Fill out registration and automatically logged in and directed to last page they were on or profile
+
+        ->Verify Account-Doctor can request account verification to connect to clinic and get list of patients (?)
+
+        ->Other features not available unless doctor is verified
+
+
+
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+->Find a Doctor
+    ->Choose specifications to find a doctor, there is a button by each search result to make appt.
+        -> Make Appt. - Sent to registration
+
+        OR
+
+        ->Exit
+

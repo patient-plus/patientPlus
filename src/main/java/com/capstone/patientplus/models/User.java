@@ -9,16 +9,33 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "users")
 public class User {
+    @Id @GeneratedValue
+    private long id;
 
     @NotBlank(message = "No username submitted")
     @Size(min = 5, message = "A username must be at least 5 characters")
     @Column(nullable = false, unique = true)
     private String username;
 
+    @NotBlank(message = "No first name submitted")
+    @Size(min = 5, message = "First name is required")
+    @Column(nullable = false, name="first_name")
+    private String firstName;
+
+    @NotBlank(message = "No last name submitted")
+    @Size(min = 5, message = "Last name is required")
+    @Column(nullable = false, name="last_name")
+    private String lastName;
+
     @NotBlank(message = "No email submitted")
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Email must be in the correct format")
     @Column(nullable = false, unique = true)
     private String email;
+
+    @NotBlank(message = "No phone number")
+    @Size(min = 10, message = "Phone number is required")
+    @Column(nullable = false, name = "phone_number")
+    private String phoneNumber;
 
     @NotBlank(message = "No email submitted")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\\S+$).{8,}$", message = "Password must have one number, one uppercase letter, and one special character")
@@ -26,8 +43,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Id @GeneratedValue
-    private long id;
+//    @NotBlank(message = "Must choose user type")
+//    @Column(nullable = false, )
+
 
     public User(){}
 
