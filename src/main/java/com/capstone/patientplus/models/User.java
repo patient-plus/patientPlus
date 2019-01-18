@@ -18,6 +18,10 @@ public class User {
     @Column(nullable = false, name="first_name")
     private String firstName;
 
+    @NotBlank(message = "Date of birth is necessary")
+    @Column(name = "dob")
+    private String dateOfBirth;
+
     @NotBlank(message = "No last name submitted")
     @Size(min = 5, message = "Last name is required")
     @Column(nullable = false, name="last_name")
