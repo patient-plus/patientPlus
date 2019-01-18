@@ -6,9 +6,6 @@ import javax.persistence.*;
 @Table(name = "surgery")
 public class Surgery {
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
-//    private List<Surgery> surgeries;
-
     @ManyToOne
     @JoinColumn(name="patient_id", nullable=false)
     private User patient;

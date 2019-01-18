@@ -13,11 +13,6 @@ public class User {
     @Id @GeneratedValue
     private long id;
 
-    @NotBlank(message = "No username submitted")
-    @Size(min = 5, message = "A username must be at least 5 characters")
-    @Column(nullable = false, unique = true)
-    private String username;
-
     @NotBlank(message = "No first name submitted")
     @Size(min = 5, message = "First name is required")
     @Column(nullable = false, name="first_name")
@@ -51,10 +46,17 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Prescription> prescriptions;
 
-    ////insuance connection
-//    @ManyToOne
-//    @JoinColumn(name = "patient_insurance_id")
-//    private Insurance insurance;
+    ////insurance connection
+    @ManyToOne
+    @JoinColumn(name = "patient_insurance_id")
+    private Insurance insurance;
+
+    @ManyToMany
+    @JoinTable(
+            name = "doctor_insurance",
+            joinColumns = @JoinColumn(name = "doctor_id"),
+            inverseJoinColumns = @JoinColumn(name = "insurance_id"))
+    List<Insurance> doctors;
 
     /////Pharmacy connection
 //    @ManyToOne
@@ -62,8 +64,8 @@ public class User {
 //    private Pharmacy pharmacy;
 
     ////medications
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<Medication> medications;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private List<Medication> medications;
 
 
     ///emergency contact
@@ -71,42 +73,20 @@ public class User {
 //    private EmergencyContact emergencyContact;
 
     //surgeries
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<Surgery> surgeries;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private List<Surgery> surgeries;
 
 
 
     public User(){}
 
     public User(User copy) {
-        this.id = copy.id;
-        this.username = copy.username;
+        this.firstName = copy.firstName;
+        this.lastName = copy.lastName;
         this.email = copy.email;
+        this.phoneNumber = copy.phoneNumber;
         this.password = copy.password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.isPatient = copy.isPatient;
     }
 
     public long getId() {
@@ -117,4 +97,91 @@ public class User {
         this.id = id;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isPatient() {
+        return isPatient;
+    }
+
+    public void setPatient(boolean patient) {
+        isPatient = patient;
+    }
+
+    public List<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public void setPrescriptions(List<Prescription> prescriptions) {
+        this.prescriptions = prescriptions;
+    }
+
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
+    public List<Insurance> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(List<Insurance> doctors) {
+        this.doctors = doctors;
+    }
+
+    public List<Medication> getMedications() {
+        return medications;
+    }
+
+    public void setMedications(List<Medication> medications) {
+        this.medications = medications;
+    }
+
+    public List<Surgery> getSurgeries() {
+        return surgeries;
+    }
+
+    public void setSurgeries(List<Surgery> surgeries) {
+        this.surgeries = surgeries;
+    }
 }
