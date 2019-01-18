@@ -6,10 +6,15 @@
 
 .main-bg {
     background-color: var(--main-background-color) !important;
+    background-image: url("../img/arms-care-check-905874.jpg");
 }
 
 .counter {
     position: absolute;
     top: 25%;
     left: 8%;
+}
+
+body {
+    background-color: red;
 }
