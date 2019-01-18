@@ -6,7 +6,6 @@
 
 .main-bg {
     background-color: var(--main-background-color) !important;
-    background-image: url("../img/arms-care-check-905874.jpg");
 }
 
 .counter {
@@ -16,5 +15,57 @@
 }
 
 body {
-    background-color: red;
+    background-color: rgba(239,236,241,0.94);
+    background-image: url("../img/arms-care-check-905874.jpg");
+    min-height: 100vh;
+    background-position: center;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /*border-top: 10em solid;*/
+    /*border-top-color: rgba(239,236,241,0.94);*/
+
+}
+.hero {
+    background-color: rgba(3, 3, 3, 0.5);
+    min-height: 100vh;
+    min-width: 100vw;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -100
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2d6;
+    padding: 20px;
+    z-index: -100;
+    opacity: 2.0;
+}
+.formCol {
+    /*background-color: rgba(239,236,241,0.43);*/
+}
+
+.aboutCompanyCol {
+    /*background-color: rgba(0,12,194,0.43);*/
+}
+
+/* HIDE RADIO */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 2px solid #f00;
 }
