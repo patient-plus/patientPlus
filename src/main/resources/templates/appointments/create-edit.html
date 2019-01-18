@@ -11,13 +11,13 @@
 
     <div th:if="${edit}">
         <h1>Edit your Post!</h1>
-        <form th:action="@{/posts/{id}/edit(id=${post.getId()})}" method="POST" th:object="${post}">
+        <form th:action="@{/appointments/{id}/edit(id=${appointment.getId()})}" method="POST" th:object="${appointment}">
             <fieldset>
                 <div>
-                    <input type="text" th:field="*{title}"/>
+                    <input type="text" th:field="*{time}"/>
                 </div>
                 <div>
-                    <textarea rows="5" th:field="*{body}"></textarea>
+                    <textarea rows="5" th:field="*{loaction}"></textarea>
                 </div>
                 <div>
                     <button type="submit">Primary</button>
@@ -28,13 +28,13 @@
 
     <div th:if="${create}">
         <h1>Create a Post!</h1>
-        <form th:action="@{/posts/create}" method="POST" th:object="${post}">
+        <form th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
             <fieldset>
                 <div>
-                    <input  type="text" placeholder="Title" th:field="*{title}"/>
+                    <input  type="text" placeholder="Title" th:field="*{time}"/>
                 </div>
                 <div>
-                    <textarea rows="5" placeholder="Description" th:field="*{body}"></textarea>
+                    <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
                 </div>
                 <div>
                     <button type="submit">Primary</button>
