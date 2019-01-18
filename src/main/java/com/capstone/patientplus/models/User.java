@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -43,8 +44,36 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-//    @NotBlank(message = "Must choose user type")
-//    @Column(nullable = false, )
+    @NotBlank(message = "Must choose user type")
+    @Column(nullable = false, name = "is_patient")
+    private boolean isPatient;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Prescription> prescriptions;
+
+    ////insuance connection
+//    @ManyToOne
+//    @JoinColumn(name = "patient_insurance_id")
+//    private Insurance insurance;
+
+    /////Pharmacy connection
+//    @ManyToOne
+//    @JoinColumn(name = "patient_pharmacy_id")
+//    private Pharmacy pharmacy;
+
+    ////medications
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<Medication> medications;
+
+
+    ///emergency contact
+//    @OneToOne
+//    private EmergencyContact emergencyContact;
+
+    //surgeries
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<Surgery> surgeries;
+
 
 
     public User(){}
