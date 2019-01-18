@@ -3,7 +3,7 @@ package com.capstone.patientplus.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "doctor_patient")
+@Table(name = "doctor_patient", uniqueConstraints={@UniqueConstraint(columnNames={"doctor_id", "patient_id"})})
 public class DoctorPatient {
 
     @OneToOne
