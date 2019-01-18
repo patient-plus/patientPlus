@@ -59,18 +59,13 @@ public class User {
     List<Insurance> doctors;
 
     /////Pharmacy connection
-//    @ManyToOne
-//    @JoinColumn(name = "patient_pharmacy_id")
-//    private Pharmacy pharmacy;
+    @ManyToOne
+    @JoinColumn(name = "patient_pharmacy_id")
+    private Pharmacy pharmacy;
 
     ////medications
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
     private List<Medication> medications;
-
-
-    ///emergency contact
-//    @OneToOne
-//    private EmergencyContact emergencyContact;
 
     //surgeries
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")

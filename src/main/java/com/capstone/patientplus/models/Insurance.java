@@ -7,12 +7,6 @@ import java.util.List;
 @Table(name = "insurance")
 public class Insurance {
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "doctor_insurance",
-//            joinColumns = @JoinColumn(name = "doctor_id"),
-//            inverseJoinColumns = @JoinColumn(name = "insurance_id"))
-//    List<Insurance> doctors;
 
     @ManyToMany(mappedBy = "doctors")
     List<User> doctors;
@@ -29,10 +23,18 @@ public class Insurance {
 
     Insurance(){}
 
-    public Insurance(String name, String plan, List<User> doctorInsurances) {
+    public Insurance(List<User> doctors, String name, String plan) {
+        this.doctors = doctors;
         this.name = name;
         this.plan = plan;
-        this.doctorInsurances = doctorInsurances;
+    }
+
+    public List<User> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(List<User> doctors) {
+        this.doctors = doctors;
     }
 
     public String getName() {
@@ -57,13 +59,5 @@ public class Insurance {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public List<User> getDoctorInsurances() {
-        return doctorInsurances;
-    }
-
-    public void setDoctorInsurances(List<User> doctorInsurances) {
-        this.doctorInsurances = doctorInsurances;
     }
 }
