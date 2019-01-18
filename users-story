@@ -34,6 +34,7 @@ As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login 
 
             ->Patient info is available and doctor can add notes for visit and click completed when appt is done and add prescriptions to be sent
 
+            ->Add patient to patients list: Add a patient by typing in patient id and confirming patient name
 
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,10 +45,11 @@ As a ‘visitor’ when I ‘go to the register page’ I expect to see ‘a reg
     Fill out registration and automatically logged in and directed to last page they were on or profile with notification
         to fill out history if not done in registration.
 
-    ->Doctor
+    ->Doctor "/doctor/registration"
     Fill out registration and automatically logged in and directed to last page they were on or profile
 
         ->Verify Account-Doctor can request account verification to connect to clinic and get list of patients (?)
+        (For now assume doctors are verfied and have them add patients ...?)
 
         ->Other features not available unless doctor is verified
 
