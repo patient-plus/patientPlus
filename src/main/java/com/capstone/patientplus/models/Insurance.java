@@ -4,12 +4,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "insurance")
+@Table(name = "insurance", uniqueConstraints={@UniqueConstraint(columnNames={"name", "plan"})})
 public class Insurance {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "insurance")
+    private List<User> patients;
 
     @ManyToMany(mappedBy = "doctors")
-    List<User> doctors;
+    private List<User> doctors;
 
     @Column(nullable = false)
     private String name;

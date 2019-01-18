@@ -85,7 +85,9 @@ public class User {
         this.email = copy.email;
         this.phoneNumber = copy.phoneNumber;
         this.password = copy.password;
+        this.dateOfBirth = copy.dateOfBirth;
         this.isPatient = copy.isPatient;
+        this.id = copy.id;
     }
 
     public long getId() {
@@ -182,5 +184,21 @@ public class User {
 
     public void setSurgeries(List<Surgery> surgeries) {
         this.surgeries = surgeries;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public void setPharmacy(Pharmacy pharmacy) {
+        this.pharmacy = pharmacy;
     }
 }
