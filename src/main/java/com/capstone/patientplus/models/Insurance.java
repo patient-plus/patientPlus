@@ -12,10 +12,10 @@ public class Insurance {
 //            name = "doctor_insurance",
 //            joinColumns = @JoinColumn(name = "doctor_id"),
 //            inverseJoinColumns = @JoinColumn(name = "insurance_id"))
-//    List<Insurance> doctorInsurance;
+//    List<Insurance> doctors;
 
-    @ManyToMany(mappedBy = "doctorInsurance")
-    List<User> doctorInsurances;
+    @ManyToMany(mappedBy = "doctors")
+    List<User> doctors;
 
     @Column(nullable = false)
     private String name;
