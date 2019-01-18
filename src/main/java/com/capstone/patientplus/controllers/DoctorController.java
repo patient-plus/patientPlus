@@ -8,28 +8,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class DoctorController {
 
-    @GetMapping("/doctors/registration")
+    @GetMapping("/doctor/registration")
     public String seeDoctorRegistration(){
         return "doctors/registration";
     }
 
-    @PostMapping("/doctors/registration")
+    @PostMapping("/doctor/registration")
     public String registerDoctor(User doctor){
         //register doctor in db
 
         //send doctor to their dashboard
-        return "doctors/dashboard";
+        return "doctor/dashboard";
     }
 
-    @GetMapping("/doctors/add-patient")
+    @GetMapping("/doctor/add-patient")
     public String addPatientForm(){
-        return "doctors/add-patient";
+        return "doctor/add-patient";
     }
 
 
     @PostMapping("/doctor/add-patient")
     public String addPatientById(){
-        return "redirect: /doctors/patients";
+        return "redirect: /doctor/patients";
     }
 
 }
