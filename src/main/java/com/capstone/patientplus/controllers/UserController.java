@@ -21,10 +21,10 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/sign-up")
+    @GetMapping("/")
     public String showSignUpForm(Model model){
         model.addAttribute("user", new User());
-        return "authentication/register";
+        return "home";
     }
 
     @PostMapping("/sign-up")
@@ -32,7 +32,7 @@ public class UserController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("user", user);
-            return "authentication/register";
+            return "home";
         }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
