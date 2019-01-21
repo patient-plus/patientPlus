@@ -24,7 +24,7 @@ public class AppointmentController {
     //See All Appointments
     @GetMapping("/appointments")
     public String index(Model model){
-        model.addAttribute("appointments", appointmentService.all());
+//        model.addAttribute("appointments", appointmentService.all());
         return "appointments/index";
     }
 
