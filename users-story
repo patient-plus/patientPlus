@@ -52,7 +52,8 @@ As a ‘visitor’ when I ‘go to the register page’ I expect to see ‘a reg
         ->Verify Account-Doctor can request account verification to connect to clinic and get list of patients (?)
         (For now assume doctors are verfied and have them add patients ...?)
         Search doctor in api and say it is verified if they are present and answer questions correctly
-        -Other features not available unless doctor is verified
+        -Other features not available unless doctor is verified- would require adding isVerified property to User class
+        OR just don't assign isDoctor to a user UNLESS doctor is verified.
 
 
 
