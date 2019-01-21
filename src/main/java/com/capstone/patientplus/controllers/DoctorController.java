@@ -17,6 +17,7 @@ public class DoctorController {
     //doctor registers
     @PostMapping("/doctor/registration")
     public String registerDoctor(User doctor){
+        //check that doctor is in api and then say verified
         //register doctor in db
         //send doctor to their dashboard
         return "doctor/dashboard";
