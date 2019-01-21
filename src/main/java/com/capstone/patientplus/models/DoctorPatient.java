@@ -5,15 +5,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "doctor_patient", uniqueConstraints={@UniqueConstraint(columnNames={"doctor_id", "patient_id"})})
 public class DoctorPatient {
-
-    @OneToOne
-    private User doctor;
-    @OneToOne
-    private User patient;
-
     @Id
     @GeneratedValue
     private long id;
+
+    //These work because the relation between a doctor and the user entity is one to one
+    //just as the relation between patient and user is one to one
+    @OneToOne
+    private User doctor;
+
+    @OneToOne
+    private User patient;
+
 
     DoctorPatient(){}
 
