@@ -12,7 +12,14 @@
     position: absolute;
     top: 25%;
     left: 8%;
+
 }
+/*.vertical-align {*/
+    /*min-height: 100vh;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+
+/*}*/
 
 body {
     background-color: rgba(239,236,241,0.94);
@@ -37,19 +44,18 @@ body {
     z-index: -100
 }
 
-.container {
-    border-radius: 5px;
+.card {
+    margin-top: 2em;
     background-color: #f2f2f2d6;
-    padding: 20px;
-    z-index: -100;
-    opacity: 2.0;
+
 }
-.formCol {
-    /*background-color: rgba(239,236,241,0.43);*/
+.card-body {
+    background-color: #f2f2f2d6;
 }
 
-.aboutCompanyCol {
-    /*background-color: rgba(0,12,194,0.43);*/
+.companyCard > h3 {
+    margin-bottom: 2.5rem;
+
 }
 
 /* HIDE RADIO */
@@ -67,5 +73,9 @@ body {
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-    outline: 2px solid #f00;
+    /*outline: 2px solid #f00;*/
+    border-radius: 8px;
+    background: rgba(0,194,25,0.95);
 }
+
+
