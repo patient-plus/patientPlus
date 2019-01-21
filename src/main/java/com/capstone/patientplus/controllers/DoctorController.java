@@ -23,19 +23,6 @@ public class DoctorController {
         return "doctor/dashboard";
     }
 
-    //doctor goes to the add patient form
-    @GetMapping("/doctor/add-patient")
-    public String addPatientForm(){
-        return "doctor/add-patient";
-    }
-
-    //doctor submits adding patient form
-    @PostMapping("/doctor/add-patient")
-    public String addPatientById(){
-        //code to add patient to patient list for doctor
-        return "redirect: doctor/patients";
-    }
-
     //doctor is able to view upcoming appointments
     @GetMapping("/doctor/dashboard")
     public String viewAppointments(){
