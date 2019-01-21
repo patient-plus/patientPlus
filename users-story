@@ -15,6 +15,7 @@ As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login 
 
             ->Schedule
                Shown list of current doctors and click doctor to be sent to appointment form. Can fill out paperwork or skip.
+               Doctor is added to list of doctors for patient
 
                     ->Paperwork
                     Patient is taken to forms to describe symptoms before visit and confirm current info
@@ -28,12 +29,12 @@ As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login 
             ->update info
               Patient is taken to filled out history and can save changes or delete
 
-    -> Doctor Login
+    -> Doctor Login "/doctor/login"
    Fill out doctor login form
-        ->View upcoming appointments with possibility to pull up patient info
+        X->View upcoming appointments with possibility to pull up patient info
 
             ->Patient info is available and doctor can add notes for visit and click completed when appt is done and add prescriptions to be sent
-
+              See if we can send the patient object to the notes form for an appointment and save it to the doctor record...?
 
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,12 +45,14 @@ As a ‘visitor’ when I ‘go to the register page’ I expect to see ‘a reg
     Fill out registration and automatically logged in and directed to last page they were on or profile with notification
         to fill out history if not done in registration.
 
-    ->Doctor
+    X->Doctor "/doctor/registration"
     Fill out registration and automatically logged in and directed to last page they were on or profile
 
         ->Verify Account-Doctor can request account verification to connect to clinic and get list of patients (?)
-
-        ->Other features not available unless doctor is verified
+        (For now assume doctors are verfied and have them add patients ...?)
+        Search doctor in api and say it is verified if they are present and answer questions correctly
+        -Other features not available unless doctor is verified- would require adding isVerified property to User class
+        OR just don't assign isDoctor to a user UNLESS doctor is verified.
 
 
 
