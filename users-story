@@ -15,6 +15,7 @@ As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login 
 
             ->Schedule
                Shown list of current doctors and click doctor to be sent to appointment form. Can fill out paperwork or skip.
+               Doctor is added to list of doctors for patient
 
                     ->Paperwork
                     Patient is taken to forms to describe symptoms before visit and confirm current info
@@ -34,8 +35,6 @@ As a ‘visitor’ when I ‘go to the login page’ I expect to see ‘a login 
 
             ->Patient info is available and doctor can add notes for visit and click completed when appt is done and add prescriptions to be sent
               See if we can send the patient object to the notes form for an appointment and save it to the doctor record...?
-
-            X->Add patient to patients list: Add a patient by typing in patient id and confirming patient name
 
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
