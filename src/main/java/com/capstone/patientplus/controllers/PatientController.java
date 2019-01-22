@@ -1,6 +1,7 @@
 package com.capstone.patientplus.controllers;
 
 import com.capstone.patientplus.models.*;
+import com.capstone.patientplus.repositories.UsersRepository;
 import com.capstone.patientplus.services.AppointmentService;
 import com.capstone.patientplus.services.PatientService;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -18,19 +20,24 @@ public class PatientController {
 
     private final PatientService patientService;
     private final AppointmentService appointmentService;
+    private final UsersRepository users;
 
-    public PatientController(PatientService patientService, AppointmentService appointmentService){
+    public PatientController(PatientService patientService, AppointmentService appointmentService, UsersRepository users){
         this.patientService = patientService;
         this.appointmentService = appointmentService;
+        this.users = users;
     }
 
 
     //See All Appointments
-    @GetMapping("/patient/profile")
-    public String index(Model model){
+    @GetMapping("/{id}/dashboard")
+    public String index(@PathVariable long id, Model model){
+        if (!users.findById(id).isPatient()){
+            return "redirect:/doctor/dashboard";
+        }
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!patient.isPatient()){
-            return "redirect:/doctor/profile";
+            return "redirect:/doctor/dashboard";
         }
 
         model.addAttribute("appointments", appointmentService.allForPatient(patient));
@@ -43,7 +50,7 @@ public class PatientController {
     public String infoPage(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!patient.isPatient()){
-            return "redirect:/doctor/profile";
+            return "redirect:/doctor/dashboard";
         }
 
         model.addAttribute("emergencyContact", new EmergencyContact());
@@ -83,6 +90,6 @@ public class PatientController {
                 patientService.saveMedication(medication);
             }
         }
-        return "patient/profile";
+        return "patient/dashboard";
     }
 }

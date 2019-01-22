@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Home')"></head>
-<link rel="stylesheet" href="/css/homeNavbar.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
 <body>
-    <!--<nav th:replace="partials :: navbar"></nav>-->
-    <div class="topnav">
-        <a class="active" href="#home">PatientPlus</a>
-        <div class="login-container">
+    <nav th:replace="partials :: navbar"></nav>
 
-            <form th:action="@{/login}" method="POST" class="loginForm">
-                <span class="mr-xs">Already have an account?</span>
-                <small th:if="${param.error}">Invalid Username and/or Password.</small>
-                <small th:if="${param.logout}">You have been logged out.</small>
-                <input type="email" required="required" placeholder="Email" name="username" id="username" />
-                <input type="password" required="required" placeholder="Password" name="password" id="password" />
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
     <div class="hero"></div>
 
 

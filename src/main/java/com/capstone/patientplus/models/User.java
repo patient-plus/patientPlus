@@ -13,8 +13,7 @@ public class User {
     @Id @GeneratedValue
     private long id;
 
-    @NotBlank(message = "No first name submitted")
-    @Size(min = 5, message = "First name is required")
+    @NotBlank(message = "First name is required")
     @Column(nullable = false, name="first_name")
     private String firstName;
 
@@ -22,8 +21,7 @@ public class User {
     @Column(name = "dob")
     private String dateOfBirth;
 
-    @NotBlank(message = "No last name submitted")
-    @Size(min = 5, message = "Last name is required")
+    @NotBlank(message = "Last name is required")
     @Column(nullable = false, name="last_name")
     private String lastName;
 
@@ -38,8 +36,7 @@ public class User {
     private String phoneNumber;
 
     @NotBlank(message = "No password submitted")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$", message = "Password must have one number, one uppercase letter, and one special character")
-    @Size(min = 8, message = "Password must be at least 8 characters")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$")
     @Column(nullable = false)
     private String password;
 

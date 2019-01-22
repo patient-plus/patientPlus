@@ -49,9 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers(
-                            "/budget/create",
-                            "/budget/view",
-                            "/appointments/**"
+                            "/doctor/**",
+                            "/patient/**"
                     )
                     .authenticated();
     }
