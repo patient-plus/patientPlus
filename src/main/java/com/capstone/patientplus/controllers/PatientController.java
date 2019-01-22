@@ -1,9 +1,8 @@
 package com.capstone.patientplus.controllers;
 
 import com.capstone.patientplus.models.*;
-import com.capstone.patientplus.repositories.UsersRepository;
+import com.capstone.patientplus.repositories.*;
 import com.capstone.patientplus.services.AppointmentService;
-import com.capstone.patientplus.services.PatientService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +17,20 @@ import java.util.ArrayList;
 @Controller
 public class PatientController {
 
-    private final PatientService patientService;
+    private final EmergencyContactRepository emergencyDao;
+    private final InsuranceRepository insuranceDao;
+    private final MedicationRepository medicationDao;
+    private final PharmacyRepository pharmacyDao;
+    private final SurgeryRepository surgeryDao;
     private final AppointmentService appointmentService;
     private final UsersRepository users;
 
-    public PatientController(PatientService patientService, AppointmentService appointmentService, UsersRepository users){
-        this.patientService = patientService;
+    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentService appointmentService, UsersRepository users){
+        this.emergencyDao = emergencyDao;
+        this.insuranceDao = insuranceDao;
+        this.medicationDao = medicationDao;
+        this.pharmacyDao = pharmacyDao;
+        this.surgeryDao = surgeryDao;
         this.appointmentService = appointmentService;
         this.users = users;
     }
@@ -41,7 +48,7 @@ public class PatientController {
         }
 
 //        model.addAttribute("appointments", appointmentService.allForPatient(patient));
-        model.addAttribute("emergencyContact", patientService.findEmergencyContactForPatient(patient));
+        model.addAttribute("emergencyContact", emergencyDao.findByPatient(patient));
         return "patient/profile";
     }
 
@@ -65,11 +72,11 @@ public class PatientController {
     public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @ModelAttribute Insurance insurance, @ModelAttribute Pharmacy pharmacy, @ModelAttribute ArrayList<Surgery> surgeries, @ModelAttribute ArrayList<Medication> medications){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         emergencyContact.setPatient(patient);
-        patientService.saveEmergencyContact(emergencyContact);
+        emergencyDao.save(emergencyContact);
         patient.setInsurance(insurance);
-        patientService.savePatientInsurance(insurance);
+        insuranceDao.save(insurance);
         patient.setPharmacy(pharmacy);
-        patientService.savePatientPharmacy(pharmacy);
+        pharmacyDao.save(pharmacy);
 
         for (Surgery surgery : surgeries){
             if (surgeries.indexOf(surgery) >= 20){
@@ -77,7 +84,7 @@ public class PatientController {
             }
             if(surgery != null) {
                 surgery.setPatient(patient);
-                patientService.saveSurgery(surgery);
+                surgeryDao.save(surgery);
             }
         }
 
@@ -87,7 +94,7 @@ public class PatientController {
             }
             if(medication != null) {
                 medication.setPatient(patient);
-                patientService.saveMedication(medication);
+                medicationDao.save(medication);
             }
         }
         return "patient/dashboard";
