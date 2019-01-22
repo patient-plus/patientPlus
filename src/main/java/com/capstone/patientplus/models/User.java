@@ -56,7 +56,7 @@ public class User {
             name = "doctor_insurance",
             joinColumns = @JoinColumn(name = "doctor_id"),
             inverseJoinColumns = @JoinColumn(name = "insurance_id"))
-    private List<Insurance> doctors;
+    private List<Insurance> insurances;
 
     /////Pharmacy connection
     @ManyToOne
@@ -88,7 +88,7 @@ public class User {
         this.pharmacy = copy.pharmacy;
         this.medications = copy.medications;
         this.surgeries = copy.surgeries;
-        this.doctors = copy.doctors;
+        this.insurances = copy.insurances;
     }
 
     public long getId() {
@@ -163,12 +163,12 @@ public class User {
         this.insurance = insurance;
     }
 
-    public List<Insurance> getDoctors() {
-        return doctors;
+    public List<Insurance> getInsurances() {
+        return insurances;
     }
 
-    public void setDoctors(List<Insurance> doctors) {
-        this.doctors = doctors;
+    public void setInsurances(List<Insurance> insurances) {
+        this.insurances = insurances;
     }
 
     public List<Medication> getMedications() {
