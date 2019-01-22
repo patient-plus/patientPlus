@@ -40,7 +40,7 @@ public class PatientController {
             return "redirect:/doctor/dashboard";
         }
 
-        model.addAttribute("appointments", appointmentService.allForPatient(patient));
+//        model.addAttribute("appointments", appointmentService.allForPatient(patient));
         model.addAttribute("emergencyContact", patientService.findEmergencyContactForPatient(patient));
         return "patient/profile";
     }

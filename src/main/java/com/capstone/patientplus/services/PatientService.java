@@ -38,9 +38,9 @@ public class PatientService {
     }
 
     //Insurance Methods
-    public Insurance findPatientInsurance(User patient) {
-        return insuranceDao.findOne(patient.getInsurance().getId());
-    }
+//    public Insurance findPatientInsurance(User patient) {
+//        return insuranceDao.findOne(patient.getInsurance().getId());
+//    }
 
     public long savePatientInsurance(Insurance insurance){
         insuranceDao.save(insurance);

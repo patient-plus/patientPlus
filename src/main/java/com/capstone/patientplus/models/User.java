@@ -58,6 +58,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "insurance_id"))
     private List<Insurance> insurances;
 
+
+
     /////Pharmacy connection
     @ManyToOne
     @JoinColumn(name = "patient_pharmacy_id")

@@ -7,11 +7,11 @@ import java.util.List;
 @Table(name = "insurance", uniqueConstraints={@UniqueConstraint(columnNames={"name", "plan"})})
 public class Insurance {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "insurance")
-    private List<User> patients;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "insurance")
+//    private List<User> patients;
 
-    @ManyToMany(mappedBy = "doctors")
-    private List<User> doctors;
+//    @ManyToMany(mappedBy = "doctors")
+//    private List<User> doctors;
 
     @Column(nullable = false)
     private String name;
@@ -25,19 +25,19 @@ public class Insurance {
 
     public Insurance(){}
 
-    public Insurance(List<User> doctors, String name, String plan) {
-        this.doctors = doctors;
-        this.name = name;
-        this.plan = plan;
-    }
+//    public Insurance(List<User> doctors, String name, String plan) {
+////        this.doctors = doctors;
+//        this.name = name;
+//        this.plan = plan;
+//    }
 
-    public List<User> getDoctors() {
-        return doctors;
-    }
-
-    public void setDoctors(List<User> doctors) {
-        this.doctors = doctors;
-    }
+//    public List<User> getDoctors() {
+//        return doctors;
+//    }
+//
+//    public void setDoctors(List<User> doctors) {
+//        this.doctors = doctors;
+//    }
 
     public String getName() {
         return name;

@@ -3,10 +3,10 @@ package com.capstone.patientplus.services;
 
 
 import com.capstone.patientplus.models.Appointment;
-import com.capstone.patientplus.models.DoctorPatient;
+//import com.capstone.patientplus.models.DoctorPatient;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.AppointmentRepository;
-import com.capstone.patientplus.repositories.DoctorPatientRepository;
+//import com.capstone.patientplus.repositories.DoctorPatientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,22 +16,31 @@ import java.util.List;
 public class AppointmentService {
 
     private final AppointmentRepository appointmentDao;
-    private final DoctorPatientRepository comboDao;
+//    private final DoctorPatientRepository comboDao;
 
-    public AppointmentService(AppointmentRepository appointmentDao, DoctorPatientRepository comboDao){
+    public AppointmentService(AppointmentRepository appointmentDao){
         this.appointmentDao = appointmentDao;
-        this.comboDao = comboDao;
     }
 
-    public List<Appointment> allForPatient(User patient) {
-        List<Appointment> appointments = new ArrayList<>();
-        List<DoctorPatient> combinations = comboDao.findAllByPatient(patient);
-
-        for (DoctorPatient combination : combinations){
-            appointments.add(appointmentDao.findByCombination(combination));
-        }
-        return appointments;
-    }
+//    public List<Appointment> allForPatient(User patient) {
+//        List<Appointment> appointments = new ArrayList<>();
+//        List<DoctorPatient> combinations = comboDao.findAllByPatient(patient);
+//
+//        for (DoctorPatient combination : combinations){
+//            appointments.add(appointmentDao.findByCombination(combination));
+//        }
+//        return appointments;
+//    }
+//
+//    public List<Appointment> allForDoctor(User doctor){
+//        List<Appointment> appointments = new ArrayList<>();
+//        List<DoctorPatient> combinations = comboDao.findAllByDoctor(doctor);
+//
+////        for(DoctorPatient combination : combinations){
+////            appointments
+////        }
+//        return appointments;
+//    }
 
     public Appointment one(long id) {
         return appointmentDao.findOne(id);
