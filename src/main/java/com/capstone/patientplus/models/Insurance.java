@@ -23,7 +23,7 @@ public class Insurance {
     private long id;
 
 
-    Insurance(){}
+    public Insurance(){}
 
     public Insurance(List<User> doctors, String name, String plan) {
         this.doctors = doctors;

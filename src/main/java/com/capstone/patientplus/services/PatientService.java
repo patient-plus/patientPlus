@@ -52,12 +52,8 @@ public class PatientService {
         return medicationDao.findAllByPatient(patient);
     }
 
-    public void saveMedication(List<Medication> medications){
-        for(Medication medication : medications){
-            if(medication != null){
-                medicationDao.save(medication);
-            }
-        }
+    public void saveMedication(Medication medication){
+        medicationDao.save(medication);
     }
 
     //Pharmacy Methods
@@ -75,12 +71,8 @@ public class PatientService {
         return surgeryDao.findAllByPatient(patient);
     }
 
-    public void saveSurgeries(List<Surgery> surgeries){
-        for(Surgery surgery : surgeries){
-            if(surgery != null){
-                surgeryDao.save(surgery);
-            }
-        }
+    public void saveSurgery(Surgery surgery){
+        surgeryDao.save(surgery);
     }
 
 }
