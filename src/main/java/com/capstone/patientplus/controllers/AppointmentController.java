@@ -34,9 +34,9 @@ public class AppointmentController {
         model.addAttribute("appointment", appointmentService.one(id));
 
         User owner = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (appointmentService.one(id).getCombination().getId() == owner.getId()){
-            model.addAttribute("owner", true);
-        }
+//        if (appointmentService.one(id).getCombination().getId() == owner.getId()){
+//            model.addAttribute("owner", true);
+//        }
         return "appointments/show";
     }
 
@@ -44,9 +44,9 @@ public class AppointmentController {
     @PostMapping("/appointments/{id}/delete")
     public String deletePost(@PathVariable long id){
         User owner = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (appointmentService.one(id).getCombination().getId() != owner.getId()){
-            return "redirect:/appointments/" + String.valueOf(id);
-        }
+//        if (appointmentService.one(id).getCombination().getId() != owner.getId()){
+//            return "redirect:/appointments/" + String.valueOf(id);
+//        }
         appointmentService.delete(id);
         return "redirect:/appointments";
     }
@@ -55,9 +55,9 @@ public class AppointmentController {
     @GetMapping("/appointments/{id}/edit")
     public String editPostForm(@PathVariable long id, Model model){
         User owner = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (appointmentService.one(id).getCombination().getId() != owner.getId()){
-            return "redirect:/appointments/" + String.valueOf(id);
-        }
+//        if (appointmentService.one(id).getCombination().getId() != owner.getId()){
+//            return "redirect:/appointments/" + String.valueOf(id);
+//        }
         model.addAttribute("edit", true);
         model.addAttribute("appointment", appointmentService.one(id));
         return "appointments/create-edit";

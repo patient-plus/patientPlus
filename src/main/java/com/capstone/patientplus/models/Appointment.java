@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name="appointments")
 public class Appointment {
 
-    @ManyToOne
-    private DoctorPatient combination;
+//    @ManyToOne
+//    private DoctorPatient combination;
 
     @Column(nullable = false)
     private String time;
@@ -17,6 +17,15 @@ public class Appointment {
     @Id @GeneratedValue
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private User doctor;
+
+
     public Appointment(){}
 
     public Appointment(String time, String location, long id){
@@ -25,13 +34,13 @@ public class Appointment {
         this.id = id;
     }
 
-    public DoctorPatient getCombination() {
-        return combination;
-    }
-
-    public void setCombination(DoctorPatient combination) {
-        this.combination = combination;
-    }
+//    public DoctorPatient getCombination() {
+//        return combination;
+//    }
+//
+//    public void setCombination(DoctorPatient combination) {
+//        this.combination = combination;
+//    }
 
     public String getTime() {
         return time;

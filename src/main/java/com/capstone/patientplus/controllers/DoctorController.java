@@ -1,10 +1,10 @@
 package com.capstone.patientplus.controllers;
 
 import com.capstone.patientplus.models.Appointment;
-import com.capstone.patientplus.models.DoctorPatient;
+//import com.capstone.patientplus.models.DoctorPatient;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.AppointmentRepository;
-import com.capstone.patientplus.repositories.DoctorPatientRepository;
+//import com.capstone.patientplus.repositories.DoctorPatientRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
