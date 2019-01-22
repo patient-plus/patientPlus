@@ -10,9 +10,12 @@
         <a class="active" href="#home">PatientPlus</a>
         <div class="login-container">
 
-            <form th:action="@{/show}" method="post" class="loginForm">
-                Already have an account?<input type="email" placeholder="Email" name="email" id="loginEmail" />
-                <input type="password" placeholder="Password" name="psw" id="loginPW" />
+            <form th:action="@{/login}" method="POST" class="loginForm">
+                <span class="mr-xs">Already have an account?</span>
+                <small th:if="${param.error}">Invalid Username and/or Password.</small>
+                <small th:if="${param.logout}">You have been logged out.</small>
+                <input type="email" required="required" placeholder="Email" name="username" id="username" />
+                <input type="password" required="required" placeholder="Password" name="password" id="password" />
                 <button type="submit">Login</button>
             </form>
         </div>
@@ -20,7 +23,7 @@
     <div class="hero"></div>
 
 
-        <div class="container vertical-align">
+        <div class="container align-self-center">
             <div class="row">
                 <div class="col aboutCompanyCol">
                     <div class="card">
@@ -45,18 +48,18 @@
                             <h1>Sign Up!</h1>
                             <p>Get PatientPlus</p>
 
-                            <form th:action="@{/index}" method="post">
+                            <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                                 <div class="form-row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <label>
-                                            <input class="btn-outline-info" type="radio" name="userType" value="doctorReg" />
+                                            <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="false" />
                                             <img width="50" height="50" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
                                             Doctor
                                         </label>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <label>
-                                            <input class="btn-outline-info" type="radio" name="userType" value="patientReg" />
+                                            <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="true" />
                                             <img width="50" height="50" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
                                             Patient
                                         </label>
@@ -64,26 +67,37 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12">
-                                        <input type="text" class="form-control" id="email" placeholder="Email" />
+                                        <input type="email" size="30" required="required" class="form-control" th:field="*{username}" id="email" placeholder="Email" />
                                     </div>
                                 </div>
                                 <div class="form-row mt-s">
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" id="firstName" placeholder="First name"  />
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" required="required" class="form-control" id="firstName" th:field="*{firstName}" placeholder="First name"  />
                                     </div>
 
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" id="lastName" placeholder="Last name" />
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" required="required" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Last name" />
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-md-12 mb-3">
-                                        <input type="text" class="form-control" id="city" placeholder="City" />
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dateOfBirth" class="form-text text-muted ml-1 mb-0">Date of Birth:</label>
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth"
+                                               required="required" class="form-control" th:field="*{dateOfBirth}" />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-text text-muted ml-1 mb-0">Phone Number:</label>
+                                        <input type="tel" id="phone" name="phone"
+                                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                               required="required" class="form-control" th:field="*{phoneNumber}" placeholder="000-000-0000" />
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12">
-                                        <input type="text" class="form-control" id="password" placeholder="Password" />
+                                        <input type="password" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" class="form-control" id="pass" th:field="*{password}" placeholder="Password"/>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Your password must be 8-20 characters long, contain at least one upper and one lowercase letter, at least one number, and must not contain spaces, special characters, or emoji.
+                                        </small>
                                     </div>
                                 </div>
                                 <!--<div class="form-group">-->
@@ -106,28 +120,7 @@
 
 
 
-    <footer th:replace="partials :: footer">
-        <!--<script>-->
-            <!--// Example starter JavaScript for disabling form submissions if there are invalid fields-->
-            <!--(function() {-->
-                <!--'use strict';-->
-                <!--window.addEventListener('load', function() {-->
-                    <!--// Fetch all the forms we want to apply custom Bootstrap validation styles to-->
-                    <!--var forms = document.getElementsByClassName('needs-validation');-->
-                    <!--// Loop over them and prevent submission-->
-                    <!--var validation = Array.prototype.filter.call(forms, function(form) {-->
-                        <!--form.addEventListener('submit', function(event) {-->
-                            <!--if (form.checkValidity() === false) {-->
-                                <!--event.preventDefault();-->
-                                <!--event.stopPropagation();-->
-                            <!--}-->
-                            <!--form.classList.add('was-validated');-->
-                        <!--}, false);-->
-                    <!--});-->
-                <!--}, false);-->
-            <!--})();-->
-        <!--</script>-->
-    </footer>
+    <footer th:replace="partials :: footer"></footer>
     <span th:replace="partials :: scripts"></span>
 </body>
 </html>
