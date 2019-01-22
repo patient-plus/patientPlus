@@ -6,32 +6,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/spaces.css"/>
     <link rel="stylesheet" href="/css/patientPlus.css" />
+    <link rel="stylesheet" href="/css/homeNavbar.css" />
 </head>
 <body>
 
 <nav th:fragment="navbar">
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/posts">Posts</a>
-        </li>
-        <li class="nav-item" sec:authorize="!isAuthenticated()">
-            <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item" sec:authorize="!isAuthenticated()">
-            <a class="nav-link" href="/sign-up">Register</a>
-        </li>
-        <li class="nav-item" sec:authorize="isAuthenticated()">
-            <a class="nav-link" href="/posts/create">Create Post</a>
-        </li>
-        <li class="nav-item" sec:authorize="isAuthenticated()">
-            <form class="nav-link" th:action="@{/logout}" th:method="POST" id="logout">
-                <a onclick="document.getElementById('logout').submit();">Logout</a>
-            </form>
-        </li>
-    </ul>
+
+    <div class="topnav">
+        <a class="active" href="/">PatientPlus</a>
+        <ul class="nav justify-content-end">
+            <li class="login-container " sec:authorize="!isAuthenticated()">
+                <form th:action="@{/login}" method="POST" class="loginForm">
+                    <span class="mr-xs">Already have an account?</span>
+                    <small th:if="${param.error}">Invalid Username and/or Password.</small>
+                    <small th:if="${param.logout}">You have been logged out.</small>
+                    <input type="email" required="required" placeholder="Email" name="username" id="username" />
+                    <input type="password" required="required" placeholder="Password" name="password" id="password" />
+                    <button type="submit">Login</button>
+                </form>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a class="nav-link" href="/appointments/create">Create Appointment</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/{id}/dashboard(id=${#authentication.principal.id})}">Dashboard</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a class="p-0" href="#"><form class="nav-link p-0" th:action="@{/logout}" th:method="POST" id="logout">
+                    <a onclick="document.getElementById('logout').submit();">Logout</a>
+                </form></a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 

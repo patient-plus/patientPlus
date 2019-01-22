@@ -13,8 +13,7 @@ public class User {
     @Id @GeneratedValue
     private long id;
 
-    @NotBlank(message = "No first name submitted")
-    @Size(min = 5, message = "First name is required")
+    @NotBlank(message = "First name is required")
     @Column(nullable = false, name="first_name")
     private String firstName;
 
@@ -22,30 +21,27 @@ public class User {
     @Column(name = "dob")
     private String dateOfBirth;
 
-    @NotBlank(message = "No last name submitted")
-    @Size(min = 5, message = "Last name is required")
+    @NotBlank(message = "Last name is required")
     @Column(nullable = false, name="last_name")
     private String lastName;
 
     @NotBlank(message = "No email submitted")
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Email must be in the correct format")
     @Column(nullable = false, unique = true)
-    private String email;
+    private String username;
 
     @NotBlank(message = "No phone number")
     @Size(min = 10, message = "Phone number is required")
     @Column(nullable = false, name = "phone_number")
     private String phoneNumber;
 
-    @NotBlank(message = "No email submitted")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\\S+$).{8,}$", message = "Password must have one number, one uppercase letter, and one special character")
-    @Size(min = 8, message = "Password must be at least 8 characters")
+    @NotBlank(message = "No password submitted")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$")
     @Column(nullable = false)
     private String password;
 
-    @NotBlank(message = "Must choose user type")
     @Column(nullable = false, name = "is_patient")
-    private boolean isPatient;
+    private boolean patient;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Prescription> prescriptions;
@@ -60,7 +56,7 @@ public class User {
             name = "doctor_insurance",
             joinColumns = @JoinColumn(name = "doctor_id"),
             inverseJoinColumns = @JoinColumn(name = "insurance_id"))
-    List<Insurance> doctors;
+    private List<Insurance> insurances;
 
     /////Pharmacy connection
     @ManyToOne
@@ -76,18 +72,23 @@ public class User {
     private List<Surgery> surgeries;
 
 
-
     public User(){}
 
     public User(User copy) {
         this.firstName = copy.firstName;
         this.lastName = copy.lastName;
-        this.email = copy.email;
+        this.username = copy.username;
         this.phoneNumber = copy.phoneNumber;
         this.password = copy.password;
         this.dateOfBirth = copy.dateOfBirth;
-        this.isPatient = copy.isPatient;
+        this.patient = copy.patient;
         this.id = copy.id;
+        this.prescriptions = copy.prescriptions;
+        this.insurance = copy.insurance;
+        this.pharmacy = copy.pharmacy;
+        this.medications = copy.medications;
+        this.surgeries = copy.surgeries;
+        this.insurances = copy.insurances;
     }
 
     public long getId() {
@@ -114,12 +115,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPhoneNumber() {
@@ -139,11 +140,11 @@ public class User {
     }
 
     public boolean isPatient() {
-        return isPatient;
+        return patient;
     }
 
     public void setPatient(boolean patient) {
-        isPatient = patient;
+        this.patient = patient;
     }
 
     public List<Prescription> getPrescriptions() {
@@ -162,12 +163,12 @@ public class User {
         this.insurance = insurance;
     }
 
-    public List<Insurance> getDoctors() {
-        return doctors;
+    public List<Insurance> getInsurances() {
+        return insurances;
     }
 
-    public void setDoctors(List<Insurance> doctors) {
-        this.doctors = doctors;
+    public void setInsurances(List<Insurance> insurances) {
+        this.insurances = insurances;
     }
 
     public List<Medication> getMedications() {
