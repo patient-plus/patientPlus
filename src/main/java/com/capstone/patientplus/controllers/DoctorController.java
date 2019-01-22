@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -55,7 +56,11 @@ public class DoctorController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(!user.isPatient()){
             //finds combinations using logged in user and then uses those combinations to grab scheduled appointments
-            List<Appointment> appointmentList = apptDao.findByCombinations(dpDao.findCombinationsByUser(user));
+            List<DoctorPatient> combinations = dpDao.findCombinationsByUser(user);
+            List<Appointment> appointmentList = new ArrayList<>();
+            for(DoctorPatient combination : combinations){
+                appointmentList = apptDao.findByCombination(combination);
+            }
             model.addAttribute("appointments", appointmentList);
         }
         return "doctor/dashboard";
