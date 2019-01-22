@@ -5,7 +5,6 @@ import com.capstone.patientplus.models.DoctorPatient;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.AppointmentRepository;
 import com.capstone.patientplus.repositories.DoctorPatientRepository;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,11 +26,11 @@ public class DoctorController {
     // Second using the list of the ids for each combo, return a list of appointments
 
     private final AppointmentRepository apptDao;
-    private final DoctorPatientRepository dpDao;
+//    private final DoctorPatientRepository dpDao;
 
-    public DoctorController(AppointmentRepository apptDao, DoctorPatientRepository dpDao){
+    public DoctorController(AppointmentRepository apptDao){
         this.apptDao = apptDao;
-        this.dpDao = dpDao;
+//        this.dpDao = dpDao;
     }
 
     //allows doctor to go to registration page
@@ -46,7 +45,7 @@ public class DoctorController {
         //check that doctor is in api and then say verified
         //register doctor in db
         //send doctor to their dashboard
-        return "doctor/dashboard";
+        return "redirect: dashboard";
     }
 
     //doctor is able to view upcoming appointments
@@ -54,16 +53,16 @@ public class DoctorController {
     public String viewAppointments(Model model){
         //grab appointments for doctor and set as model
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(!user.isPatient()){
-            //finds combinations using logged in user and then uses those combinations to grab scheduled appointments
-            List<DoctorPatient> combinations = dpDao.findCombinationsByUser(user);
-            List<Appointment> appointmentList = new ArrayList<>();
-            for(DoctorPatient combination : combinations){
-                appointmentList = apptDao.findByCombination(combination);
-            }
-            model.addAttribute("appointments", appointmentList);
-        }
-        return "doctor/dashboard";
+//        if(!user.isPatient()){
+//            //finds combinations using logged in user and then uses those combinations to grab scheduled appointments
+//            List<DoctorPatient> combinations = dpDao.findCombinationsByUser(user);
+//            List<Appointment> appointmentList = new ArrayList<>();
+//            for(DoctorPatient combination : combinations){
+//                appointmentList = apptDao.findByCombination(combination);
+//            }
+//            model.addAttribute("appointments", appointmentList);
+//        }
+        return "redirect: dashboard";
     }
 
     //When populating the list of appointments we can set an object
