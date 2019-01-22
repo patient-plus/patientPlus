@@ -15,7 +15,9 @@ public class Insurance {
 
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+
+//    made plan nullable because doctors won't be listing specific plans
+    @Column
     private String plan;
 
     @Id

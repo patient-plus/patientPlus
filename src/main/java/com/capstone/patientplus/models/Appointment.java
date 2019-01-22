@@ -28,10 +28,12 @@ public class Appointment {
 
     public Appointment(){}
 
-    public Appointment(String time, String location, long id){
+    public Appointment(long id, String time, String location, User doctor, User patient){
         this.time = time;
         this.location = location;
         this.id = id;
+        this.doctor = doctor;
+        this.patient = patient;
     }
 
 //    public DoctorPatient getCombination() {
