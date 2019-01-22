@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Doctor Dashboard')"/>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" th:each="appointment : ${appointments}">
+            <p th:text="${appointment.time}"></p>
+            <form action="get" th:href="">
+                <button>View Profile</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
