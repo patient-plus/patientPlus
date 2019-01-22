@@ -2,7 +2,6 @@ package com.capstone.patientplus.controllers;
 
 import com.capstone.patientplus.models.*;
 import com.capstone.patientplus.repositories.*;
-import com.capstone.patientplus.services.AppointmentService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,16 +21,16 @@ public class PatientController {
     private final MedicationRepository medicationDao;
     private final PharmacyRepository pharmacyDao;
     private final SurgeryRepository surgeryDao;
-    private final AppointmentService appointmentService;
+    private final AppointmentRepository appointmentDao;
     private final UsersRepository users;
 
-    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentService appointmentService, UsersRepository users){
+    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentRepository appointmentDao, UsersRepository users){
         this.emergencyDao = emergencyDao;
         this.insuranceDao = insuranceDao;
         this.medicationDao = medicationDao;
         this.pharmacyDao = pharmacyDao;
         this.surgeryDao = surgeryDao;
-        this.appointmentService = appointmentService;
+        this.appointmentDao = appointmentDao;
         this.users = users;
     }
 
