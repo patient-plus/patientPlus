@@ -35,22 +35,6 @@ public class PatientController {
     }
 
 
-    //See All Appointments
-    @GetMapping("/{id}/dashboard")
-    public String index(@PathVariable long id, Model model){
-        if (!users.findById(id).isPatient()){
-            return "redirect:/doctor/dashboard";
-        }
-        User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (!patient.isPatient()){
-            return "redirect:/doctor/dashboard";
-        }
-
-//        model.addAttribute("appointments", appointmentService.allForPatient(patient));
-        model.addAttribute("emergencyContact", emergencyDao.findByPatient(patient));
-        return "patient/profile";
-    }
-
     //See and edit information
     @GetMapping("/patient/info")
     public String infoPage(Model model){

@@ -57,6 +57,7 @@
                                     <div class="col-12">
                                         <input type="email" size="30" required="required" class="form-control" th:field="*{username}" id="email" placeholder="Email" />
                                     </div>
+                                    <!--th:if="${#fields.hasErrors('username')}" th:errors="*{username}"-->
                                 </div>
                                 <div class="form-row mt-s">
                                     <div class="col-md-6 mb-2">
@@ -70,7 +71,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="dateOfBirth" class="form-text text-muted ml-1 mb-0">Date of Birth:</label>
-                                        <input type="date" id="dateOfBirth" name="dateOfBirth"
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth" max="2999-12-31" min="1920-12-31"
                                                required="required" class="form-control" th:field="*{dateOfBirth}" />
                                     </div>
                                     <div class="col-md-6 mb-3">
