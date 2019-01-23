@@ -26,10 +26,8 @@ public class Pharmacy {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pharmacy")
     private List<User> patients;
 
-    //@OneTo
 
     public Pharmacy(){}
-
 
 
     public long getId() {

@@ -3,6 +3,7 @@ package com.capstone.patientplus.controllers;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -51,7 +54,7 @@ public class UserController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long userId = user.getId();
         if (id != userId){
-            return "redirect:/" + Long.toString(userId) + "dashboard";
+            return "redirect:/" + Long.toString(userId) + "/dashboard";
         }
 
         model.addAttribute("isPatient", user.isPatient());
@@ -89,17 +92,26 @@ public class UserController {
         String password = user.getPassword();
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+
+        for (User eachUser : users.findAll()){
+            if (user.getUsername().equalsIgnoreCase(eachUser.getUsername())){
+                model.addAttribute("sameEmail", true);
+                return "home";
+            }
+        }
         users.save(user);
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-
         // generate session if one doesn't exist
         request.getSession();
-
         token.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticatedUser = authenticationManager.authenticate(token);
-
         SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
-        return "redirect:/appointments";
+        return "redirect:/0/dashboard";
+    }
+
+    @GetMapping("/home")
+    public String failedLogin(){
+        return "redirect:/";
     }
 }

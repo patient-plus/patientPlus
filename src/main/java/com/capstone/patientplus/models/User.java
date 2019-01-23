@@ -17,7 +17,7 @@ public class User {
     @Column(nullable = false, name="first_name")
     private String firstName;
 
-    @NotBlank(message = "Date of birth is necessary")
+    @NotBlank()
     @Column(name = "dob")
     private String dateOfBirth;
 
