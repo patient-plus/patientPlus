@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Find a Doctor')"/>
+<body id="background">
+
+<form href="#" action="get">
+    <label for="insurances">
+        <select name="insurance-providers" id="insurances">
+            <div id="options"></div>
+        </select>
+    </label>
+
+    <label for="plans">
+        <select name="insurance-plans" id="plans"></select>
+    </label>
+
+    <label for="doctor-first-name">
+        <input type="text" id="doctor-first-name"/>
+    </label>
+
+    <label for="doctor-last-name">
+        <input type="text" id="doctor-last-name"/>
+    </label>
+
+</form>
+
+
+
+<span th:replace="partials :: scripts"/>
+<script src="/js/search.js"></script>
+
+</body>
+</html>
