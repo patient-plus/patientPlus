@@ -7,34 +7,97 @@
 
 <div class="card">
     <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="emergency-contact-tab" data-toggle="tab" href="#emergency-contact" role="tab" aria-controls="emergency-contact" aria-selected="true">Emergency Contact</a>
+            <a class="nav-item nav-link" id="insurance-tab" data-toggle="tab" href="#insurance" role="tab" aria-controls="insurance" aria-selected="false">Insurance</a>
+            <a class="nav-item nav-link" id="pharmacy-tab" data-toggle="tab" href="#pharmacy" role="tab" aria-controls="pharmacy" aria-selected="false">Pharmacy</a>
+            <a class="nav-item nav-link" id="surgery-tab" data-toggle="tab" href="#surgery" role="tab" aria-controls="surgery" aria-selected="false">Surgery</a>
+            <!--<a class="nav-item nav-link" id="pharmacy-tab" data-toggle="tab" href="#pharmacy" role="tab" aria-controls="pharmacy" aria-selected="false">test</a>-->
+        </div>
     </div>
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    
+    <form action="" class="container tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active card-body" role="tabpanel" aria-labelledby="emergency-contact-tab" id="emergency-contact">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <label for="contactName">Name</label>
+                        <input type="text" class="form-control" id="contactName" placeholder="Name"/>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="contactRelation">Relation</label>
+                        <input type="text" class="form-control" id="contactRelation" placeholder='Relation: ex. "mom"'/>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="contactPhone" class="form-text text-muted ml-1 mb-0">Phone Number:</label>
+                        <input type="tel" id="contactPhone" name="contactPhone"
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               required="required" class="form-control" placeholder="000-000-0000" />
+                    </li>
+                </ul>
+                <a href="#insurance" class="btn btn-primary">Next</a>
+        </div>
+        <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <label for="insuranceName">Name</label>
+                        <input type="text" class="form-control" id="insuranceName" placeholder="Insurance Name"/>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="insurancePlan">Insurance Plan</label>
+                        <input type="text" class="form-control" id="insurancePlan" placeholder="Insurance Plan"/>
+                    </li>
+                </ul>
+                <a href="#pharmacy" class="btn btn-primary">Next</a>
+        </div>
+        <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="pharmacy-tab" id="pharmacy">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <label for="pharmacyName">Name</label>
+                    <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name"/>
+                </li>
+                <li class="list-group-item">
+                    <label for="pharmacyAddress">Pharmacy Address</label>
+                    <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address"/>
+                </li>
+                <li class="list-group-item">
+                    <label for="pharmacyPhone" class="form-text text-muted ml-1 mb-0">Phone Number:</label>
+                    <input type="tel" id="pharmacyPhone" name="pharmacyPhone"
+                           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                           required="required" class="form-control" placeholder="000-000-0000" />
+                </li>
+            </ul>
+            <a href="#surgery" class="btn btn-primary">Next</a>
+        </div>
+        <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="surgery-tab" id="surgery">
+            <div id="field">
+                <div id="field0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label for="operation">Operation</label>
+                            <input type="text" class="form-control" id="operation" placeholder="Operation"/>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="operationDate" class="form-text text-muted ml-1 mb-0">Date of Operation:</label>
+                            <input type="date" id="operationDate" name="operationDate" max="2999-12-31" min="1920-12-31"
+                                   required="required" class="form-control" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <button id="add-more" name="add-more" class="btn btn-primary">Add More</button>
+                </div>
+                <a href="#" class="btn btn-primary">Next</a>
+            </div>
+        </div>
+    </form>
 </div>
+
 
 
 
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
+<script src="/js/information.js"></script>
 </body>
 </html>

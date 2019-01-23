@@ -55,9 +55,10 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12">
-                                        <input type="email" size="30" required="required" class="form-control" th:field="*{username}" id="email" placeholder="Email" />
+                                        <input th:if="!${sameEmail == true}" type="email" size="30" required="required" class="form-control" th:field="*{username}" id="email" placeholder="Email" />
+                                        <input th:if="${sameEmail == true}" type="email" size="30" required="required" class="form-control is-invalid" th:field="*{username}" id="email" placeholder="Email" />
+                                        <small th:if="${sameEmail == true}" style="position: absolute;" class="m-0 p-0 text-danger">Email already exists!</small>
                                     </div>
-                                    <!--th:if="${#fields.hasErrors('username')}" th:errors="*{username}"-->
                                 </div>
                                 <div class="form-row mt-s">
                                     <div class="col-md-6 mb-2">
