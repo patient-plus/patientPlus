@@ -86,7 +86,7 @@ public class UserController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("user", user);
-            return "redirect:/";
+            return "home";
         }
         String username = user.getUsername();
         String password = user.getPassword();

@@ -50,7 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers(
                             "/doctor/**",
-                            "/patient/**"
+                            "/patient/**",
+                            "/{id}/dashboard"
                     )
                     .authenticated();
     }
