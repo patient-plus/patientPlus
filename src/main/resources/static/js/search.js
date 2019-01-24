@@ -5,6 +5,8 @@ $(document).ready(function(){
     // $('#background').css('background-color', 'yellow');
     let options = $(`#insurances`);
     let plans = $(`#plans`);
+    let searchBtn = $(`#search-btn`);
+    let results = $(`#results-list`);
 
     options.empty();
     options.append('<option selected="true" disable>Choose Insurance Provider</option>');
@@ -12,18 +14,19 @@ $(document).ready(function(){
     plans.empty();
     plans.append('<option selected="true">Choose Plan</option>');
 
-    const setInsuranceList = () =>{
+    const request = () =>{
         // return fetch(`https://api.betterdoctor.com/2016-03-01/insurances?user_key=`)
         return fetch(`../json/db.json`)
             .then(response => response.json())
             .then(response => {
                 return response.data;
-            }).then(data => {
-                for(let insurance of data){
-                    options.append($(`<option></option>`).attr('value', insurance.uid).text(insurance.name));
-                }
-                return data;
-            });
+            })
+    };
+
+    const setInsuranceList = (data) => {
+        for(let insurance of data){
+            options.append($(`<option></option>`).attr('value', insurance.uid).text(insurance.name));
+        }
     };
 
     const setInsurancePlans = (data, insuranceProvider) => {
@@ -38,19 +41,28 @@ $(document).ready(function(){
         }
     };
 
-    setInsuranceList();
+    request().then((data) => {
+        setInsuranceList(data);
+    });
 
     options.change(() => {
         plans.empty();
         plans.append('<option selected="true">Choose Plan</option>');
 
-        setInsuranceList().then((data) => {
+        request().then((data) => {
             console.log(options.val() + 'test');
             let insuranceProvider = options.val();
             setInsurancePlans(data, insuranceProvider);
         })
 
-    })
+    });
+
+    searchBtn.click(
+        request().then((data) => {
+        //    add functionality to bring up results and populate the list
+        })
+    )
+
 
 });
 
