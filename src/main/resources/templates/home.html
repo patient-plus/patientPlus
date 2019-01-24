@@ -38,17 +38,17 @@
 
                             <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                                 <div class="form-row">
-                                    <div class="col-md-6 col-sm-6 col-6">
+                                    <div class="col-md-6 col-sm-6 col-6 patient-doctor-btn">
                                         <label>
                                             <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="false" />
-                                            <img width="50" height="50" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
+                                            <img class="icon-img" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
                                             Doctor
                                         </label>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-6">
+                                    <div class="col-md-6 col-sm-6 col-6 patient-doctor-btn">
                                         <label>
                                             <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="true" />
-                                            <img width="50" height="50" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
+                                            <img class="icon-img" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
                                             Patient
                                         </label>
                                     </div>
