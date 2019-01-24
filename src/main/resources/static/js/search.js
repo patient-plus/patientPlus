@@ -20,8 +20,7 @@ $(document).ready(function(){
                 return response.data;
             }).then(data => {
                 for(let insurance of data){
-                    let insuranceValue = insurance.name.split(' ').join('-');
-                    options.append($(`<option></option>`).attr('value', insuranceValue).text(insurance.name));
+                    options.append($(`<option></option>`).attr('value', insurance.uid).text(insurance.name));
                 }
                 return data;
             });
@@ -29,11 +28,11 @@ $(document).ready(function(){
 
     const setInsurancePlans = (data, insuranceProvider) => {
         for(let insurance of data){
-            let insuranceValue = insurance.name.split(' ').join('-');
+            let insuranceValue = insurance.uid;
             if(insuranceValue === insuranceProvider){
+                console.log('in the if');
                 for(let plan of insurance.plans){
-                    let planValue = plan.split(" ").join('-');
-                    options.append($(`<option></option>`).attr('value', planValue).text(plan.name));
+                    plans.append($(`<option></option>`).attr('value', plan.uid).text(plan.name));
                 }
             }
         }
@@ -41,13 +40,17 @@ $(document).ready(function(){
 
     setInsuranceList();
 
-    options.click(
-        setInsuranceList().then( (data) => {
-            let insuranceProvider = options.attr('value');
-            setInsurancePlans(data, insuranceProvider);
+    options.change(() => {
+        plans.empty();
+        plans.append('<option selected="true">Choose Plan</option>');
 
+        setInsuranceList().then((data) => {
+            console.log(options.val() + 'test');
+            let insuranceProvider = options.val();
+            setInsurancePlans(data, insuranceProvider);
         })
-    )
+
+    })
 
 });
 
