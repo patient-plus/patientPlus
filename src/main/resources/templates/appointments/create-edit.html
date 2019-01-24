@@ -1,59 +1,133 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Home')">
-
 </head>
+<style>
+    body, .header {
+        background-color: rgb(120	208	245	);
+    }
+
+</style>
 <body>
 
 <nav th:replace="partials :: navbar"></nav>
 
-<div class="container">
+
 
     <div th:if="${edit}">
-        <h1>Adjust your appointment!</h1>
-        <form th:action="@{/appointments/{id}/edit(id=${appointment.getId()})}" method="POST" th:object="${appointment}">
-            <fieldset>
-                <div>
-                    <input type="text" th:field="*{time}"/>
+        <div class="container bg-light pt-3 mt-3">
+            <h1 class="pb-2 text-center">Adjust your appointment</h1>
+
+            <form th:action="@{/appointments/edit}" method="POST" th:object="${appointment}">
+                <div class="form-group row">
+                    <label for="adjust-date-input" class="col-4 col-form-label">Date</label>
+                    <div class="col-8">
+                        <input class="form-control w-75" type="date" value="mm-dd-yyyy" id="adjust-date-input" />
+                    </div>
                 </div>
-                <div>
-                    <textarea rows="5" th:field="*{location}"></textarea>
+                <div class="form-group row">
+                    <label for="adjust-doctor-input" class="col-4 col-form-label">Select a Doctor</label>
+                    <div class="col-8">
+                        <select class="form-control w-75" id="adjust-doctor-input">
+                            <option></option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <button type="submit">Book appointment!</button>
+                <div class="form-group row">
+                    <label for="adjust-time-input" class="col-4 col-form-label">Select a Time</label>
+
+                    <div class="col-8" id="adjust-time-input" th:field="*{time}">
+
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo10am" th:field="*{time}">10:00 AM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1030am" th:field="*{time}">10:30 AM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo11am" th:field="*{time}">11:00 AM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1130am" th:field="*{time}">11:30 AM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1pm" th:field="*{time}">1:00 PM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo130pm" th:field="*{time}">1:30 PM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo2pm" th:field="*{time}">2:00 PM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo230pm" th:field="*{time}">2:30 PM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo3pm" th:field="*{time}">3:00 PM</button>
+                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo330pm" th:field="*{time}">3:30 PM</button>
+
+                    </div>
                 </div>
-            </fieldset>
-        </form>
+
+
+                <!--<div>-->
+                <!--<input  type="text" placeholder="Title" th:field="*{time}"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                <!--<textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>-->
+                <!--</div>-->
+                <div class="text-center pb-2">
+                    <button class="btn btn-primary" type="submit" onclick="return confirm('Are you sure?')">Book appointment!</button>
+                </div>
+
+
+            </form>
+        </div>
     </div>
 
-
+    <div class="header"></div>
     <div th:if="${create}">
-        <h1>Make an appointment!</h1>
-        <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showTabs=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=hpp2suvo7mjgpbl94o4h81ngpc%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FChicago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        <form th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
-            <fieldset>
-                <div>
-                    <input  type="text" placeholder="Title" th:field="*{time}"/>
-                </div>
-                <div>
-                    <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
-                </div>
-                <div>
-                    <button type="submit">Book appointment!</button>
-                </div>
-            </fieldset>
-        </form>
 
+        <div class="container bg-light pt-3 mt-3">
+            <h1 class="pb-2 text-center">Make an appointment</h1>
+
+            <form th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
+                    <div class="form-group row">
+                        <label for="appointment-date-input" class="col-4 col-form-label">Date</label>
+                        <div class="col-8">
+                            <input class="form-control w-75" type="date" value="mm-dd-yyyy" id="appointment-date-input" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="appointment-doctor-input" class="col-4 col-form-label">Select a Doctor</label>
+                        <div class="col-8">
+                            <select class="form-control w-75" id="appointment-doctor-input">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="appointment-time-input" class="col-4 col-form-label">Select a Time</label>
+
+                        <div class="col-8" id="appointment-time-input" th:field="*{time}">
+
+                            <button type="button" class="btn btn-outline-primary w-25" id="10am" th:field="*{time}">10:00 AM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="1030am" th:field="*{time}">10:30 AM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="11am" th:field="*{time}">11:00 AM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="1130am" th:field="*{time}">11:30 AM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="1pm" th:field="*{time}">1:00 PM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="130pm" th:field="*{time}">1:30 PM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="2pm" th:field="*{time}">2:00 PM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="230pm" th:field="*{time}">2:30 PM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="3pm" th:field="*{time}">3:00 PM</button>
+                            <button type="button" class="btn btn-outline-primary w-25" id="330pm" th:field="*{time}">3:30 PM</button>
+
+                        </div>
+                    </div>
+
+
+                    <!--<div>-->
+                        <!--<input  type="text" placeholder="Title" th:field="*{time}"/>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>-->
+                    <!--</div>-->
+                <div class="text-center pb-2">
+                    <button class="btn btn-primary" type="submit" onclick="return confirm('Are you sure?')">Book appointment!</button>
+                </div>
+
+
+            </form>
+        </div>
     </div>
-</div>
 
 
 
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 </body>
 </html>
