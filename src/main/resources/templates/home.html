@@ -14,14 +14,14 @@
                     <div class="card">
                         <div class="card-body companyCard">
                             <h1>PatientPlus</h1>
-                            <img width="50" height="50" src="/static/img/search.png" th:src="@{/img/search.png}" /><h3>Find a doctor</h3>
+                            <img class="icon-img" src="/static/img/search.png" th:src="@{/img/search.png}" /><h3>Find a doctor</h3>
 
 
 
-                            <img width="50" height="50" src="/static/img/deadline.png" th:src="@{/img/deadline.png}" /><h3>Book an Appointment</h3>
+                            <img class="icon-img" src="/static/img/deadline.png" th:src="@{/img/deadline.png}" /><h3>Book an Appointment</h3>
 
 
-                            <img width="50" height="50" src="/static/img/smartphone%20(1).png" th:src="@{/img/smartphone%20(1).png}" /><h3>Simple and easy!</h3>
+                            <img class="icon-img" src="/static/img/smartphone%20(1).png" th:src="@{/img/smartphone%20(1).png}" /><h3>Simple and easy!</h3>
                             <div class="text-center">
                                 <a id="searchDoctor" name="searchDoctor" href="#" class="btn btn-success btn-lg">Search now!</a>
                             </div>
@@ -37,19 +37,23 @@
                             <p>Get PatientPlus</p>
 
                             <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+                                <h4>Select which applies:</h4>
                                 <div class="form-row">
                                     <div class="col-md-6 col-sm-6 col-6 patient-doctor-btn">
                                         <label>
-                                            <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="false" />
-                                            <img class="icon-img" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
-                                            Doctor
+                                            <input type="radio" name="userType" th:field="*{patient}" th:value="1" checked="checked"/>
+                                            <img class="icon-img" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
+                                            Patient
                                         </label>
+
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 patient-doctor-btn">
                                         <label>
-                                            <input class="btn-outline-info" type="radio" name="userType" th:field="*{patient}" th:value="true" />
-                                            <img class="icon-img" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
-                                            Patient
+                                            <!--view automatically checks to this because its false so work the controller to
+                                            check the value and then assign true to 0 and false to 1-->
+                                            <input type="radio" name="userType" th:field="*{patient}" th:value="0" checked="" />
+                                            <img class="icon-img" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
+                                            Doctor
                                         </label>
                                     </div>
                                 </div>
