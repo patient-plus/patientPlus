@@ -1,0 +1,4241 @@
+{
+  "meta": {
+    "data_type": "array",
+    "item_type": "Doctor",
+    "total": 63232,
+    "count": 10,
+    "skip": 0,
+    "limit": 10
+  },
+  "data": [
+    {
+      "practices": [
+        {
+          "location_slug": "tx-san-antonio",
+          "lat": 29.50795,
+          "lon": -98.57224,
+          "uid": "a075b84c152afb50862f67a8bc242794",
+          "name": "Plaza Anesthesia Group PLLC",
+          "accepts_new_patients": true,
+          "insurance_uids": [],
+          "visit_address": {
+            "city": "San Antonio",
+            "lat": 29.50795,
+            "lon": -98.57224,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "7700 Floyd Curl Dr",
+            "zip": "78229"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "2104939500",
+              "type": "fax"
+            },
+            {
+              "number": "2104851850",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tx-san-antonio",
+          "lat": 29.595,
+          "lon": -98.51231,
+          "uid": "a2d6f82c64b709f43bff02aa9e2ee88c",
+          "name": "PLAZA ANESTHESIA GROUP P.L.L.C.",
+          "accepts_new_patients": true,
+          "insurance_uids": [],
+          "visit_address": {
+            "city": "San Antonio",
+            "lat": 29.595,
+            "lon": -98.51231,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "16607 Blanco Rd",
+            "street2": "Ste 303",
+            "zip": "78232"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "2104939500",
+              "type": "fax"
+            },
+            {
+              "number": "2104851850",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Stephen",
+        "middle_name": "Boyd",
+        "last_name": "Fiebrich",
+        "slug": "stephen-fiebrich",
+        "title": "MD",
+        "image_url": "https://asset3.betterdoctor.com/assets/general_doctor_male.png",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Stephen Fiebrich, MD--specialist in anesthesiology--currently treats patients in San antonio, Texas and Arlington, Texas.\n\nDr. Fiebrich is licensed to see patients in Texas.\n\nDr. Fiebrich has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found)."
+      },
+      "ratings": [],
+      "insurances": [],
+      "specialties": [
+        {
+          "uid": "anesthesiologist",
+          "name": "Anesthesiology",
+          "description": "Specializes in managing pain and anesthesia in surgeries.",
+          "category": "medical",
+          "actor": "Anesthesiologist",
+          "actors": "Anesthesiologists"
+        }
+      ],
+      "claims": [
+        {
+          "hcpcs": "00740",
+          "hcpcs_description": "Anesthesia, upper gastrointestinal endoscopic procedure",
+          "service_cnt": 83,
+          "bene_uniq_cnt": 82,
+          "avg_allowed_amt": 127.99566265,
+          "avg_charge_amt": 796.14457831,
+          "avg_payment_amt": 101.68626506
+        },
+        {
+          "hcpcs": "00810",
+          "hcpcs_description": "Anesthesia, low intestine scope",
+          "service_cnt": 66,
+          "bene_uniq_cnt": 66,
+          "avg_allowed_amt": 76.276060606,
+          "avg_charge_amt": 829.81818182,
+          "avg_payment_amt": 56.323030303
+        },
+        {
+          "hcpcs": "01480",
+          "hcpcs_description": "Anesthesia, lower leg bone surgery",
+          "service_cnt": 13,
+          "bene_uniq_cnt": 13,
+          "avg_allowed_amt": 136.77692308,
+          "avg_charge_amt": 861.53846154,
+          "avg_payment_amt": 102.86307692
+        }
+      ],
+      "licenses": [
+        {
+          "number": "M6612",
+          "state": "TX"
+        }
+      ],
+      "uid": "0019e775d921c0bd853da4dfceaa99c6",
+      "npi": "1558321778"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-houston",
+          "lat": 29.78252,
+          "lon": -95.54548,
+          "uid": "819e3b28d21c3da2ef66b98c7dfeb50c",
+          "name": "Houston Ivf",
+          "website": "http://www.houstonivf.net/",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "cigna-cignahmo",
+            "bcbsbluecard-bcbsbluecardppo",
+            "aetna-aetnahmo",
+            "aetna-aetnachoiceposii",
+            "cigna-cignappo",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "aetna-aetnasignatureadministratorsppo",
+            "multiplan-phcsppo",
+            "cigna-cignaopenaccessplus",
+            "multiplan-multiplanppo",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo"
+          ],
+          "visit_address": {
+            "city": "Houston",
+            "lat": 29.78252,
+            "lon": -95.54548,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "929 Gessner Rd",
+            "street2": "Ste 2300",
+            "zip": "77024"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "7135501475",
+              "type": "fax"
+            },
+            {
+              "number": "7134651211",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Katherine",
+        "middle_name": "Knoll",
+        "last_name": "McKnight",
+        "slug": "katherine-mcknight",
+        "title": "MD",
+        "image_url": "https://asset1.betterdoctor.com/assets/general_doctor_female.png",
+        "gender": "female",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Katherine McKnight, MD, specialist in obstetrics & gynecology and reproductive endocrinology, currently practices medicine at Birmingham, Alabama and Houston, Texas.\n\nDr. McKnight is licensed to treat patients in Alabama and Texas.\n\nDr. McKnight has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "reproductive-erndocrinologist",
+          "name": "Reproductive Endocrinology",
+          "description": "Specializes in infertility and hormonal problems.",
+          "category": "medical",
+          "actor": "Reproductive Endocrinologist",
+          "actors": "Reproductive Endocrinologists"
+        }
+      ],
+      "licenses": [
+        {
+          "number": "27826",
+          "state": "AL",
+          "end_date": "2012-12-31"
+        },
+        {
+          "state": "TX",
+          "end_date": "2013-08-31"
+        },
+        {
+          "number": "P0637",
+          "state": "TX"
+        }
+      ],
+      "uid": "05f62a2d38e12a481c23c25b9d61f634",
+      "npi": "1972711547"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tn-knoxville",
+          "lat": 35.956934,
+          "lon": -83.952072,
+          "uid": "34abe44e7ace0f642abff0344fb61751",
+          "name": "Summit Medical Group, PLLC",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "cigna-cignaopenaccessplus",
+            "bcbsbluecard-bcbsbluecardppo",
+            "multiplan-phcsppo",
+            "multiplan-multiplanppo",
+            "cigna-cignappo",
+            "cigna-cignalocalplus",
+            "cigna-cignahmo",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "aetna-aetnachoiceposii",
+            "aetna-aetnasignatureadministratorsppo",
+            "medicare-medicare",
+            "medicaid-medicaid",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo",
+            "bluecrossblueshieldoftennessee-bcbstnnetworks"
+          ],
+          "visit_address": {
+            "city": "Knoxville",
+            "lat": 35.956934,
+            "lon": -83.952072,
+            "state": "TN",
+            "state_long": "Tennessee",
+            "street": "2240 Sutherland Ave",
+            "street2": "Ste 104",
+            "zip": "37919"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8659090090",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tn-knoxville",
+          "lat": 35.956934,
+          "lon": -83.952072,
+          "uid": "fcb0d8267fcdf3a4abcaafde7f7714b3",
+          "name": "Eric Weaver, DO",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "multiplan-multiplanppo",
+            "aetna-aetnasignatureadministratorsppo",
+            "multiplan-phcsppo",
+            "aetna-aetnachoiceposii",
+            "bcbsbluecard-bcbsbluecardppo",
+            "cigna-cignaopenaccessplus",
+            "cigna-cignalocalplus",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "cigna-cignahmo",
+            "cigna-cignappo",
+            "humana-humanachoicecarenetworkppo",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo",
+            "bluecrossblueshieldoftennessee-bcbstnnetworks"
+          ],
+          "visit_address": {
+            "city": "Knoxville",
+            "lat": 35.956934,
+            "lon": -83.952072,
+            "state": "TN",
+            "state_long": "Tennessee",
+            "street": "2240 Sutherland Ave",
+            "street2": "Ste 103",
+            "zip": "37919"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8655844747",
+              "type": "business_landline"
+            },
+            {
+              "number": "8655841363",
+              "type": "business_fax"
+            },
+            {
+              "number": "8655888831",
+              "type": "landline"
+            },
+            {
+              "number": "8655888841",
+              "type": "fax"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tx-lubbock",
+          "lat": 33.57482,
+          "lon": -101.89355,
+          "uid": "4e6e73ff2bd1bb04700104676af9594f",
+          "name": "Pulmonory Associates Of Lubbock LLP",
+          "website": "http://www.pulmonarylubbock.com",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo"
+          ],
+          "visit_address": {
+            "city": "Lubbock",
+            "lat": 33.57482,
+            "lon": -101.89355,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "3621 22nd St",
+            "street2": "Ste 400",
+            "zip": "79410"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8067918498",
+              "type": "fax"
+            },
+            {
+              "number": "8067918484",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tn-knoxville",
+          "lat": 35.94514,
+          "lon": -84.01175,
+          "uid": "285e2269dc067ea30fb92e835412b68b",
+          "name": "Eric Weaver, DO",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "gwhcigna-greatwestppo"
+          ],
+          "visit_address": {
+            "city": "Knoxville",
+            "lat": 35.94514,
+            "lon": -84.01175,
+            "state": "TN",
+            "state_long": "Tennessee",
+            "street": "1120 E Weisgarber Rd",
+            "street2": "Ste 104",
+            "zip": "37909"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8659090090",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Eric",
+        "middle_name": "Michael",
+        "last_name": "Weaver",
+        "slug": "eric-weaver-2",
+        "title": "DO",
+        "image_url": "https://asset3.betterdoctor.com/assets/general_doctor_male.png",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Eric Weaver, DO, specialist in pulmonary disease, currently practices medicine at Knoxville, Tennessee and Lubbock, Texas.\n\nDr. Weaver is licensed to treat patients in Tennessee and Kentucky.\n\nIn addition to having active medical licenses, Dr. Weaver has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "medicare-medicare",
+            "name": "Medicare",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "medicare",
+            "name": "Medicare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "medicaid-medicaid",
+            "name": "Medicaid",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "medicaid",
+            "name": "Medicaid"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftennessee-bcbstnnetworks",
+            "name": "BCBS TN Network S",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftennessee-bcbstnnetworks",
+            "name": "BCBS TN Network S",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "pulmonologist",
+          "name": "Pulmonary Disease",
+          "description": "Specializes in lungs and airways.",
+          "category": "medical",
+          "actor": "Pulmonologist",
+          "actors": "Pulmonologists"
+        }
+      ],
+      "claims": [
+        {
+          "hcpcs": "99233",
+          "hcpcs_description": "Subsequent hospital care",
+          "service_cnt": 518,
+          "bene_uniq_cnt": 176,
+          "avg_allowed_amt": 95.28,
+          "avg_charge_amt": 187,
+          "avg_payment_amt": 76.017046332
+        },
+        {
+          "hcpcs": "99232",
+          "hcpcs_description": "Subsequent hospital care",
+          "service_cnt": 373,
+          "bene_uniq_cnt": 158,
+          "avg_allowed_amt": 66.46,
+          "avg_charge_amt": 140,
+          "avg_payment_amt": 52.727158177
+        },
+        {
+          "hcpcs": "99291",
+          "hcpcs_description": "Critical care, first hour",
+          "service_cnt": 318,
+          "bene_uniq_cnt": 129,
+          "avg_allowed_amt": 206.29,
+          "avg_charge_amt": 500,
+          "avg_payment_amt": 163.93761006
+        },
+        {
+          "hcpcs": "99213",
+          "hcpcs_description": "Office / outpatient visit, established patient, 15 minutes",
+          "service_cnt": 103,
+          "bene_uniq_cnt": 72,
+          "avg_allowed_amt": 65.75,
+          "avg_charge_amt": 141,
+          "avg_payment_amt": 45.302912621
+        },
+        {
+          "hcpcs": "71020",
+          "hcpcs_description": "Chest x-ray",
+          "service_cnt": 64,
+          "bene_uniq_cnt": 52,
+          "avg_allowed_amt": 28.32,
+          "avg_charge_amt": 69,
+          "avg_payment_amt": 20.704375
+        },
+        {
+          "hcpcs": "99223",
+          "hcpcs_description": "Initial hospital care",
+          "service_cnt": 64,
+          "bene_uniq_cnt": 63,
+          "avg_allowed_amt": 185.15,
+          "avg_charge_amt": 370,
+          "avg_payment_amt": 146.886875
+        },
+        {
+          "hcpcs": "94010",
+          "hcpcs_description": "Breathing capacity test",
+          "service_cnt": 61,
+          "bene_uniq_cnt": 51,
+          "avg_allowed_amt": 32.321311475,
+          "avg_charge_amt": 72,
+          "avg_payment_amt": 24.120491803
+        },
+        {
+          "hcpcs": "99214",
+          "hcpcs_description": "Office / outpatient visit, established patient, 25 minutes",
+          "service_cnt": 51,
+          "bene_uniq_cnt": 39,
+          "avg_allowed_amt": 97.46,
+          "avg_charge_amt": 210,
+          "avg_payment_amt": 70.659607843
+        },
+        {
+          "hcpcs": "94729",
+          "hcpcs_description": "Diffusing capacity (e.g., carbon monoxide, membrane)",
+          "service_cnt": 45,
+          "bene_uniq_cnt": 44,
+          "avg_allowed_amt": 47.419555556,
+          "avg_charge_amt": 97,
+          "avg_payment_amt": 36.764666667
+        },
+        {
+          "hcpcs": "99239",
+          "hcpcs_description": "Hospital discharge day, more than 30 minutes",
+          "service_cnt": 38,
+          "bene_uniq_cnt": 36,
+          "avg_allowed_amt": 97.81,
+          "avg_charge_amt": 195,
+          "avg_payment_amt": 78.25
+        },
+        {
+          "hcpcs": "36556",
+          "hcpcs_description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+          "service_cnt": 35,
+          "bene_uniq_cnt": 34,
+          "avg_allowed_amt": 112.86828571,
+          "avg_charge_amt": 642,
+          "avg_payment_amt": 90.296571429
+        },
+        {
+          "hcpcs": "99222",
+          "hcpcs_description": "Initial hospital care",
+          "service_cnt": 33,
+          "bene_uniq_cnt": 32,
+          "avg_allowed_amt": 125.77,
+          "avg_charge_amt": 255,
+          "avg_payment_amt": 100.62
+        },
+        {
+          "hcpcs": "76937",
+          "hcpcs_description": "Ultrasound guidance for vascular access",
+          "service_cnt": 28,
+          "bene_uniq_cnt": 28,
+          "avg_allowed_amt": 14.11,
+          "avg_charge_amt": 30,
+          "avg_payment_amt": 11.29
+        },
+        {
+          "hcpcs": "94726",
+          "hcpcs_description": "Plethysmography for determination of lung volumes",
+          "service_cnt": 27,
+          "bene_uniq_cnt": 27,
+          "avg_allowed_amt": 47.438518519,
+          "avg_charge_amt": 98,
+          "avg_payment_amt": 36.506296296
+        },
+        {
+          "hcpcs": "32422",
+          "hcpcs_description": "Thoracentesis with insertion of tube, includes water seal",
+          "service_cnt": 24,
+          "bene_uniq_cnt": 24,
+          "avg_allowed_amt": 115.14,
+          "avg_charge_amt": 580,
+          "avg_payment_amt": 92.11
+        },
+        {
+          "hcpcs": "76942",
+          "hcpcs_description": "Ultrasonic guidance, needle placement",
+          "service_cnt": 24,
+          "bene_uniq_cnt": 24,
+          "avg_allowed_amt": 31.46,
+          "avg_charge_amt": 50,
+          "avg_payment_amt": 25.17
+        },
+        {
+          "hcpcs": "94727",
+          "hcpcs_description": "Gas dilution or washout for determination of lung volumes",
+          "service_cnt": 24,
+          "bene_uniq_cnt": 24,
+          "avg_allowed_amt": 37.434583333,
+          "avg_charge_amt": 77,
+          "avg_payment_amt": 29.269583333
+        },
+        {
+          "hcpcs": "94060",
+          "hcpcs_description": "Evaluation of wheezing",
+          "service_cnt": 19,
+          "bene_uniq_cnt": 19,
+          "avg_allowed_amt": 55.36,
+          "avg_charge_amt": 102,
+          "avg_payment_amt": 42.376842105
+        },
+        {
+          "hcpcs": "99292",
+          "hcpcs_description": "Critical care, additional 30 minutes",
+          "service_cnt": 17,
+          "bene_uniq_cnt": 14,
+          "avg_allowed_amt": 103.32,
+          "avg_charge_amt": 221.17647059,
+          "avg_payment_amt": 82.658823529
+        },
+        {
+          "hcpcs": "31500",
+          "hcpcs_description": "Insert emergency airway",
+          "service_cnt": 16,
+          "bene_uniq_cnt": 16,
+          "avg_allowed_amt": 103.17,
+          "avg_charge_amt": 295,
+          "avg_payment_amt": 82.54
+        },
+        {
+          "hcpcs": "99204",
+          "hcpcs_description": "Office / outpatient visit, new patient, 45 minutes",
+          "service_cnt": 15,
+          "bene_uniq_cnt": 15,
+          "avg_allowed_amt": 149.77,
+          "avg_charge_amt": 323,
+          "avg_payment_amt": 112.35333333
+        },
+        {
+          "hcpcs": "99231",
+          "hcpcs_description": "Subsequent hospital care",
+          "service_cnt": 15,
+          "bene_uniq_cnt": 11,
+          "avg_allowed_amt": 36.23,
+          "avg_charge_amt": 76,
+          "avg_payment_amt": 28.98
+        },
+        {
+          "hcpcs": "G0008",
+          "hcpcs_description": "Administration of influenza virus vaccine",
+          "service_cnt": 13,
+          "bene_uniq_cnt": 13,
+          "avg_allowed_amt": 22.16,
+          "avg_charge_amt": 43.846153846,
+          "avg_payment_amt": 22.16
+        },
+        {
+          "hcpcs": "99238",
+          "hcpcs_description": "Hospital discharge day, 30 minutes or less",
+          "service_cnt": 12,
+          "bene_uniq_cnt": 12,
+          "avg_allowed_amt": 66.21,
+          "avg_charge_amt": 135,
+          "avg_payment_amt": 52.97
+        }
+      ],
+      "licenses": [
+        {
+          "number": "44635",
+          "state": "TN",
+          "end_date": "2013-12-31"
+        },
+        {
+          "number": "39685",
+          "state": "KY",
+          "end_date": "2009-02-28"
+        }
+      ],
+      "uid": "0fc509d2ab7ca6c36ac513e9217657c3",
+      "npi": "1265621544"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-fort-worth",
+          "lat": 32.84089,
+          "lon": -97.23528,
+          "uid": "7d92cc536ec9e8a3171484a14867a22a",
+          "name": "James Purgason, MD",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnamdbronzesilverandgoldhmo"
+          ],
+          "visit_address": {
+            "city": "Fort Worth",
+            "lat": 32.84089,
+            "lon": -97.23528,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "6805 NE Loop 820",
+            "street2": "Ste 414",
+            "zip": "76180"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8175817246",
+              "type": "business_landline"
+            },
+            {
+              "number": "8175817248",
+              "type": "business_fax"
+            },
+            {
+              "number": "8175817246",
+              "type": "landline"
+            },
+            {
+              "number": "8175817248",
+              "type": "fax"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tx-denton",
+          "lat": 33.21886,
+          "lon": -97.16607,
+          "uid": "66cbfaa58b4f337d2dbb43b2e2e48af0",
+          "name": "Family Medicine Of North Texas, P.a.",
+          "website": "http://fmntx.com/",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnachoiceposii",
+            "aetna-aetnahmo",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "bcbsbluecard-bcbsbluecardppo",
+            "multiplan-phcsppo",
+            "aetna-aetnasignatureadministratorsppo",
+            "cigna-cignahmo",
+            "humana-humanachoicecarenetworkppo",
+            "cigna-cignappo",
+            "multiplan-multiplanppo",
+            "cigna-cignaopenaccessplus",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Denton",
+            "lat": 33.21886,
+            "lon": -97.16607,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "2601 Scripture St",
+            "street2": "Ste 102",
+            "zip": "76201"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "9404426606",
+              "type": "fax"
+            },
+            {
+              "number": "9404426455",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tx-fort-worth",
+          "lat": 32.73084,
+          "lon": -97.41251,
+          "uid": "163ad9597160d2cf32159b6511f0aba9",
+          "name": "James Purgason, MD",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnasignatureadministratorsppo",
+            "aetna-aetnachoiceposii",
+            "aetna-aetnahmo",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Fort Worth",
+            "lat": 32.73084,
+            "lon": -97.41251,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "5921 Lovell Ave",
+            "zip": "76107"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8179897246",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "James",
+        "middle_name": "Gillis",
+        "last_name": "Purgason",
+        "slug": "james-purgason",
+        "title": "MD",
+        "image_url": "https://asset2.betterdoctor.com/images/5366e10a4214f85fe3000045-1_thumbnail.jpg",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "James G. Purgason, MD retired from the United States Navy Reserves in 2004 with 21 years of combined service, and has been in practice in Ft. Worth for 10 years before moving his practice to Denton, TX. In 2008, he was named Top Doc by Fort Worth, Texas Magazine.\n\nFamily Medicine of North Texas’ client base is continually expanding because of Dr. Purgason’s dedication to building intimate, long-term family relationships one patient at a time. It is his commitment to provide every patient with state-of-the-art health care in a friendly, clean, and comfortable environment.\n\nWhen he’s not at his practice, Dr. Purgason can be found gardening, restoring cars and boats, and spending time with his family and four cats."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamdbronzesilverandgoldhmo",
+            "name": "MD Bronze Silver  Gold - HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "family-practitioner",
+          "name": "Family Medicine",
+          "description": "Specializes in your and your family's total health.",
+          "category": "medical",
+          "actor": "Family Practitioner",
+          "actors": "Family Practitioners"
+        }
+      ],
+      "claims": [
+        {
+          "hcpcs": "97530",
+          "hcpcs_description": "Therapeutic activities",
+          "service_cnt": 1238,
+          "bene_uniq_cnt": 68,
+          "avg_allowed_amt": 30.849361874,
+          "avg_charge_amt": 33.046042003,
+          "avg_payment_amt": 24.340387722
+        },
+        {
+          "hcpcs": "97110",
+          "hcpcs_description": "Therapeutic exercises",
+          "service_cnt": 1158,
+          "bene_uniq_cnt": 67,
+          "avg_allowed_amt": 27.242582038,
+          "avg_charge_amt": 32.111398964,
+          "avg_payment_amt": 21.402271157
+        },
+        {
+          "hcpcs": "99213",
+          "hcpcs_description": "Office / outpatient visit, established patient, 15 minutes",
+          "service_cnt": 553,
+          "bene_uniq_cnt": 67,
+          "avg_allowed_amt": 68.506600362,
+          "avg_charge_amt": 84.453887884,
+          "avg_payment_amt": 53.78363472
+        },
+        {
+          "hcpcs": "J1100",
+          "hcpcs_description": "Injection, dexamethasone sodium phosphate, 1mg",
+          "service_cnt": 531,
+          "bene_uniq_cnt": 38,
+          "avg_allowed_amt": 0.1162146893,
+          "avg_charge_amt": 17.096045198,
+          "avg_payment_amt": 0.0901694915
+        },
+        {
+          "hcpcs": "99214",
+          "hcpcs_description": "Office / outpatient visit, established patient, 25 minutes",
+          "service_cnt": 495,
+          "bene_uniq_cnt": 162,
+          "avg_allowed_amt": 100.19268687,
+          "avg_charge_amt": 158.91515152,
+          "avg_payment_amt": 69.877919192
+        },
+        {
+          "hcpcs": "99215",
+          "hcpcs_description": "Office / outpatient visit, established patient, 40 minutes",
+          "service_cnt": 246,
+          "bene_uniq_cnt": 105,
+          "avg_allowed_amt": 132.38313008,
+          "avg_charge_amt": 255.87804878,
+          "avg_payment_amt": 100.7504065
+        },
+        {
+          "hcpcs": "J0696",
+          "hcpcs_description": "Injection, ceftriaxone sodium, per 250 mg",
+          "service_cnt": 216,
+          "bene_uniq_cnt": 31,
+          "avg_allowed_amt": 0.8084722222,
+          "avg_charge_amt": 25.115740741,
+          "avg_payment_amt": 0.620462963
+        },
+        {
+          "hcpcs": "96372",
+          "hcpcs_description": "Therapeutic, prophylactic or diagnostic injection, subcutaneous or intramuscular",
+          "service_cnt": 184,
+          "bene_uniq_cnt": 51,
+          "avg_allowed_amt": 22.983858696,
+          "avg_charge_amt": 28.467391304,
+          "avg_payment_amt": 17.487608696
+        },
+        {
+          "hcpcs": "G0283",
+          "hcpcs_description": "Electrical stimulation (unattended), one or more areas, not wound care, as part of a therapy",
+          "service_cnt": 123,
+          "bene_uniq_cnt": 32,
+          "avg_allowed_amt": 11.743170732,
+          "avg_charge_amt": 15.894308943,
+          "avg_payment_amt": 9.2043902439
+        },
+        {
+          "hcpcs": "99211",
+          "hcpcs_description": "Office / outpatient visit, established patient, 5 minutes",
+          "service_cnt": 71,
+          "bene_uniq_cnt": 19,
+          "avg_allowed_amt": 19.354366197,
+          "avg_charge_amt": 26.225352113,
+          "avg_payment_amt": 13.335774648
+        },
+        {
+          "hcpcs": "72100",
+          "hcpcs_description": "Radiologic examination, spine, lumbosacral; two or three views",
+          "service_cnt": 33,
+          "bene_uniq_cnt": 30,
+          "avg_allowed_amt": 36.578181818,
+          "avg_charge_amt": 88.03030303,
+          "avg_payment_amt": 29.260606061
+        },
+        {
+          "hcpcs": "97012",
+          "hcpcs_description": "Mechanical traction therapy",
+          "service_cnt": 31,
+          "bene_uniq_cnt": 14,
+          "avg_allowed_amt": 14.140645161,
+          "avg_charge_amt": 19,
+          "avg_payment_amt": 11.31516129
+        },
+        {
+          "hcpcs": "72040",
+          "hcpcs_description": "Radiologic examination, spine, cervical; two or three views",
+          "service_cnt": 31,
+          "bene_uniq_cnt": 29,
+          "avg_allowed_amt": 39.6,
+          "avg_charge_amt": 60,
+          "avg_payment_amt": 30.731612903
+        },
+        {
+          "hcpcs": "J1885",
+          "hcpcs_description": "Injection, ketorolac tromethamine, per 15 mg",
+          "service_cnt": 26,
+          "bene_uniq_cnt": 12,
+          "avg_allowed_amt": 0.2465384615,
+          "avg_charge_amt": 20.5,
+          "avg_payment_amt": 0.19
+        },
+        {
+          "hcpcs": "99204",
+          "hcpcs_description": "Office / outpatient visit, new patient, 45 minutes",
+          "service_cnt": 26,
+          "bene_uniq_cnt": 26,
+          "avg_allowed_amt": 157.82,
+          "avg_charge_amt": 187,
+          "avg_payment_amt": 121.95230769
+        },
+        {
+          "hcpcs": "93000",
+          "hcpcs_description": "Electrocardiogram, complete",
+          "service_cnt": 24,
+          "bene_uniq_cnt": 22,
+          "avg_allowed_amt": 16.6575,
+          "avg_charge_amt": 33.541666667,
+          "avg_payment_amt": 11.385416667
+        },
+        {
+          "hcpcs": "99203",
+          "hcpcs_description": "Office / outpatient visit, new patient, 30 minutes",
+          "service_cnt": 18,
+          "bene_uniq_cnt": 18,
+          "avg_allowed_amt": 96.938888889,
+          "avg_charge_amt": 130.33333333,
+          "avg_payment_amt": 59.967777778
+        }
+      ],
+      "licenses": [
+        {
+          "number": "J6672",
+          "state": "TX"
+        }
+      ],
+      "uid": "08404e962b2c6050ca60e62fc45804ae",
+      "npi": "1962472449"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-plano",
+          "lat": 33.021644,
+          "lon": -96.763995,
+          "uid": "ddd469bbd3cef04b0957fd47286df75e",
+          "name": "HONEY PEDIATRICS PA",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnahmo",
+            "humana-humanachoicecarenetworkppo",
+            "humana-humanapreferredppo",
+            "aetna-aetnasignatureadministratorsppo",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "aetna-aetnachoiceposii",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Plano",
+            "lat": 33.021644,
+            "lon": -96.763995,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "3721 W 15th St",
+            "street2": "Ste 601",
+            "zip": "75075"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "9728673658",
+              "type": "fax"
+            },
+            {
+              "number": "9725968100",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [
+        {
+          "school": "Chldns Med Center",
+          "graduation_year": "Complete in 1971",
+          "degree": "residency"
+        }
+      ],
+      "profile": {
+        "first_name": "Peter",
+        "middle_name": "Stewart",
+        "last_name": "Sherrod",
+        "slug": "peter-sherrod",
+        "title": "MD",
+        "image_url": "https://asset1.betterdoctor.com/images/538d70644214f80ec5000384-1_thumbnail.jpg",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Peter Sherrod was born in Robinson, Illinois and grew up in West Texas. He received his undergraduate education at St. Louis University and his medical degree from the University of Texas Southwestern Medical School in Dallas. His pediatric training was completed a Children’s Medical Center of Dallas, where he served as Chief Resident and later as a faculty member for three years. He is an Associate Clinical Professor of Pediatrics at the University of Texas Southwestern Medical School. He has been in practice in Plano since 1978. He was elected Chief of the Medical Staff at Medical Center of Plano for 1991. He has also served as Vice-Chairman of MCP Board of Trustees."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanapreferredppo",
+            "name": "Humana Preferred PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "pediatrician",
+          "name": "Pediatrics",
+          "description": "Specializes in the health of children from birth to young adulthood.",
+          "category": "medical",
+          "actor": "Pediatrician",
+          "actors": "Pediatricians"
+        }
+      ],
+      "licenses": [
+        {
+          "number": "D6170",
+          "state": "TX"
+        }
+      ],
+      "uid": "0fc43d5cce56813b150072d81b81ad23",
+      "npi": "1225024227"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-austin",
+          "lat": 30.46241,
+          "lon": -97.79043,
+          "uid": "aa613dea4de63c8c4eeec5217b753f04",
+          "name": "Don Davis, DDS",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "guardiandental-guardiandentalguardpreferred",
+            "assurant-assurantdhapremier",
+            "deltadental-deltadentalpremier",
+            "dentalnetworkofamerica-dentalnetworkofamericadppo",
+            "unitedhealthcaredental-unitedhealthcaredentalppo",
+            "cignadental-cignatotaldppo",
+            "ameritas-ameritasppo",
+            "assurant-assurantdha",
+            "principalfinancialservices-principaldentalppo",
+            "bluecrossblueshieldoftx-bcbstxbluecaredental",
+            "compbenefitscorporation-compbenefitsppo",
+            "dominiongroup-dominiondentalppo",
+            "humana-humanadentalppo"
+          ],
+          "visit_address": {
+            "city": "Austin",
+            "lat": 30.46241,
+            "lon": -97.79043,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "10125 Lake Creek Pkwy",
+            "zip": "78729"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8886755243",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [
+        {
+          "school": "The University of Texas at San Antonio",
+          "degree": "DDS"
+        }
+      ],
+      "profile": {
+        "first_name": "Don",
+        "last_name": "Davis",
+        "slug": "don-davis-3",
+        "title": "DDS",
+        "image_url": "https://asset3.betterdoctor.com/images/535474344214f828d00000e0-1_thumbnail.jpg",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Meeting the highest of standards, Dr. Don R. Davis is skilled in helping his patients attain a beautiful smile. His years of training, combined with practice experience, has provided him with a dental background the entire family can appreciate.\nNot only will you receive outstanding results at Lake Creek Family Dental Care, you will also be tended to with the utmost sensitivity. It is the goal of Dr. Davis and his staff to help you feel comfortable and confident during your treatment, whether it be a routine teeth cleaning or an advanced procedure such as dental implants, porcelain veneers, or Invisalign ®.\nDr. Davis has been serving the community since 1985, and continues his commitments to providing up-to-date oral care. We invite you to look to him for your dental work, just as so many other patients have for over the past two decades."
+      },
+      "ratings": [
+        {
+          "active": true,
+          "provider": "betterdoctor",
+          "provider_uid": "0cad7b746a9a8ed0d57d1bfbc2c59db7",
+          "rating": 4.5,
+          "review_count": 0,
+          "image_url_small": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-4.5.png",
+          "image_url_small_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-4.5@2x.png",
+          "image_url_large": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-4.5.png",
+          "image_url_large_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-4.5@2x.png"
+        }
+      ],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "guardiandental-guardiandentalguardpreferred",
+            "name": "Guardian DentalGuard Preferred",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "theguardianlifeinsurancecompanyofamerica",
+            "name": "The Guardian Life Insurance Company of America"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "assurant-assurantdhapremier",
+            "name": "Assurant DHA Premier",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "assurant",
+            "name": "Assurant"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "deltadental-deltadentalpremier",
+            "name": "Delta Dental Premier",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "deltadental",
+            "name": "Delta Dental"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "dentalnetworkofamerica-dentalnetworkofamericadppo",
+            "name": "Dental Network of America DPPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "dentalnetworkofamerica",
+            "name": "Dental Network of America"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcaredental-unitedhealthcaredentalppo",
+            "name": "United Healthcare Dental PPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cignadental-cignatotaldppo",
+            "name": "CIGNA Total DPPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "ameritas-ameritasppo",
+            "name": "Ameritas PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "ameritas",
+            "name": "Ameritas"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "assurant-assurantdha",
+            "name": "Assurant DHA",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "assurant",
+            "name": "Assurant"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "principalfinancialservices-principaldentalppo",
+            "name": "Principal Dental PPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "principalfinancialservices",
+            "name": "Principal Financial Services"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftx-bcbstxbluecaredental",
+            "name": "BCBS TX BlueCare Dental",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "compbenefitscorporation-compbenefitsppo",
+            "name": "CompBenefits PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "dominiongroup-dominiondentalppo",
+            "name": "Dominion Dental PPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "dominiongroup",
+            "name": "Dominion Group"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanadentalppo",
+            "name": "Humana Dental PPO",
+            "category": [
+              "dental"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "general-dentist",
+          "name": "General Dentistry",
+          "description": "Specializes in teeth and oral health.",
+          "category": "dental",
+          "actor": "Dentist",
+          "actors": "Dentists"
+        }
+      ],
+      "licenses": [
+        {
+          "number": "14039",
+          "state": "TX",
+          "end_date": "2013-10-31"
+        }
+      ],
+      "uid": "0cad7b746a9a8ed0d57d1bfbc2c59db7",
+      "npi": "1144348368"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-mesquite",
+          "lat": 32.77802,
+          "lon": -96.59739,
+          "uid": "daf4b921ad68ffe2f03bfb8533ed41e8",
+          "name": "North Texas Neurological Associates",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "cigna-cignahmo",
+            "aetna-aetnachoiceposii",
+            "bcbsbluecard-bcbsbluecardppo",
+            "aetna-aetnahmo",
+            "cigna-cignalocalplus",
+            "cigna-cignaopenaccessplus",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "aetna-aetnasignatureadministratorsppo",
+            "cigna-cignappo",
+            "multiplan-phcsppo",
+            "humana-humanachoicecarenetworkppo",
+            "multiplan-multiplanppo",
+            "humana-humanapreferredppo",
+            "aetna-aetnamdbronzesilverandgoldhmo",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Mesquite",
+            "lat": 32.77802,
+            "lon": -96.59739,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "1050 N Belt Line Rd",
+            "street2": "Ste 103",
+            "zip": "75149"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "9722881038",
+              "type": "landline"
+            },
+            {
+              "number": "9722881418",
+              "type": "fax"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Daryoush",
+        "last_name": "Kaboli",
+        "slug": "daryoush-kaboli",
+        "title": "MD",
+        "image_url": "https://asset3.betterdoctor.com/assets/general_doctor_male.png",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Daryoush Kaboli, MD sees patients in Mesquite, Texas, specializing in neurology.\n\nDr. Kaboli is licensed to see patients in Texas.\n\nDr. Kaboli has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found)."
+      },
+      "ratings": [
+        {
+          "active": true,
+          "provider": "betterdoctor",
+          "provider_uid": "198d36261f57c1f1f7124c97097623bb",
+          "rating": 3.5,
+          "review_count": 0,
+          "image_url_small": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-3.5.png",
+          "image_url_small_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-3.5@2x.png",
+          "image_url_large": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-3.5.png",
+          "image_url_large_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-3.5@2x.png"
+        }
+      ],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanapreferredppo",
+            "name": "Humana Preferred PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamdbronzesilverandgoldhmo",
+            "name": "MD Bronze Silver  Gold - HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "neurologist",
+          "name": "Neurology",
+          "description": "Specializes in the brain and nervous system.",
+          "category": "medical",
+          "actor": "Neurologist",
+          "actors": "Neurologists"
+        }
+      ],
+      "licenses": [
+        {
+          "number": "E8605",
+          "state": "TX"
+        }
+      ],
+      "uid": "198d36261f57c1f1f7124c97097623bb",
+      "npi": "1194752519"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-league-city",
+          "lat": 29.4811,
+          "lon": -95.09779,
+          "uid": "8856500add3737cd65ec8da025cd5d68",
+          "name": "Marcus Wheeler, MD",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "bcbsbluecard-bcbsbluecardppo",
+            "bluecrossblueshieldoftexas-bcbstxblueadvantagehmo",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo"
+          ],
+          "visit_address": {
+            "city": "League City",
+            "lat": 29.4811,
+            "lon": -95.09779,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "2240 Gulf Fwy S",
+            "zip": "77573"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8325051234",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Marcus",
+        "middle_name": "Melton",
+        "last_name": "Wheeler",
+        "slug": "marcus-wheeler",
+        "title": "MD",
+        "image_url": "https://asset3.betterdoctor.com/assets/general_doctor_male.png",
+        "gender": "male",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Marcus Wheeler, MD, specialist in family medicine, currently sees patients in League city, Texas, Baytown, Texas, and Beaumont, Texas.\n\nDr. Wheeler is licensed to treat patients in Texas.\n\nDr. Wheeler has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxblueadvantagehmo",
+            "name": "BCBS TX Blue Advantage HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "family-practitioner",
+          "name": "Family Medicine",
+          "description": "Specializes in your and your family's total health.",
+          "category": "medical",
+          "actor": "Family Practitioner",
+          "actors": "Family Practitioners"
+        }
+      ],
+      "claims": [
+        {
+          "hcpcs": "99214",
+          "hcpcs_description": "Office / outpatient visit, established patient, 25 minutes",
+          "service_cnt": 24,
+          "bene_uniq_cnt": 18,
+          "avg_allowed_amt": 76.57,
+          "avg_charge_amt": 261,
+          "avg_payment_amt": 58.238333333
+        }
+      ],
+      "licenses": [
+        {
+          "number": "P1713",
+          "state": "TX",
+          "end_date": "2013-11-30"
+        }
+      ],
+      "uid": "052a7de3d5f2d0820b470e2608a4a85c",
+      "npi": "1225262066"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-fort-worth",
+          "lat": 32.68498,
+          "lon": -97.30894,
+          "uid": "b9e5e3d8bd36db5346d4f200c789963b",
+          "name": "Andrew King, DO",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "aetna-aetnachoiceposii",
+            "cigna-cignahmo",
+            "cigna-cignappo",
+            "multiplan-phcsppo",
+            "cigna-cignaopenaccessplus",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "humana-humanachoicecarenetworkppo",
+            "multiplan-multiplanppo",
+            "aetna-aetnahmo",
+            "bcbsbluecard-bcbsbluecardppo",
+            "cigna-cignalocalplus",
+            "humana-humanapreferredppo",
+            "aetna-aetnasignatureadministratorsppo",
+            "aetna-aetnaadvantage6350hix",
+            "aetna-aetnabasichix",
+            "aetna-aetnamdbronzesilverandgoldhmo",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Fort Worth",
+            "lat": 32.68498,
+            "lon": -97.30894,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "1305 E Seminary Dr",
+            "zip": "76115"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "8177355800",
+              "type": "landline"
+            },
+            {
+              "number": "8179220525",
+              "type": "fax"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [],
+      "profile": {
+        "first_name": "Andrew",
+        "middle_name": "Paul",
+        "last_name": "King",
+        "slug": "andrew-king-do",
+        "title": "DO",
+        "image_url": "https://asset3.betterdoctor.com/assets/general_doctor_male.png",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Andrew King, DO, specialist in family medicine, currently sees patients in Fort worth, Texas.\n\nDr. King is licensed to practice medicine at Texas.\n\nIn addition to having active medical licenses, Dr. King has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses."
+      },
+      "ratings": [],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnahmo",
+            "name": "Aetna HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanapreferredppo",
+            "name": "Humana Preferred PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnasignatureadministratorsppo",
+            "name": "Aetna Signature Administrators PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnaadvantage6350hix",
+            "name": "Advantage 6350 - HIX",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnabasichix",
+            "name": "Basic - HIX",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamdbronzesilverandgoldhmo",
+            "name": "MD Bronze Silver  Gold - HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "family-practitioner",
+          "name": "Family Medicine",
+          "description": "Specializes in your and your family's total health.",
+          "category": "medical",
+          "actor": "Family Practitioner",
+          "actors": "Family Practitioners"
+        }
+      ],
+      "licenses": [
+        {
+          "number": "BP10044542",
+          "state": "TX"
+        },
+        {
+          "number": "Q1185",
+          "state": "TX"
+        }
+      ],
+      "uid": "052d6ecf4c7f26b937039dc75ba83b4d",
+      "npi": "1528468527"
+    },
+    {
+      "practices": [
+        {
+          "location_slug": "tx-shenandoah",
+          "lat": 30.191239,
+          "lon": -95.456939,
+          "uid": "d774eac719d52ea4100e62962dfaebe3",
+          "name": "Women's Gynecology & Wellness, PA",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "cigna-cignalocalplus",
+            "multiplan-phcsppo",
+            "aetna-aetnachoiceposii",
+            "cigna-cignahmo",
+            "multiplan-multiplanppo",
+            "humana-humanapreferredppo",
+            "cigna-cignappo",
+            "humana-humanachoicecarenetworkppo",
+            "bcbsbluecard-bcbsbluecardppo",
+            "cigna-cignaopenaccessplus",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Shenandoah",
+            "lat": 30.191239,
+            "lon": -95.456939,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "111 Vision Park Blvd",
+            "street2": "Ste 270",
+            "zip": "77384"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "2816011410",
+              "type": "business_landline"
+            },
+            {
+              "number": "2816011411",
+              "type": "business_fax"
+            },
+            {
+              "number": "2816011410",
+              "type": "landline"
+            },
+            {
+              "number": "2816011411",
+              "type": "fax"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        },
+        {
+          "location_slug": "tx-shenandoah",
+          "lat": 30.191239,
+          "lon": -95.456939,
+          "uid": "b9ec1668e3f2f0208a558fdcc8958628",
+          "name": "Nancy Bass, MD",
+          "accepts_new_patients": true,
+          "insurance_uids": [
+            "cigna-cignalocalplus",
+            "multiplan-phcsppo",
+            "aetna-aetnachoiceposii",
+            "cigna-cignahmo",
+            "multiplan-multiplanppo",
+            "humana-humanapreferredppo",
+            "cigna-cignappo",
+            "humana-humanachoicecarenetworkppo",
+            "bcbsbluecard-bcbsbluecardppo",
+            "cigna-cignaopenaccessplus",
+            "aetna-aetnamanagedchoiceposopenaccess",
+            "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "gwhcigna-greatwestppo",
+            "unitedhealthcare-uhcchoicepluspos",
+            "unitedhealthcare-uhcnavigatehmo",
+            "unitedhealthcare-uhcnavigatepos",
+            "unitedhealthcare-uhcoptionsppo",
+            "firsthealthcoventryhealthcare-firsthealthppo"
+          ],
+          "visit_address": {
+            "city": "Shenandoah",
+            "lat": 30.191239,
+            "lon": -95.456939,
+            "state": "TX",
+            "state_long": "Texas",
+            "street": "111 Vision Park Blvd",
+            "street2": "Ste 270",
+            "zip": "77384"
+          },
+          "office_hours": [],
+          "phones": [
+            {
+              "number": "2816011410",
+              "type": "landline"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "code": "en"
+            }
+          ]
+        }
+      ],
+      "educations": [
+        {
+          "school": "St. George's University School of Medicine",
+          "degree": "MD"
+        },
+        {
+          "school": "Baylor College of Medicine",
+          "graduation_year": "2004",
+          "degree": "Residency"
+        },
+        {
+          "school": "Summa Health System",
+          "graduation_year": "2004",
+          "degree": "Residency"
+        }
+      ],
+      "profile": {
+        "first_name": "Nancy",
+        "middle_name": "E",
+        "last_name": "Bass",
+        "slug": "nancy-bass",
+        "title": "MD",
+        "image_url": "https://asset2.betterdoctor.com/assets/general_doctor_female.png",
+        "gender": "female",
+        "languages": [
+          {
+            "name": "English",
+            "code": "en"
+          }
+        ],
+        "bio": "Dr. Nancy Bass is an obstetrician-gynecologist in The Woodlands, Texas and is affiliated with St. Luke's The Woodlands Hospital. She received her medical degree from St. George's University School of Medicine and has been in practice for 9 years. Dr. Bass accepts several types of health insurance, listed below. She is one of 17 doctors at St. Luke's The Woodlands Hospital who specialize in Obstetrics & Gynecology."
+      },
+      "ratings": [
+        {
+          "active": true,
+          "provider": "betterdoctor",
+          "provider_uid": "043e2f736393f995a042117ddfa6bed2",
+          "rating": 5,
+          "review_count": 0,
+          "image_url_small": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-5.0.png",
+          "image_url_small_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-5.0@2x.png",
+          "image_url_large": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-5.0.png",
+          "image_url_large_2x": "https://asset2.betterdoctor.com/assets/consumer/stars/stars-large-5.0@2x.png"
+        }
+      ],
+      "insurances": [
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanapreferredppo",
+            "name": "Humana Preferred PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignalocalplus",
+            "name": "CIGNA LocalPlus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-phcsppo",
+            "name": "PHCS PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnachoiceposii",
+            "name": "Aetna Choice POS II",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignahmo",
+            "name": "CIGNA HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "multiplan-multiplanppo",
+            "name": "Multiplan PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "multiplan",
+            "name": "Multiplan"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanapreferredppo",
+            "name": "Humana Preferred PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignappo",
+            "name": "CIGNA PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "humana-humanachoicecarenetworkppo",
+            "name": "Humana ChoiceCare Network PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "humana",
+            "name": "Humana"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bcbsbluecard-bcbsbluecardppo",
+            "name": "BCBS Blue Card PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "cigna-cignaopenaccessplus",
+            "name": "CIGNA Open Access Plus",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "aetna-aetnamanagedchoiceposopenaccess",
+            "name": "Aetna Managed Choice POS Open Access",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "bluecrossblueshieldoftexas-bcbstxbluechoice",
+            "name": "BCBS TX BlueChoice",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "bcbs",
+            "name": "BCBS"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "gwhcigna-greatwestppo",
+            "name": "Great West PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "cigna",
+            "name": "Cigna"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcchoicepluspos",
+            "name": "UHC Choice Plus POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatehmo",
+            "name": "UHC Navigate HMO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcnavigatepos",
+            "name": "UHC Navigate POS",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "unitedhealthcare-uhcoptionsppo",
+            "name": "UHC Options PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "unitedhealthcare",
+            "name": "United Healthcare"
+          }
+        },
+        {
+          "insurance_plan": {
+            "uid": "firsthealthcoventryhealthcare-firsthealthppo",
+            "name": "First Health PPO",
+            "category": [
+              "medical"
+            ]
+          },
+          "insurance_provider": {
+            "uid": "aetna",
+            "name": "Aetna"
+          }
+        }
+      ],
+      "specialties": [
+        {
+          "uid": "obstetrics-gynecologist",
+          "name": "Obstetrics & Gynecology",
+          "description": "Specializes in the care of the female reproductive system.",
+          "category": "medical",
+          "actor": "OBGYN",
+          "actors": "OBGYNS"
+        }
+      ],
+      "claims": [
+        {
+          "hcpcs": "99213",
+          "hcpcs_description": "Office / outpatient visit, established patient, 15 minutes",
+          "service_cnt": 20,
+          "bene_uniq_cnt": 18,
+          "avg_allowed_amt": 66.92,
+          "avg_charge_amt": 123.75,
+          "avg_payment_amt": 53.5345
+        },
+        {
+          "hcpcs": "99214",
+          "hcpcs_description": "Office / outpatient visit, established patient, 25 minutes",
+          "service_cnt": 12,
+          "bene_uniq_cnt": 11,
+          "avg_allowed_amt": 99.13,
+          "avg_charge_amt": 211.66666667,
+          "avg_payment_amt": 70.321666667
+        }
+      ],
+      "licenses": [
+        {
+          "number": "5557",
+          "state": "TX",
+          "end_date": "2013-11-30"
+        },
+        {
+          "number": "16853",
+          "state": "ME",
+          "end_date": "2013-05-31"
+        },
+        {
+          "state": "OH",
+          "end_date": "2013-07-01"
+        },
+        {
+          "number": "101244939",
+          "end_date": "2014-05-31"
+        },
+        {
+          "number": "3508430",
+          "state": "OH"
+        },
+        {
+          "number": "016853",
+          "state": "ME"
+        },
+        {
+          "number": "N5557",
+          "state": "TX"
+        }
+      ],
+      "uid": "043e2f736393f995a042117ddfa6bed2",
+      "npi": "1811922016"
+    }
+  ]
+}

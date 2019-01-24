@@ -1,6 +1,13 @@
 "use strict";
 
 $(document).ready(function(){
+    //example request:
+    //https://api.betterdoctor.com/2016-03-01/doctors?
+    // location=tx&
+    // skip=0&
+    // limit=10&
+    // user_key=5c47b7f6015f91ffe3b0692782e7962c
+
     //test for connection between files
     // $('#background').css('background-color', 'yellow');
     let api_key = ``;
