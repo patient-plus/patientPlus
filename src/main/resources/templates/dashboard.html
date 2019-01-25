@@ -1,26 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head('Doctor Dashboard')"/>
+<head th:replace="partials :: head(${name} + '\'s Dashboard')"></head>
+<style>
+    td { vertical-align: top;
+        height: 40px; overflow: hidden;
+    }
+    /*td { height: 40px; overflow: hidden; }*/
+    .table-row{
+        cursor:pointer;
+    }
+</style>
 <body>
+<nav th:replace="partials :: navbar"></nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12" th:each="appointment : ${appointments}">
-            <p th:text="${appointment.time}"></p>
-            <!--This should show up when the user is a doctor-->
-            <form action="get" th:href="">
-                <!--Link to paperwork filled out by patient-->
-                <button>View Profile</button>
-            </form>
+<!--PATIENT SECTION-->
+<section th:if="${isPatient == true}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12" th:each="appointment : ${appointments}">
+                <p th:text="${appointment.time}"></p>
+                <!--This should show up when the user is a doctor-->
+                <form action="get" th:href="">
+                    <!--Link to paperwork filled out by patient-->
+                    <button>View Profile</button>
+                </form>
 
-            <!--This should show up if the user is a patient-->
-            <form action="get" th:href="">
-                <!--Link to paperwork for appoitnment-->
-                <button>View Appointment Details</button>
-            </form>
+                <!--This should show up if the user is a patient-->
+                <form action="get" th:href="">
+                    <!--Link to paperwork for appoitnment-->
+                    <button>View Appointment Details</button>
+                </form>
 
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<!--DOCTOR SECTION-->
+<section th:if="${isPatient == false}">
+    <h1>Welcome!</h1>
+    <h4>Upcoming events...</h4>
+
+    <div class="container">
+        <div class="table-responsive table-bordered table-hover">
+            <table class="table table-striped w-75" align="center">
+                <caption>Click patient's name to view profile</caption>
+
+                <thead class="bg-info">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Profile</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr class="table-row" data-href="http://google.com">
+                    <td>Stephen Ray Guedea</td>
+                    <td>Jan 24, 2019 2:00PM</td>
+                    <td>210-323-5841 sguedea@yahoo.com</td>
+                    <td>view profile</td>
+                </tr>
+                <tr class="table-row" data-href="http://google.com">
+                    <td>Liz Bermea</td>
+                    <td>Feb 14, 2019 2:00PM</td>
+                    <td>210-551-3245 l.bermea@yahoo.com</td>
+                    <td>view profile</td>
+                </tr>
+                <tr class="table-row" data-href="http://google.com">
+                    <td>Stephen Ray Guedea</td>
+                    <td>Jan 24, 2019 2:00PM</td>
+                    <td>210-323-5841 sguedea@yahoo.com</td>
+                    <td>view profile</td>
+                </tr>
+                <tr class="table-row" data-href="http://google.com">
+                    <td>Liz Bermea</td>
+                    <td>Feb 14, 2019 2:00PM</td>
+                    <td>210-551-3245 l.bermea@yahoo.com</td>
+                    <td>view profile</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<footer th:replace="partials :: footer"></footer>
+<span th:replace="partials :: scripts"></span>
+<script>
+    $(document).ready(function($) {
+        $(".table-row").click(function() {
+            window.document.location = $(this).data("href");
+        });
+    });
+</script>
+
 </body>
 </html>

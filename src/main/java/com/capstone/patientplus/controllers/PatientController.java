@@ -23,8 +23,9 @@ public class PatientController {
     private final SurgeryRepository surgeryDao;
     private final AppointmentRepository appointmentDao;
     private final UsersRepository users;
+    private final DoctorPatientRepository doctorPatientDao;
 
-    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentRepository appointmentDao, UsersRepository users){
+    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentRepository appointmentDao, UsersRepository users, DoctorPatientRepository doctorPatientDao){
         this.emergencyDao = emergencyDao;
         this.insuranceDao = insuranceDao;
         this.medicationDao = medicationDao;
@@ -32,6 +33,7 @@ public class PatientController {
         this.surgeryDao = surgeryDao;
         this.appointmentDao = appointmentDao;
         this.users = users;
+        this.doctorPatientDao = doctorPatientDao;
     }
 
 
@@ -80,6 +82,35 @@ public class PatientController {
         medication3.setPatient(patient);
         medicationDao.save(medication3);
 
+        return "redirect:/0/dashboard";
+    }
+
+    @GetMapping("patient/appointment/create")
+    public String appointmentCreate(Model model){
+        User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!patient.isPatient()){
+            return "redirect:/doctor/dashboard";
+        }
+
+        //Get list of doctors for that user
+        List<DoctorPatient> doctorsPatient = doctorPatientDao.findAllDoctorsByPatient(patient);
+        List<User> doctors = new ArrayList<>();
+        for(DoctorPatient combo : doctorsPatient){
+            doctors.add(users.findById(combo.getDoctor().getId()));
+        }
+        model.addAttribute("doctors", doctors);
+        model.addAttribute("chosenDoctorID", 0);
+        //Make new appointment object
+        model.addAttribute("appointment", new Appointment());
+
+        return "/appointments/create-edit";
+    }
+
+    @PostMapping("patient/appointment/create")
+    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment, @ModelAttribute long chosenDoctorID){
+        User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        appointment.setPatient(patient);
+        appointment.setDoctor(users.findById(chosenDoctorID));
         return "redirect:/0/dashboard";
     }
 }
