@@ -6,11 +6,11 @@ $(document).ready(function(){
     // location=tx&
     // skip=0&
     // limit=10&
-    // user_key=5c47b7f6015f91ffe3b0692782e7962c
+    // user_key=
 
     //test for connection between files
     // $('#background').css('background-color', 'yellow');
-    let api_key = ``;
+    let api_key = `5c47b7f6015f91ffe3b0692782e7962c`;
 
     let options = $(`#insurances`);
     let plans = $(`#plans`);
@@ -45,7 +45,6 @@ $(document).ready(function(){
         for(let insurance of data){
             let insuranceValue = insurance.uid;
             if(insuranceValue === insuranceProvider){
-                console.log('in the if');
                 for(let plan of insurance.plans){
                     plans.append($(`<option></option>`).attr('value', plan.uid).text(plan.name));
                 }
@@ -53,24 +52,7 @@ $(document).ready(function(){
         }
     };
 
-    request().then((data) => {
-        setInsuranceList(data);
-    });
-
-    options.change(() => {
-        plans.empty();
-        plans.append('<option selected="true">Choose Plan</option>');
-
-        request().then((data) => {
-            console.log(options.val() + 'test');
-            let insuranceProvider = options.val();
-            setInsurancePlans(data, insuranceProvider);
-        })
-
-    });
-
-    searchBtn.click( (e) => {
-        e.preventDefault();
+    const getRequestUrl = () => {
         var requestUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 
         if (options.val() !== "choose-provider" && plans.val() !== "choose-plan") {
@@ -87,14 +69,56 @@ $(document).ready(function(){
             requestUrl += `location=${location.val()}&`;
         }
         requestUrl += `user_key=${api_key}`;
-            console.log(requestUrl);
+        return requestUrl;
 
-        // request().then((data) => {
-        //
-        // //    add functionality to bring up results and populate the list
-        // })
+    };
 
-    })
+    request().then((data) => {
+        setInsuranceList(data);
+    });
+
+    options.change(() => {
+        plans.empty();
+        plans.append('<option selected="true">Choose Plan</option>');
+
+        request().then((data) => {
+            let insuranceProvider = options.val();
+            setInsurancePlans(data, insuranceProvider);
+        })
+
+    });
+
+
+    searchBtn.click( (e) => {
+        e.preventDefault();
+
+        // fetch(setRequestUrl());
+
+        let doctorsRequest = () => {
+            return fetch(getRequestUrl())
+                .then(response => response.json)
+                .then(response => {
+                    return response.data
+                })
+                .then(data => {
+                    resultsSection.empty();
+                    for (let dataObject of data) {
+                        let practiceUid = dataObject.uid;
+                        let firstName = dataObject.profile.first_name;
+                        let lastName = dataObject.profile.last_name;
+
+                        console.log(firstName);
+                        resultsSection.append($(`<li class="list-group-item" id='${practiceUid}'></li>`))
+                            .text(`${profile.first_name} ${profile.last_name}`);
+
+                        $(`#${practiceUid}`).append($(`<button></button>`)).text(`View Profile`);
+                    }
+                });
+        };
+
+        doctorsRequest();
+
+    });
 
 
 });
