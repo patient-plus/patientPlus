@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -23,8 +23,9 @@ public class PatientController {
     private final SurgeryRepository surgeryDao;
     private final AppointmentRepository appointmentDao;
     private final UsersRepository users;
+    private final DoctorPatientRepository doctorPatientDao;
 
-    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentRepository appointmentDao, UsersRepository users){
+    public PatientController(EmergencyContactRepository emergencyDao, InsuranceRepository insuranceDao, MedicationRepository medicationDao, PharmacyRepository pharmacyDao, SurgeryRepository surgeryDao, AppointmentRepository appointmentDao, UsersRepository users, DoctorPatientRepository doctorPatientDao){
         this.emergencyDao = emergencyDao;
         this.insuranceDao = insuranceDao;
         this.medicationDao = medicationDao;
@@ -32,6 +33,7 @@ public class PatientController {
         this.surgeryDao = surgeryDao;
         this.appointmentDao = appointmentDao;
         this.users = users;
+        this.doctorPatientDao = doctorPatientDao;
     }
 
 
@@ -43,43 +45,72 @@ public class PatientController {
             return "redirect:/doctor/dashboard";
         }
 
+        for (int i = 1; i <= 3; i++){
+            model.addAttribute("surgery" + Integer.toString(i), new Surgery());
+            model.addAttribute("medication" + Integer.toString(i), new Medication());
+
+        }
+
         model.addAttribute("emergencyContact", new EmergencyContact());
         model.addAttribute("insurance", new Insurance());
         model.addAttribute("pharmacy", new Pharmacy());
-        model.addAttribute("surgeries", new ArrayList<Surgery>());
-        model.addAttribute("medications", new ArrayList<Medication>());
         return "patient/information";
     }
 
     @PostMapping("/patient/info")
-    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @ModelAttribute Insurance insurance, @ModelAttribute Pharmacy pharmacy, @ModelAttribute ArrayList<Surgery> surgeries, @ModelAttribute ArrayList<Medication> medications){
+    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @ModelAttribute Insurance insurance, @ModelAttribute Pharmacy pharmacy, @ModelAttribute Surgery surgery1, @ModelAttribute Surgery surgery2, @ModelAttribute Surgery surgery3, @ModelAttribute Medication medication1, @ModelAttribute Medication medication2, @ModelAttribute Medication medication3){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         emergencyContact.setPatient(patient);
         emergencyDao.save(emergencyContact);
-        patient.setInsurance(insurance);
-        insuranceDao.save(insurance);
+//        patient.setInsurance(insurance);
+//        insuranceDao.save(insurance);
         patient.setPharmacy(pharmacy);
         pharmacyDao.save(pharmacy);
 
-        for (Surgery surgery : surgeries){
-            if (surgeries.indexOf(surgery) >= 20){
-                break;
-            }
-            if(surgery != null) {
-                surgery.setPatient(patient);
-                surgeryDao.save(surgery);
-            }
+
+        surgery1.setPatient(patient);
+        surgeryDao.save(surgery1);
+        surgery2.setPatient(patient);
+        surgeryDao.save(surgery2);
+        surgery3.setPatient(patient);
+        surgeryDao.save(surgery3);
+
+        medication1.setPatient(patient);
+        medicationDao.save(medication1);
+        medication2.setPatient(patient);
+        medicationDao.save(medication2);
+        medication3.setPatient(patient);
+        medicationDao.save(medication3);
+
+        return "redirect:/0/dashboard";
+    }
+
+    @GetMapping("patient/appointment/create")
+    public String appointmentCreate(Model model){
+        User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!patient.isPatient()){
+            return "redirect:/doctor/dashboard";
         }
 
-        for (Medication medication : medications){
-            if (medications.indexOf(medication) >= 20){
-                break;
-            }
-            if(medication != null) {
-                medication.setPatient(patient);
-                medicationDao.save(medication);
-            }
+        //Get list of doctors for that user
+        List<DoctorPatient> doctorsPatient = doctorPatientDao.findAllDoctorsByPatient(patient);
+        List<User> doctors = new ArrayList<>();
+        for(DoctorPatient combo : doctorsPatient){
+            doctors.add(users.findById(combo.getDoctor().getId()));
         }
-        return "patient/dashboard";
+        model.addAttribute("doctors", doctors);
+        model.addAttribute("chosenDoctorID", 0);
+        //Make new appointment object
+        model.addAttribute("appointment", new Appointment());
+
+        return "/appointments/create-edit";
+    }
+
+    @PostMapping("patient/appointment/create")
+    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment, @ModelAttribute long chosenDoctorID){
+        User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        appointment.setPatient(patient);
+        appointment.setDoctor(users.findById(chosenDoctorID));
+        return "redirect:/0/dashboard";
     }
 }

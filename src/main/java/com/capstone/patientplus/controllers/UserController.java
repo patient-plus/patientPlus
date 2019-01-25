@@ -56,16 +56,18 @@ public class UserController {
         if (id != userId){
             return "redirect:/" + Long.toString(userId) + "/dashboard";
         }
-
-        model.addAttribute("isPatient", user.isPatient());
+        model.addAttribute("name", user.getFirstName());
         if(user.isPatient()){
             //Patient Dashboard info
-            model.addAttribute("emergencyContact", emergencyDao.findByPatient(user));
+            model.addAttribute("isPatient", true);
+
         } else{
             //Doctor dashboard info
+            model.addAttribute("isPatient", false);
+
         }
-//        model.addAttribute("appointments", appointmentDao.allForPatient(user));
-        return "patient/profile";
+
+        return "/dashboard";
     }
 
     @GetMapping("/")
