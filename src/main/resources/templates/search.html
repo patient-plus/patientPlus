@@ -14,29 +14,33 @@
         <!--FORM TO GRAB ALL DOCTORS IN AREA-->
         <div class="col-12 aboutCompanyCol">
             <div class="card">
-                <div class="card-title">
-                    Enter City and State:
-                </div>
                 <div class="card-body">
-                    <form href="" id="location-form">
-                        <div class="input-group input-group-lg">
-                            <label for="state">
-                                State:
-                                <select type="text" name="state" id="state" class="form-control">
-                                </select>
-                            </label>
-                        </div>
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <div class="card-title">
+                                Enter City and State:
+                            </div>
+                            <form href="" id="location-form">
+                                <div class="input-group input-group-lg">
+                                    <label for="state">
+                                        State:
+                                        <select type="text" name="state" id="state" class="form-control">
+                                        </select>
+                                    </label>
+                                </div>
 
-                        <div class="input-group input-group-lg">
-                            <label for="city">
-                                City:
-                                <select type="text" name="city" id="city" class="form-control">
-                                </select>
-                            </label>
-                        </div>
+                                <div class="input-group input-group-lg">
+                                    <label for="city">
+                                        City:
+                                        <select type="text" name="city" id="city" class="form-control">
+                                        </select>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="submit-location">Submit</button>
 
-                        <button type="submit" class="btn btn-primary" id="submit-location">Submit</button>
-                    </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,8 +50,8 @@
         <!--FORM TO NARROW PARAMETERS-->
         <div class="col aboutCompanyCol">
             <div class="card">
-                <h3 class="card-title">Search</h3>
                 <div class="card-body companyCard">
+                <h3 class="card-title">Filters</h3>
                     <form href="" id="search-form">
                         <div class="input-group input-group-sm">
                             <label for="doctor-first-name" class="pr-4">

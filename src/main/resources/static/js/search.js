@@ -22,13 +22,19 @@ $(document).ready(function(){
     let location = $(`#location`);
     let resultsSection = $(`#results-list`);
 
+    let doctorArry = [];
+
     options.empty();
     options.append('<option selected="true" disable value="choose-provider">Choose Insurance Provider</option>');
 
     plans.append('<option selected="true" value="choose-plan">Choose Plan</option>');
 
     state.empty();
-    state.
+    state.append('<option selected="true" value="choose-state">Choose A State</option>');
+
+    city.empty();
+    city.append('<option selected="true" value="choose-city">Choose A City</option>');
+
     const request = () =>{
         // return fetch(`https://api.betterdoctor.com/2016-03-01/insurances?user_key=`)
         return fetch(`/json/db.json`)
@@ -47,9 +53,30 @@ $(document).ready(function(){
             });
     };
 
+    const requestCities = () => {
+        return fetch(`/json/data_db.json`)
+            .then(response => response.json())
+            .then(data => data);
+    };
+
     const setStatesList = (data) => {
-        for(let stateInfo of data){
-            state.append($(`<option></option>`).attr('value', stateInfo.name.toLowerCase()).text(stateInfo.abbreviation));
+        console.log(data[0]);
+        for(let i =0 ; i < data.length; i++){
+            let stateVal = `${data[i].name}-${data[i].abbreviation}`;
+            state.append($(`<option></option>`).attr('value', stateVal).text(data[i].abbreviation));
+        }
+    };
+
+    const setCitiesList = (data, stateChosen) => {
+        for(let state in data){
+            console.log(data);
+            if(stateChosen === state){
+                console.log('state matched');
+                for(let i = 0; i < data[`${state}`].length ; i++){
+                    let citySlug = (data[`${state}`])[i].toLowerCase().split(' ').join('-');
+                    city.append($(`<option></option>`).attr('value', citySlug).text((data[`${state}`])[i]));
+                }
+            }
         }
     };
 
@@ -83,7 +110,6 @@ $(document).ready(function(){
         //     requestUrl += `insurance_uid=${plans.val()}&`;
         // }
         if(location.val() !== ''){
-            console.log(location.val().trim());
             requestUrl += `location=${location.val()}&`;
         }
         requestUrl += `skip=0&limit=10&user_key=${api_key}`;
@@ -91,19 +117,35 @@ $(document).ready(function(){
 
     };
 
+    const getDoctorUrl = (locationSlug) => {
+        let requestDoctorsUrl = `https://api.betterdoctor.com/2016-03-01/doctors?`;
+        if(city.val() !== "choose-city"){
+            requestDoctorsUrl += `location=${locationSlug}&skip=0&limit=100&user_key=${api_key}`;
+            return requestDoctorsUrl;
+        }
+        return null;
+    };
+
     request().then((data) => {
         setInsuranceList(data);
     });
 
     requestStates().then((data) => {
-        setStatesList();
+        setStatesList(data);
     });
 
 
-    // state.change(() => {
-    //    city.empty();
-    //    city.
-    // });
+    state.change(() => {
+       city.empty();
+       city.append('<option selected="true">State</option>');
+
+       requestCities().then((data) => {
+           let stateChosen = state.val().split('-')[0];
+           console.log(state.val());
+           setCitiesList(data, stateChosen);
+       })
+
+    });
 
     options.change(() => {
         plans.empty();
@@ -116,46 +158,78 @@ $(document).ready(function(){
 
     });
 
-    state.change(() => {
-        city.empty();
-        city.append(`<option></option>`)
-    })
+    city.change(() => {
+        let citySlug = city.val();
+        let stateSlug = state.val().split('-')[1].toLowerCase();
+        let locationSlug = `${stateSlug}-${citySlug}`;
+        let requestUrl = getDoctorUrl(locationSlug);
+
+        resultsSection.empty();
+
+        if(requestUrl !== null){
+            fetch(requestUrl).then(response => response.json())
+                .then(response => response.data)
+                .then(data => {
+                    console.log(data);
+                    for(let obj in data){
+                        //function adds results to Array of doctors so we can keep searching info set
+                        //without making multiple api calls
+                        doctorArry.push({
+                            "first_name": obj.profile.first_name,
+                            "last_name" : obj.profile.last_name,
+                            "uid": obj.uid,
+                            "clinic": obj.practices[0].name,
+                            "address": `${obj.practices[0].visit_address.street} ${obj.practices[0].visit_address.city}, 
+                            ${obj.practices[0].visit_address.state}, ${obj.practices[0].visit_address.zip}`,
+                            "lat": obj.practices[0].lat,
+                            "lon": obj.practices[0].lon
+                        });
+                    }
+                    console.log(doctorArry);
+                }).then(() => {
+                    //once array is set we can add the listener on the forms
+                searchBtn.click( (e) => {
+                    e.preventDefault();
+
+
+                    // fetch(setRequestUrl());
+
+                    // let doctorsRequest = () => {
+                    //     let requestUrl = getRequestUrl();
+                    //     return fetch(requestUrl)
+                    //         .then(response => response.json)
+                    //         .then(response => {
+                    //             return response.data;
+                    //         })
+                    //         .then(data => {
+                    //             resultsSection.empty();
+                    //             // for (let dataObject of data) {
+                    //             //     let practiceUid = dataObject.uid;
+                    //             //     let firstName = dataObject.profile.first_name;
+                    //             //     let lastName = dataObject.profile.last_name;
+                    //             //
+                    //             //     console.log(firstName);
+                    //             //     resultsSection.append($(`<li class="list-group-item" id='${practiceUid}'></li>`))
+                    //             //         .text(`${profile.first_name} ${profile.last_name}`);
+                    //             //
+                    //             //     $(`#${practiceUid}`).append($(`<button></button>`)).text(`View Profile`);
+                    //             // }
+                    //         });
+                    // };
+
+                    // doctorsRequest();
+
+                });
+
+            });
+        }
+    });
+
 
 
     // let requestWithLocation = fetch()
 
-    searchBtn.click( (e) => {
-        e.preventDefault();
 
-        // fetch(setRequestUrl());
-
-        let doctorsRequest = () => {
-            let requestUrl = getRequestUrl();
-            return fetch(requestUrl)
-                .then(response => response.json)
-                .then(response => {
-                    return response.data;
-                    console.log(response.data);
-                })
-                .then(data => {
-                    resultsSection.empty();
-                    // for (let dataObject of data) {
-                    //     let practiceUid = dataObject.uid;
-                    //     let firstName = dataObject.profile.first_name;
-                    //     let lastName = dataObject.profile.last_name;
-                    //
-                    //     console.log(firstName);
-                    //     resultsSection.append($(`<li class="list-group-item" id='${practiceUid}'></li>`))
-                    //         .text(`${profile.first_name} ${profile.last_name}`);
-                    //
-                    //     $(`#${practiceUid}`).append($(`<button></button>`)).text(`View Profile`);
-                    // }
-                });
-        };
-
-        doctorsRequest();
-
-    });
 
 
 });
