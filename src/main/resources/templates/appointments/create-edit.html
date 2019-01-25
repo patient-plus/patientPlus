@@ -3,11 +3,11 @@
 <head th:replace="partials :: head('Home')">
 </head>
 <style>
-    body, .header {
-        background-color: rgb(120	208	245	);
+    body {
+        background-color: #539DD6;
     }
     .container {
-        background-color: rgb(237	238	238	);
+        background-color: rgb(241, 243, 244);
     }
 
 </style>
@@ -17,126 +17,45 @@
 
 
 
-    <div th:if="${edit}">
-        <div class="container pt-3 mt-3 rounded">
-            <h1 class="pb-2 text-center">Adjust your appointment</h1>
+    <div th:if="${edit}" th:replace="appointments :: editAppointment">
+        <!--<div class="container pt-3 mt-3 rounded">-->
+            <!--<h1 class="pb-0 text-center">Adjust your appointment</h1>-->
 
-            <form th:action="@{/appointments/edit}" method="POST" th:object="${appointment}">
-                <div class="form-group row">
-                    <label for="adjust-date-input" class="col-3 col-form-label">Date</label>
-                    <div class="col-9">
-                        <input class="form-control w-75" type="date" value="mm-dd-yyyy" id="adjust-date-input" />
-                    </div>
+        <form th:action="@{/appointments/{id}/edit(id=${appointment.getId()})}" method="POST" th:object="${appointment}">
+            <fieldset>
+                <div>
+                    <input type="date" th:field="*{date}"/>
                 </div>
-                <div class="form-group row">
-                    <label for="adjust-doctor-input" class="col-3 col-form-label">Select a Doctor</label>
-                    <div class="col-9">
-                        <select class="form-control w-75" id="adjust-doctor-input">
-                            <option></option>
-                        </select>
-                    </div>
+                <div>
+                    <input type="text" th:field="*{time}" />
                 </div>
-                <div class="form-group row">
-                    <label for="adjust-time-input" class="col-3 col-form-label">Select a Time</label>
-
-                    <div class="col-9" id="adjust-time-input" th:field="*{time}">
-
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo10am" th:field="*{time}">10:00 AM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1030am" th:field="*{time}">10:30 AM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo11am" th:field="*{time}">11:00 AM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1130am" th:field="*{time}">11:30 AM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo1pm" th:field="*{time}">1:00 PM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo130pm" th:field="*{time}">1:30 PM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo2pm" th:field="*{time}">2:00 PM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo230pm" th:field="*{time}">2:30 PM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo3pm" th:field="*{time}">3:00 PM</button>
-                        <button type="button" class="btn btn-outline-primary w-25" id="adjustTo330pm" th:field="*{time}">3:30 PM</button>
-
-                    </div>
+                <div>
+                    <button type="submit">Primary</button>
                 </div>
-
-
-                <!--<div>-->
-                <!--<input  type="text" placeholder="Title" th:field="*{time}"/>-->
-                <!--</div>-->
-                <!--<div>-->
-                <!--<textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>-->
-                <!--</div>-->
-                <div class="text-center pb-2">
-                    <button class="btn btn-primary" type="submit" onclick="return confirm('Are you sure?')">Book appointment!</button>
-                </div>
-
-
-            </form>
-        </div>
+            </fieldset>
+        </form>
+        <!--</div>-->
     </div>
 
-    <div class="header"></div>
-    <div th:if="${create}">
+    <div th:if="${create}" th:replace="appointments :: createAppointment">
 
-        <div class="container mt-5 pt-5 pb-5 rounded createAppointmentContainer">
-            <h1 class="pb-2 text-center">Make an appointment</h1>
+        <!--<div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">-->
+            <!--<h1 class="pb-0 text-center">Make an appointment</h1>-->
 
-            <form class="col-12" th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
-                <div class="row pt-5 pb-5 appointmentSelectionRow">
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDoctorCard border-0">
-                            <div class="card-body selectDoctorCardBody border-0">
-                                <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
-                                <div>
-                                    <select class="form-control" value="select" id="appointment-doctor-input">
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDateAndTimeCard border-0">
-                            <div class="card-body selectDateAndTimeCardBody border-0">
-                                <label for="appointment-date-input" class="col-form-label">Date</label>
-                                    <div>
-                                        <input class="form-control" type="date" value="mm-dd-yyyy" id="appointment-date-input" />
-                                    </div>
-                                    <div>
-                                        <label for="appointment-time-input" class="col-form-label">Select a Time</label>
-
-                                        <div id="appointment-time-input" th:field="*{time}">
-
-                                            <button type="button" class="btn btn-outline-primary w-25" id="10am" th:field="*{time}">10:00 AM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="1030am" th:field="*{time}">10:30 AM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="11am" th:field="*{time}">11:00 AM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="1130am" th:field="*{time}">11:30 AM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="1pm" th:field="*{time}">1:00 PM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="130pm" th:field="*{time}">1:30 PM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="2pm" th:field="*{time}">2:00 PM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="230pm" th:field="*{time}">2:30 PM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="3pm" th:field="*{time}">3:00 PM</button>
-                                            <button type="button" class="btn btn-outline-primary w-25" id="330pm" th:field="*{time}">3:30 PM</button>
-
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+        <form th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
+            <fieldset>
+                <div>
+                    <input  type="text" th:field="*{date}"/>
                 </div>
-
-
-
-                    <!--<div>-->
-                        <!--<input  type="text" placeholder="Title" th:field="*{time}"/>-->
-                    <!--</div>-->
-                    <!--<div>-->
-                        <!--<textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>-->
-                    <!--</div>-->
-                <div class="text-center">
-                    <button class="btn btn-primary" type="submit" onclick="return confirm('Are you sure?')">Book appointment!</button>
+                <div>
+                    <input type="text"  th:field="*{time}"/>
                 </div>
-
-
-            </form>
-        </div>
+                <div>
+                    <button type="submit">Primary</button>
+                </div>
+            </fieldset>
+        </form>
+        <!--</div>-->
     </div>
 
 
