@@ -44,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/")
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/")
+                    .antMatchers("/", "/find-doctor")
                     .permitAll()
                 .and()
                     .authorizeRequests()
