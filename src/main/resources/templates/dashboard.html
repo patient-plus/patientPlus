@@ -88,6 +88,13 @@
 </section>
 
 
+<!--<form method="GET" th:action="@{/appointments/{id}(id=${appointment.getId()})}" th:id="${appointment.getId()}">-->
+    <!--<div th:onclick="'document.getElementById(\'' + ${appointment.getId()} + '\').submit();'">-->
+        <!--<h3 th:text="${appointment.getTime()()}"></h3>-->
+        <!--<p th:text="${appointment.getLocation()}"></p>-->
+    <!--</div>-->
+<!--</form>-->
+
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
 <script>
