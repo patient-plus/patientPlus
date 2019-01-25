@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
-    @GetMapping("/find-doctor")
+    @GetMapping("/search")
     public String getSearchPage(){
         return "search";
     }
