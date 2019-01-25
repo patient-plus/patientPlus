@@ -8,6 +8,13 @@
     background-color: var(--main-background-color) !important;
 }
 
+.icon-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+
 .counter {
     position: absolute;
     top: 25%;
@@ -74,8 +81,16 @@ body {
 /* CHECKED STYLES */
 [type=radio]:checked + img {
     /*outline: 2px solid #f00;*/
-    border-radius: 8px;
-    background: rgba(0,194,25,0.95);
+    /*border-radius: 8px;*/
+    box-shadow: 0px 0px 10px 5px rgb(17, 143, 240);
+
 }
 
+.patient-doctor-btn {
+
+}
+
+.patient-doctor-btn img:hover{
+
+}
 

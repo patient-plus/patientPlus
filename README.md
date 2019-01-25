@@ -1,11 +1,11 @@
 # patientPlus
 # Feature List
 - [ ] login and register users
-- [ ] patients schedule an appointment
-- [ ] doctors view scheduled appointments 
+- [ ] patients CRUD appointments 
+- [ ] patients use filestack to upload insurance card
 - [ ] patients view upcoming appointments
+- [ ] doctors view scheduled appointments and can pull up patient info 
 - [ ] find doctors in your area
 
 # Extra Features
-- [ ] patients can pay bills
 - [ ] doctors can request follow ups
