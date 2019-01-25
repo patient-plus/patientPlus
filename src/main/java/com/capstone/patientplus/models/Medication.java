@@ -10,16 +10,16 @@ public class Medication {
     @JoinColumn(name="patient_id", nullable=false)
     private User patient;
 
-    @Column(nullable = false)
+    @Column()
     private String name;
-    @Column(nullable = false)
+    @Column()
     private String dose;
 
     @Id
     @GeneratedValue
     private long id;
 
-    Medication(){}
+    public Medication(){}
 
     public Medication(User patient, String name, String dose) {
         this.patient = patient;

@@ -1,5 +1,7 @@
 DROP DATABASE patient_db;
 
 USE patient_db;
-select * from users;
+select * from emergency_contacts;
+
+select * from surgery;
 

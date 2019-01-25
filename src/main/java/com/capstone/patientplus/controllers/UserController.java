@@ -60,7 +60,7 @@ public class UserController {
         model.addAttribute("isPatient", user.isPatient());
         if(user.isPatient()){
             //Patient Dashboard info
-            model.addAttribute("emergencyContact", emergencyDao.findByPatient(user));
+//            model.addAttribute("emergencyContact", emergencyDao.findByPatient(user));
         } else{
             //Doctor dashboard info
         }
