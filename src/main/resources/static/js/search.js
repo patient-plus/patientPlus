@@ -21,8 +21,8 @@ $(document).ready(function(){
     let lastName = $(`#doctor-last-name`);
     let location = $(`#location`);
     let resultsSection = $(`#results-list`);
+    let resultsSection2 = $(`#results-results`);
 
-    let doctorArry = [];
 
     options.empty();
     options.append('<option selected="true" disable value="choose-provider">Choose Insurance Provider</option>');
@@ -82,7 +82,8 @@ $(document).ready(function(){
 
     const setInsuranceList = (data) => {
         for(let insurance of data){
-            options.append($(`<option></option>`).attr('value', insurance.uid).text(insurance.name));
+            let insuranceSlug = insurance.name + '-' + insurance.uid;
+            options.append($(`<option></option>`).attr('value', insuranceSlug).text(insurance.name));
         }
     };
 
@@ -100,15 +101,6 @@ $(document).ready(function(){
     const getRequestUrl = () => {
         var requestUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 
-        // if(firstName.val() !== ''){
-        //     requestUrl += `first_name=${firstName.val()}&`;
-        // }
-        // if(lastName.val() !== ''){
-        //     requestUrl += `last_name=${lastName.val()}&`;
-        // }
-        // if (options.val() !== "choose-provider" && plans.val() !== "choose-plan") {
-        //     requestUrl += `insurance_uid=${plans.val()}&`;
-        // }
         if(location.val() !== ''){
             requestUrl += `location=${location.val()}&`;
         }
@@ -141,6 +133,7 @@ $(document).ready(function(){
 
        requestCities().then((data) => {
            let stateChosen = state.val().split('-')[0];
+           console.log(stateChosen);
            console.log(state.val());
            setCitiesList(data, stateChosen);
        })
@@ -152,17 +145,21 @@ $(document).ready(function(){
         plans.append('<option selected="true">Choose Plan</option>');
 
         request().then((data) => {
-            let insuranceProvider = options.val();
-            setInsurancePlans(data, insuranceProvider);
+            let insuranceProviderId = options.val().split('-')[1];
+            setInsurancePlans(data, insuranceProviderId);
         })
 
     });
 
     city.change(() => {
+        $(`body`).off("click", searchBtn);
+
         let citySlug = city.val();
         let stateSlug = state.val().split('-')[1].toLowerCase();
         let locationSlug = `${stateSlug}-${citySlug}`;
         let requestUrl = getDoctorUrl(locationSlug);
+
+
 
         resultsSection.empty();
 
@@ -170,56 +167,93 @@ $(document).ready(function(){
             fetch(requestUrl).then(response => response.json())
                 .then(response => response.data)
                 .then(data => {
-                    console.log(data);
-                    for(let obj in data){
+
+                    let doctorArray = [];
+                    for(let i = 0; i < data.length; i++){
                         //function adds results to Array of doctors so we can keep searching info set
                         //without making multiple api calls
-                        doctorArry.push({
-                            "first_name": obj.profile.first_name,
-                            "last_name" : obj.profile.last_name,
-                            "uid": obj.uid,
-                            "clinic": obj.practices[0].name,
-                            "address": `${obj.practices[0].visit_address.street} ${obj.practices[0].visit_address.city}, 
-                            ${obj.practices[0].visit_address.state}, ${obj.practices[0].visit_address.zip}`,
-                            "lat": obj.practices[0].lat,
-                            "lon": obj.practices[0].lon,
-                            "phone_number":
+
+                        doctorArray.push({
+                            "first_name": data[i].profile.first_name,
+                            "last_name" : data[i].profile.last_name,
+                            "uid": data[i].uid,
+                            "clinic": data[i].practices[0].name,
+                            "address": `${data[i].practices[0].visit_address.street} ${data[i].practices[0].visit_address.city},
+                            ${data[i].practices[0].visit_address.state}, ${data[i].practices[0].visit_address.zip}`,
+                            "lat": data[i].practices[0].lat,
+                            "lon": data[i].practices[0].lon,
+                            "phone_number": data[i].practices[0].phones,
+                            "insurance_uids" : data[i].practices[0].insurance_uids,
+                            "insurances" : data[i].practices[0].insurances,
+                            "link": `<form action="/patient/appointment/create" method="post" >
+                                <span>Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
+                                <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
+                                <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
+                                <input type="hidden" name="username" value="doctor${data[i].profile.last_name}"/>
+                                <input type="hidden" name="password" value="Doctorpassword1"/>
+                                <input type="hidden" name="patient" value="${false}"/>
+                                <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones}">
+                                
+                                <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                            </form>`
                         });
+
                     }
-                    console.log(doctorArry);
-                }).then(() => {
+                    return doctorArray;
+                }).then((doctorArray) => {
+
+                for(let i = 0; i < doctorArray.length; i++){
+                    console.log(doctorArray[i].insurance_uids);
+                }
                     //once array is set we can add the listener on the forms
                 searchBtn.click( (e) => {
                     e.preventDefault();
+                    let firstNameSearch;
+                    let lastNameSearch;
+                    // let insuranceName;
+                    let planSlug;
+                    let parameters = [];
+                    let doctorResultsArr = [];
 
 
-                    // fetch(setRequestUrl());
+                    if(firstName.val() !== ''){
+                        firstNameSearch = firstName.val();
+                        parameters.push("first_name");
+                        console.log(firstNameSearch);
+                    }
+                    if(lastName.val() !== ''){
+                        lastNameSearch = lastName.val();
+                        parameters.push("last_name");
+                        console.log(lastNameSearch);
+                    }
+                    if (options.val().split('-')[0] !== "choose-provider") {
+                        // insuranceName = options.val().split('-')[0];
+                        // parameters.push("")
 
-                    // let doctorsRequest = () => {
-                    //     let requestUrl = getRequestUrl();
-                    //     return fetch(requestUrl)
-                    //         .then(response => response.json)
-                    //         .then(response => {
-                    //             return response.data;
-                    //         })
-                    //         .then(data => {
-                    //             resultsSection.empty();
-                    //             // for (let dataObject of data) {
-                    //             //     let practiceUid = dataObject.uid;
-                    //             //     let firstName = dataObject.profile.first_name;
-                    //             //     let lastName = dataObject.profile.last_name;
-                    //             //
-                    //             //     console.log(firstName);
-                    //             //     resultsSection.append($(`<li class="list-group-item" id='${practiceUid}'></li>`))
-                    //             //         .text(`${profile.first_name} ${profile.last_name}`);
-                    //             //
-                    //             //     $(`#${practiceUid}`).append($(`<button></button>`)).text(`View Profile`);
-                    //             // }
-                    //         });
-                    // };
+                        if(plans.val() !== "choose-plan"){
+                            planSlug = plans.val();
+                            console.log(planSlug);
+                        }
+                    }
 
-                    // doctorsRequest();
+                    for(let i = 0; i < doctorArray.length; i++){
+                        console.log('in loop');
+                        let first_name = doctorArray[i].first_name;
+                        let last_name = doctorArray[i].last_name;
+                        let insurances = doctorArray[i].insurance_uids;
 
+                        if(first_name === firstNameSearch || last_name === lastNameSearch || insurances.indexOf(planSlug) >= 0){
+                            console.log('doctor match');
+                            doctorResultsArr.push(doctorArray[i]);
+                        }
+                    }
+
+
+                    console.log(doctorResultsArr);
+
+                    for(let i = 0; i < doctorResultsArr.length; i++){
+                        resultsSection2.append($(`<div class="list-group-item"></div>`).html(doctorResultsArr[i].link));
+                    }
                 });
 
             });
