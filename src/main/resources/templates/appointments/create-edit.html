@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Home')">
-
 </head>
+<style>
+    body {
+        background-color: #539DD6;
+    }
+    .container {
+        background-color: rgb(241, 243, 244);
+    }
+
+</style>
 <body>
 
 <nav th:replace="partials :: navbar"></nav>
 
-<div class="uk-container">
 
-    <div th:if="${edit}">
-        <h1>Edit your Post!</h1>
+
+    <div th:if="${edit}" th:replace="appointments :: editAppointment">
+        <!--<div class="container pt-3 mt-3 rounded">-->
+            <!--<h1 class="pb-0 text-center">Adjust your appointment</h1>-->
+
         <form th:action="@{/appointments/{id}/edit(id=${appointment.getId()})}" method="POST" th:object="${appointment}">
             <fieldset>
                 <div>
-                    <input type="text" th:field="*{time}"/>
+                    <input type="date" th:field="*{date}"/>
                 </div>
                 <div>
-                    <textarea rows="5" th:field="*{loaction}"></textarea>
+                    <input type="text" th:field="*{time}" />
                 </div>
                 <div>
                     <button type="submit">Primary</button>
                 </div>
             </fieldset>
         </form>
+        <!--</div>-->
     </div>
 
-    <div th:if="${create}">
-        <h1>Create a Post!</h1>
+    <div th:if="${create}" th:replace="appointments :: createAppointment">
+
+        <!--<div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">-->
+            <!--<h1 class="pb-0 text-center">Make an appointment</h1>-->
+
         <form th:action="@{/appointments/create}" method="POST" th:object="${appointment}">
             <fieldset>
                 <div>
-                    <input  type="text" placeholder="Title" th:field="*{time}"/>
+                    <input  type="text" th:field="*{date}"/>
                 </div>
                 <div>
-                    <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
+                    <input type="text"  th:field="*{time}"/>
                 </div>
                 <div>
                     <button type="submit">Primary</button>
                 </div>
             </fieldset>
         </form>
+        <!--</div>-->
     </div>
-</div>
 
 
 
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 </body>
 </html>
