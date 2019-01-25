@@ -9,7 +9,7 @@
     <div class="card-header">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="emergency-contact-tab" data-toggle="tab" href="#emergency-contact" role="tab" aria-controls="emergency-contact" aria-selected="true">Emergency Contact</a>
-            <!--<a class="nav-item nav-link" id="insurance-tab" data-toggle="tab" href="#insurance" role="tab" aria-controls="insurance" aria-selected="false">Insurance</a>-->
+            <a class="nav-item nav-link" id="insurance-tab" data-toggle="tab" href="#insurance" role="tab" aria-controls="insurance" aria-selected="false">Insurance</a>
             <a class="nav-item nav-link" id="pharmacy-tab" data-toggle="tab" href="#pharmacy" role="tab" aria-controls="pharmacy" aria-selected="false">Pharmacy</a>
             <a class="nav-item nav-link" id="surgery-tab" data-toggle="tab" href="#surgery" role="tab" aria-controls="surgery" aria-selected="false">Surgery</a>
             <a class="nav-item nav-link" id="medications-tab" data-toggle="tab" href="#medications" role="tab" aria-controls="medications" aria-selected="false">Medication</a>
@@ -35,22 +35,18 @@
             </ul>
             <a class="btn btn-primary btnNext float-right mt-2 mb-20px">Next</a>
         </div>
-        <!--<div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance">-->
-            <!--<ul class="list-group list-group-flush">-->
-                <!--<li class="list-group-item form-group">-->
-                    <!--<label for="insuranceName">Name</label>-->
-                    <!--<input type="text" class="form-control" id="insuranceName" placeholder="Insurance Name" th:field="${insurance.name}"/>-->
-                <!--</li>-->
-                <!--<li class="list-group-item form-group">-->
-                    <!--<label for="insurancePlan">Insurance Plan</label>-->
-                    <!--<input type="text" class="form-control" id="insurancePlan" placeholder="Insurance Plan" th:field="${insurance.plan}"/>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<div class="mt-2">-->
-                <!--<a class="btn btn-primary btnPrevious">Previous</a>-->
-                <!--<a class="btn btn-primary btnNext float-right">Next</a>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance">
+            <div class="text-center">
+                <h5>Please upload a photo of your insurance card.</h5>
+                <div id="inline" style="width:600px;height:500px;padding:20px;"></div>
+                <div id="thumbnail-container"></div>
+            </div>
+            <input type="hidden" class="form-control" id="insuranceUrl" name="insuranceUrl"/>
+            <div class="mt-2">
+                <a class="btn btn-primary btnPrevious">Previous</a>
+                <a class="btn btn-primary btnNext float-right">Next</a>
+            </div>
+        </div>
         <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="pharmacy-tab" id="pharmacy">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item form-group">
@@ -74,50 +70,53 @@
             </div>
         </div>
         <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="surgery-tab" id="surgery">
-            <div id="field">
-                <div id="field0">
-                    <div>Surgery One</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="operation1">Operation</label>
-                            <input type="text" class="form-control" id="operation1" placeholder="Operation" th:field="${surgery1.operation}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="operationDate1" class="form-text">Date of Operation:</label>
-                            <input type="date" id="operationDate1" name="operationDate1"
-                                   class="form-control" th:field="${surgery1.date}"/>
-                        </li>
-                    </ul>
-                    <div>Surgery Two</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="operation2">Operation</label>
-                            <input type="text" class="form-control" id="operation2" placeholder="Operation" th:field="${surgery2.operation}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="operationDate2" class="form-text">Date of Operation:</label>
-                            <input type="date" id="operationDate2" name="operationDate2"
-                                   class="form-control" th:field="${surgery2.date}"/>
-                        </li>
-                    </ul>
-                    <div>Surgery Three</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="operation3">Operation</label>
-                            <input type="text" class="form-control" id="operation3" placeholder="Operation" th:field="${surgery3.operation}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="operationDate3" class="form-text">Date of Operation:</label>
-                            <input type="date" id="operationDate3" name="operationDate3"
-                                   class="form-control" th:field="${surgery3.date}"/>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <section>
+                <small>Surgery One</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="operation1">Operation</label>
+                        <input type="text" class="form-control" id="operation1" placeholder="Operation" th:field="${surgery1.operation}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="operationDate1" class="form-text">Date of Operation:</label>
+                        <input type="date" id="operationDate1" name="operationDate1"
+                               class="form-control" th:field="${surgery1.date}"/>
+                    </li>
+                </ul>
+                <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
+            </section>
+            <section class="d-none">
+                <small>Surgery Two</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="operation2">Operation</label>
+                        <input type="text" class="form-control" id="operation2" placeholder="Operation" th:field="${surgery2.operation}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="operationDate2" class="form-text">Date of Operation:</label>
+                        <input type="date" id="operationDate2" name="operationDate2"
+                               class="form-control" th:field="${surgery2.date}"/>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-danger remove-me" >Remove</button>
+                <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
+            </section>
+            <section class="d-none">
+                <small>Surgery Three</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="operation3">Operation</label>
+                        <input type="text" class="form-control" id="operation3" placeholder="Operation" th:field="${surgery3.operation}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="operationDate3" class="form-text">Date of Operation:</label>
+                        <input type="date" id="operationDate3" name="operationDate3"
+                               class="form-control" th:field="${surgery3.date}"/>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-danger remove-me" >Remove</button>
+            </section>
             <div class="form-group">
-                <!--<div class="">-->
-                    <!--<button type="button" id="add-more" name="add-more" class="btn btn-primary">Add More</button>-->
-                <!--</div>-->
                 <div class="mt-2">
                     <a class="btn btn-primary btnPrevious">Previous</a>
                     <a class="btn btn-primary btnNext float-right">Next</a>
@@ -125,47 +124,50 @@
             </div>
         </div>
         <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="medications-tab" id="medications">
-            <div id="form">
-                <div id="form0">
-                    <div>Medication One</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="medicationName1">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName1" placeholder="Medication Name" th:field="${medication1.name}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="medicationDose1">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose1" placeholder="Medication Dose" th:field="${medication1.dose}"/>
-                        </li>
-                    </ul>
-                    <div>Medication Two</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="medicationName2">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName2" placeholder="Medication Name" th:field="${medication2.name}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="medicationDose2">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose2" placeholder="Medication Dose" th:field="${medication2.dose}"/>
-                        </li>
-                    </ul>
-                    <div>Medication Three</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
-                            <label for="medicationName3">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName3" placeholder="Medication Name" th:field="${medication3.name}"/>
-                        </li>
-                        <li class="list-group-item form-group">
-                            <label for="medicationDose3">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose3" placeholder="Medication Dose" th:field="${medication3.dose}"/>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <section>
+                <small>Medication One</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="medicationName1">Medication Name</label>
+                        <input type="text" class="form-control" id="medicationName1" placeholder="Medication Name" th:field="${medication1.name}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="medicationDose1">Medication Dose</label>
+                        <input type="number" class="form-control" id="medicationDose1" placeholder="Medication Dose" th:field="${medication1.dose}"/>
+                    </li>
+                </ul>
+                <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
+            </section>
+            <section class="d-none">
+                <small>Medication Two</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="medicationName2">Medication Name</label>
+                        <input type="text" class="form-control" id="medicationName2" placeholder="Medication Name" th:field="${medication2.name}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="medicationDose2">Medication Dose</label>
+                        <input type="number" class="form-control" id="medicationDose2" placeholder="Medication Dose" th:field="${medication2.dose}"/>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-danger remove-me">Remove</button>
+                <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
+            </section>
+            <section class="d-none">
+                <small>Medication Three</small>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item form-group">
+                        <label for="medicationName3">Medication Name</label>
+                        <input type="text" class="form-control" id="medicationName3" placeholder="Medication Name" th:field="${medication3.name}"/>
+                    </li>
+                    <li class="list-group-item form-group">
+                        <label for="medicationDose3">Medication Dose</label>
+                        <input type="number" class="form-control" id="medicationDose3" placeholder="Medication Dose" th:field="${medication3.dose}"/>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-danger remove-me">Remove</button>
+            </section>
             <div class="form-group">
-                <!--<div class="">-->
-                    <!--<button type="button" id="add-more-medication" name="add-more-medication" class="btn btn-primary">Add More</button>-->
-                <!--</div>-->
                 <div class="mt-2">
                     <a class="btn btn-primary btnPrevious">Previous</a>
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
@@ -181,5 +183,6 @@
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
 <script src="/js/information.js"></script>
+<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
 </body>
 </html>

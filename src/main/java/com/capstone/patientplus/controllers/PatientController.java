@@ -5,10 +5,7 @@ import com.capstone.patientplus.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,38 +48,50 @@ public class PatientController {
             model.addAttribute("medication" + Integer.toString(i), new Medication());
 
         }
-
         model.addAttribute("emergencyContact", new EmergencyContact());
-        model.addAttribute("insurance", new Insurance());
         model.addAttribute("pharmacy", new Pharmacy());
         return "patient/information";
     }
 
     @PostMapping("/patient/info")
-    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @ModelAttribute Insurance insurance, @ModelAttribute Pharmacy pharmacy, @ModelAttribute Surgery surgery1, @ModelAttribute Surgery surgery2, @ModelAttribute Surgery surgery3, @ModelAttribute Medication medication1, @ModelAttribute Medication medication2, @ModelAttribute Medication medication3){
+    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @RequestParam("insuranceUrl") String insuranceImgURL, @ModelAttribute Pharmacy pharmacy, @ModelAttribute Surgery surgery1, @ModelAttribute Surgery surgery2, @ModelAttribute Surgery surgery3, @ModelAttribute Medication medication1, @ModelAttribute Medication medication2, @ModelAttribute Medication medication3){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         emergencyContact.setPatient(patient);
         emergencyDao.save(emergencyContact);
-//        patient.setInsurance(insurance);
-//        insuranceDao.save(insurance);
+
+        Insurance insurance = new Insurance(insuranceImgURL);
+        patient.setInsurance(insurance);
+        insuranceDao.save(insurance);
+
         patient.setPharmacy(pharmacy);
         pharmacyDao.save(pharmacy);
 
-
         surgery1.setPatient(patient);
         surgeryDao.save(surgery1);
-        surgery2.setPatient(patient);
-        surgeryDao.save(surgery2);
-        surgery3.setPatient(patient);
-        surgeryDao.save(surgery3);
+
+        if (surgery2 != null){
+            Surgery thisSurgery = new Surgery(patient, surgery2.getDate(), surgery2.getOperation());
+            surgeryDao.save(thisSurgery);
+        }
+
+        if (surgery3 != null){
+            Surgery thisSurgery = new Surgery(patient, surgery3.getDate(), surgery3.getOperation());
+            surgeryDao.save(thisSurgery);
+        }
 
         medication1.setPatient(patient);
         medicationDao.save(medication1);
-        medication2.setPatient(patient);
-        medicationDao.save(medication2);
-        medication3.setPatient(patient);
-        medicationDao.save(medication3);
 
+        if (medication2 != null){
+            Medication thisMedication = new Medication(patient, medication2.getName(), medication2.getDose());
+            medicationDao.save(thisMedication);
+        }
+
+        if (medication3 != null){
+            Medication thisMedication = new Medication(patient, medication3.getName(), medication3.getDose());
+            medicationDao.save(thisMedication);
+        }
         return "redirect:/0/dashboard";
     }
 
@@ -120,6 +129,12 @@ public class PatientController {
         appointment.setPatient(patient);
         appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
         appointmentDao.save(appointment);
+        return "redirect:/0/dashboard";
+    }
+
+    @PostMapping("/patient/appointment/delete/{id}")
+    public String appointmentDelete(@PathVariable long id){
+        appointmentDao.delete(id);
         return "redirect:/0/dashboard";
     }
 }
