@@ -182,7 +182,8 @@ $(document).ready(function(){
                             "address": `${obj.practices[0].visit_address.street} ${obj.practices[0].visit_address.city}, 
                             ${obj.practices[0].visit_address.state}, ${obj.practices[0].visit_address.zip}`,
                             "lat": obj.practices[0].lat,
-                            "lon": obj.practices[0].lon
+                            "lon": obj.practices[0].lon,
+                            "phone_number":
                         });
                     }
                     console.log(doctorArry);
