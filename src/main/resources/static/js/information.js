@@ -50,8 +50,9 @@ $(document).ready(function () {
                 container.appendChild(thumbnail);
             }
         }
-        document.getElementById('insuranceUrl').value = result.filesUploaded[0].url
+        document.getElementById('insuranceUrl').value = result.filesUploaded[0].url;
         picker.close();
+        $('#inline').addClass('d-none');
     }
 
 });

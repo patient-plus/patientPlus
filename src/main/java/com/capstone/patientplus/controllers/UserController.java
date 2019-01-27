@@ -111,7 +111,7 @@ public class UserController {
         token.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticatedUser = authenticationManager.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
-        return "redirect:/0/dashboard";
+        return "redirect:/patient/info";
     }
 
     @GetMapping("/home")

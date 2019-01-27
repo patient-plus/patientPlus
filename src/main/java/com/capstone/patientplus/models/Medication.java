@@ -11,7 +11,7 @@ public class Medication {
     private User patient;
 
     @Column()
-    private String name;
+    private String medicationName;
     @Column()
     private String dose;
 
@@ -21,9 +21,9 @@ public class Medication {
 
     public Medication(){}
 
-    public Medication(User patient, String name, String dose) {
+    public Medication(User patient, String medicationName, String dose) {
         this.patient = patient;
-        this.name = name;
+        this.medicationName = medicationName;
         this.dose = dose;
     }
 
@@ -35,12 +35,12 @@ public class Medication {
         this.patient = patient;
     }
 
-    public String getName() {
-        return name;
+    public String getMedicationName() {
+        return medicationName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMedicationName(String medicationName) {
+        this.medicationName = medicationName;
     }
 
     public String getDose() {

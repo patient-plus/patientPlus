@@ -39,59 +39,74 @@ public class PatientController {
     @GetMapping("/patient/info")
     public String infoPage(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = users.findById(patient.getId());
         if (!patient.isPatient()){
-            return "redirect:/doctor/dashboard";
+            return "redirect:/0/dashboard";
+        }
+        if (thisUser.getInsurance() != null){
+            return "redirect:/0/dashboard";
         }
 
-        for (int i = 1; i <= 3; i++){
-            model.addAttribute("surgery" + Integer.toString(i), new Surgery());
-            model.addAttribute("medication" + Integer.toString(i), new Medication());
-
-        }
         model.addAttribute("emergencyContact", new EmergencyContact());
         model.addAttribute("pharmacy", new Pharmacy());
         return "patient/information";
     }
 
     @PostMapping("/patient/info")
-    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @RequestParam("insuranceUrl") String insuranceImgURL, @ModelAttribute Pharmacy pharmacy, @ModelAttribute Surgery surgery1, @ModelAttribute Surgery surgery2, @ModelAttribute Surgery surgery3, @ModelAttribute Medication medication1, @ModelAttribute Medication medication2, @ModelAttribute Medication medication3){
+    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact,
+                             @RequestParam("insuranceUrl") String insuranceImgURL,
+                             @ModelAttribute Pharmacy pharmacy,
+                             @RequestParam("surgeryOperation1") String surgeryOperation1,
+                             @RequestParam("surgeryDate1") String surgeryDate1,
+                             @RequestParam("surgeryOperation2") String surgeryOperation2,
+                             @RequestParam("surgeryDate2") String surgeryDate2,
+                             @RequestParam("surgeryOperation3") String surgeryOperation3,
+                             @RequestParam("surgeryDate3") String surgeryDate3,
+                             @RequestParam("medicationName1") String medicationName1,
+                             @RequestParam("medicationDose1") String medicationDose1,
+                             @RequestParam("medicationName2") String medicationName2,
+                             @RequestParam("medicationDose2") String medicationDose2,
+                             @RequestParam("medicationName3") String medicationName3,
+                             @RequestParam("medicationDose3") String medicationDose3){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        User thisUser = users.findById(patient.getId());
         emergencyContact.setPatient(patient);
         emergencyDao.save(emergencyContact);
 
         Insurance insurance = new Insurance(insuranceImgURL);
-        patient.setInsurance(insurance);
+        thisUser.setInsurance(insurance);
         insuranceDao.save(insurance);
 
-        patient.setPharmacy(pharmacy);
+        thisUser.setPharmacy(pharmacy);
         pharmacyDao.save(pharmacy);
 
-        surgery1.setPatient(patient);
+        Surgery surgery1 = new Surgery(patient, surgeryDate1, surgeryOperation1);
         surgeryDao.save(surgery1);
 
-        if (surgery2 != null){
-            Surgery thisSurgery = new Surgery(patient, surgery2.getDate(), surgery2.getOperation());
-            surgeryDao.save(thisSurgery);
+        if (!surgeryOperation2.equalsIgnoreCase("")){
+            Surgery surgery2 = new Surgery(patient, surgeryDate2, surgeryOperation2);
+            surgeryDao.save(surgery2);
         }
 
-        if (surgery3 != null){
-            Surgery thisSurgery = new Surgery(patient, surgery3.getDate(), surgery3.getOperation());
-            surgeryDao.save(thisSurgery);
+        if (!surgeryOperation3.equalsIgnoreCase("")){
+            Surgery surgery3 = new Surgery(patient, surgeryDate3, surgeryOperation3);
+            surgeryDao.save(surgery3);
         }
 
-        medication1.setPatient(patient);
+        Medication medication1 = new Medication(patient, medicationName1, medicationDose1);
         medicationDao.save(medication1);
 
-        if (medication2 != null){
-            Medication thisMedication = new Medication(patient, medication2.getName(), medication2.getDose());
-            medicationDao.save(thisMedication);
+        if (!medicationName2.equalsIgnoreCase("")){
+            Medication medication2 = new Medication(patient, medicationName2, medicationDose2);
+            medicationDao.save(medication2);
         }
 
-        if (medication3 != null){
-            Medication thisMedication = new Medication(patient, medication3.getName(), medication3.getDose());
-            medicationDao.save(thisMedication);
+        if (!medicationName3.equalsIgnoreCase("")){
+            Medication medication3 = new Medication(patient, medicationName3, medicationDose3);
+            medicationDao.save(medication3);
         }
+
+        users.save(thisUser);
         return "redirect:/0/dashboard";
     }
 
@@ -99,7 +114,7 @@ public class PatientController {
     public String appointmentCreate(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!patient.isPatient()){
-            return "redirect:/doctor/dashboard";
+            return "redirect:/0/dashboard";
         }
 
         //Get list of doctors for that user

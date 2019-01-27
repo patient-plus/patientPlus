@@ -10,10 +10,10 @@ public class EmergencyContact {
     private long id;
 
     @Column(nullable = false, name = "phone_number")
-    private String phoneNumber;
+    private String emergencyContactPhoneNumber;
 
     @Column(nullable = false)
-    private String name;
+    private String emergencyContactName;
 
     @Column(name = "relationship_to_patient")
     private String relationshipToPatient;
@@ -23,6 +23,12 @@ public class EmergencyContact {
 
     public EmergencyContact(){}
 
+    public EmergencyContact(String emergencyContactPhoneNumber, String emergencyContactName, String relationshipToPatient) {
+        this.emergencyContactPhoneNumber = emergencyContactPhoneNumber;
+        this.emergencyContactName = emergencyContactName;
+        this.relationshipToPatient = relationshipToPatient;
+    }
+
     public long getId() {
         return id;
     }
@@ -31,20 +37,20 @@ public class EmergencyContact {
         this.id = id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getEmergencyContactPhoneNumber() {
+        return emergencyContactPhoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setEmergencyContactPhoneNumber(String emergencyContactPhoneNumber) {
+        this.emergencyContactPhoneNumber = emergencyContactPhoneNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getEmergencyContactName() {
+        return emergencyContactName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
     }
 
     public String getRelationshipToPatient() {

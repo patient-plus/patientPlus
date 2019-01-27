@@ -20,7 +20,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item form-group">
                     <label for="contactName">Name</label>
-                    <input type="text" class="form-control" id="contactName" placeholder="Name" th:field="*{emergencyContact.name}"/>
+                    <input type="text" class="form-control" id="contactName" placeholder="Name" th:field="*{emergencyContact.emergencyContactName}"/>
                 </li>
                 <li class="list-group-item form-group">
                     <label for="contactRelation">Relation</label>
@@ -30,7 +30,7 @@
                     <label for="contactPhone" class="form-text">Phone Number:</label>
                     <input type="tel" id="contactPhone" name="contactPhone"
                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                           required="required" class="form-control" placeholder="000-000-0000" th:field="*{emergencyContact.phoneNumber}" />
+                           required="required" class="form-control" placeholder="000-000-0000" th:field="*{emergencyContact.emergencyContactPhoneNumber}" />
                 </li>
             </ul>
             <a class="btn btn-primary btnNext float-right mt-2 mb-20px">Next</a>
@@ -38,7 +38,7 @@
         <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance">
             <div class="text-center">
                 <h5>Please upload a photo of your insurance card.</h5>
-                <div id="inline" style="width:600px;height:500px;padding:20px;"></div>
+                <div id="inline" style="width:600px;height:500px;padding:20px; margin-left: auto; margin-right: auto"></div>
                 <div id="thumbnail-container"></div>
             </div>
             <input type="hidden" class="form-control" id="insuranceUrl" name="insuranceUrl"/>
@@ -51,17 +51,17 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item form-group">
                     <label for="pharmacyName">Name</label>
-                    <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name" th:field="*{pharmacy.name}"/>
+                    <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name" th:field="*{pharmacy.pharmacyName}"/>
                 </li>
                 <li class="list-group-item form-group">
                     <label for="pharmacyAddress">Pharmacy Address</label>
-                    <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address" th:field="*{pharmacy.address}"/>
+                    <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address" th:field="*{pharmacy.pharmacyAddress}"/>
                 </li>
                 <li class="list-group-item form-group">
                     <label for="pharmacyPhone" class="form-text">Phone Number:</label>
                     <input type="tel" id="pharmacyPhone" name="pharmacyPhone"
                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                           required="required" class="form-control" placeholder="000-000-0000" th:field="*{pharmacy.phoneNumber}"/>
+                           required="required" class="form-control" placeholder="000-000-0000" th:field="*{pharmacy.pharmacyPhoneNumber}"/>
                 </li>
             </ul>
             <div class="mt-2">
@@ -74,13 +74,13 @@
                 <small>Surgery One</small>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
-                        <label for="operation1">Operation</label>
-                        <input type="text" class="form-control" id="operation1" placeholder="Operation" th:field="${surgery1.operation}"/>
+                        <label for="surgeryOperation1">Operation</label>
+                        <input type="text" class="form-control" id="surgeryOperation1" name="surgeryOperation1" placeholder="Operation"/>
                     </li>
                     <li class="list-group-item form-group">
-                        <label for="operationDate1" class="form-text">Date of Operation:</label>
-                        <input type="date" id="operationDate1" name="operationDate1"
-                               class="form-control" th:field="${surgery1.date}"/>
+                        <label for="surgeryDate1" class="form-text">Date of Operation:</label>
+                        <input type="date" id="surgeryDate1" name="surgeryDate1"
+                               class="form-control"/>
                     </li>
                 </ul>
                 <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
@@ -89,13 +89,13 @@
                 <small>Surgery Two</small>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
-                        <label for="operation2">Operation</label>
-                        <input type="text" class="form-control" id="operation2" placeholder="Operation" th:field="${surgery2.operation}"/>
+                        <label for="surgeryOperation2">Operation</label>
+                        <input type="text" class="form-control" id="surgeryOperation2" name="surgeryOperation2" placeholder="Operation"/>
                     </li>
                     <li class="list-group-item form-group">
-                        <label for="operationDate2" class="form-text">Date of Operation:</label>
-                        <input type="date" id="operationDate2" name="operationDate2"
-                               class="form-control" th:field="${surgery2.date}"/>
+                        <label for="surgeryDate2" class="form-text">Date of Operation:</label>
+                        <input type="date" id="surgeryDate2" name="surgeryDate2"
+                               class="form-control" />
                     </li>
                 </ul>
                 <button type="button" class="btn btn-danger remove-me" >Remove</button>
@@ -105,13 +105,13 @@
                 <small>Surgery Three</small>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
-                        <label for="operation3">Operation</label>
-                        <input type="text" class="form-control" id="operation3" placeholder="Operation" th:field="${surgery3.operation}"/>
+                        <label for="surgeryOperation3">Operation</label>
+                        <input type="text" class="form-control" id="surgeryOperation3" name="surgeryOperation3" placeholder="Operation"/>
                     </li>
                     <li class="list-group-item form-group">
-                        <label for="operationDate3" class="form-text">Date of Operation:</label>
-                        <input type="date" id="operationDate3" name="operationDate3"
-                               class="form-control" th:field="${surgery3.date}"/>
+                        <label for="surgeryDate3" class="form-text">Date of Operation:</label>
+                        <input type="date" id="surgeryDate3" name="surgeryDate3"
+                               class="form-control" />
                     </li>
                 </ul>
                 <button type="button" class="btn btn-danger remove-me" >Remove</button>
@@ -129,11 +129,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
                         <label for="medicationName1">Medication Name</label>
-                        <input type="text" class="form-control" id="medicationName1" placeholder="Medication Name" th:field="${medication1.name}"/>
+                        <input type="text" class="form-control" id="medicationName1" name="medicationName1" placeholder="Medication Name" />
                     </li>
                     <li class="list-group-item form-group">
                         <label for="medicationDose1">Medication Dose</label>
-                        <input type="number" class="form-control" id="medicationDose1" placeholder="Medication Dose" th:field="${medication1.dose}"/>
+                        <input type="number" class="form-control" id="medicationDose1" name="medicationDose1" placeholder="Medication Dose" />
                     </li>
                 </ul>
                 <button type="button" name="add-more" class="add-more btn btn-primary">Add More</button>
@@ -143,11 +143,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
                         <label for="medicationName2">Medication Name</label>
-                        <input type="text" class="form-control" id="medicationName2" placeholder="Medication Name" th:field="${medication2.name}"/>
+                        <input type="text" class="form-control" id="medicationName2" name="medicationName2" placeholder="Medication Name" />
                     </li>
                     <li class="list-group-item form-group">
                         <label for="medicationDose2">Medication Dose</label>
-                        <input type="number" class="form-control" id="medicationDose2" placeholder="Medication Dose" th:field="${medication2.dose}"/>
+                        <input type="number" class="form-control" id="medicationDose2" name="medicationDose2" placeholder="Medication Dose" />
                     </li>
                 </ul>
                 <button type="button" class="btn btn-danger remove-me">Remove</button>
@@ -158,11 +158,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item form-group">
                         <label for="medicationName3">Medication Name</label>
-                        <input type="text" class="form-control" id="medicationName3" placeholder="Medication Name" th:field="${medication3.name}"/>
+                        <input type="text" class="form-control" id="medicationName3" name="medicationName3" placeholder="Medication Name"/>
                     </li>
                     <li class="list-group-item form-group">
                         <label for="medicationDose3">Medication Dose</label>
-                        <input type="number" class="form-control" id="medicationDose3" placeholder="Medication Dose" th:field="${medication3.dose}"/>
+                        <input type="number" class="form-control" id="medicationDose3" name="medicationDose3" placeholder="Medication Dose"/>
                     </li>
                 </ul>
                 <button type="button" class="btn btn-danger remove-me">Remove</button>
