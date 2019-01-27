@@ -60,10 +60,12 @@ public class UserController {
         if(user.isPatient()){
             //Patient Dashboard info
             model.addAttribute("isPatient", true);
+            model.addAttribute("appointments", appointmentDao.findByPatient(user));
 
         } else{
             //Doctor dashboard info
             model.addAttribute("isPatient", false);
+            model.addAttribute("appointments", appointmentDao.findByDoctor(user));
 
         }
 

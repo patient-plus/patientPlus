@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +86,7 @@ public class PatientController {
         return "redirect:/0/dashboard";
     }
 
-    @GetMapping("patient/appointment/create")
+    @GetMapping("/patient/appointment/create")
     public String appointmentCreate(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!patient.isPatient()){
@@ -96,21 +97,29 @@ public class PatientController {
         List<DoctorPatient> doctorsPatient = doctorPatientDao.findAllDoctorsByPatient(patient);
         List<User> doctors = new ArrayList<>();
         for(DoctorPatient combo : doctorsPatient){
-            doctors.add(users.findById(combo.getDoctor().getId()));
+            doctors.add(combo.getDoctor());
+        }
+        if (doctors.size() == 0){
+            return "redirect:/find-doctor";
         }
         model.addAttribute("doctors", doctors);
-        model.addAttribute("chosenDoctorID", 0);
+
+        model.addAttribute("Title", "Create Appointment");
+        model.addAttribute("create", true);
         //Make new appointment object
         model.addAttribute("appointment", new Appointment());
 
         return "/appointments/create-edit";
     }
 
-    @PostMapping("patient/appointment/create")
-    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment, @ModelAttribute long chosenDoctorID){
+    @PostMapping("/patient/appointment/create")
+    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment, @RequestParam("date") String date, @RequestParam("time") String time, @RequestParam("selectedDoctor") String chosenDoctorID){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String dateTime = date + " " + time;
+        appointment.setTime(dateTime);
         appointment.setPatient(patient);
-        appointment.setDoctor(users.findById(chosenDoctorID));
+        appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
+        appointmentDao.save(appointment);
         return "redirect:/0/dashboard";
     }
 }
