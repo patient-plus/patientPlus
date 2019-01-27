@@ -5,10 +5,7 @@ import com.capstone.patientplus.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,47 +39,74 @@ public class PatientController {
     @GetMapping("/patient/info")
     public String infoPage(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = users.findById(patient.getId());
         if (!patient.isPatient()){
-            return "redirect:/doctor/dashboard";
+            return "redirect:/0/dashboard";
         }
-
-        for (int i = 1; i <= 3; i++){
-            model.addAttribute("surgery" + Integer.toString(i), new Surgery());
-            model.addAttribute("medication" + Integer.toString(i), new Medication());
-
+        if (thisUser.getInsurance() != null){
+            return "redirect:/0/dashboard";
         }
 
         model.addAttribute("emergencyContact", new EmergencyContact());
-        model.addAttribute("insurance", new Insurance());
         model.addAttribute("pharmacy", new Pharmacy());
         return "patient/information";
     }
 
     @PostMapping("/patient/info")
-    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact, @ModelAttribute Insurance insurance, @ModelAttribute Pharmacy pharmacy, @ModelAttribute Surgery surgery1, @ModelAttribute Surgery surgery2, @ModelAttribute Surgery surgery3, @ModelAttribute Medication medication1, @ModelAttribute Medication medication2, @ModelAttribute Medication medication3){
+    public String infoSubmit(@ModelAttribute EmergencyContact emergencyContact,
+                             @RequestParam("insuranceUrl") String insuranceImgURL,
+                             @ModelAttribute Pharmacy pharmacy,
+                             @RequestParam("surgeryOperation1") String surgeryOperation1,
+                             @RequestParam("surgeryDate1") String surgeryDate1,
+                             @RequestParam("surgeryOperation2") String surgeryOperation2,
+                             @RequestParam("surgeryDate2") String surgeryDate2,
+                             @RequestParam("surgeryOperation3") String surgeryOperation3,
+                             @RequestParam("surgeryDate3") String surgeryDate3,
+                             @RequestParam("medicationName1") String medicationName1,
+                             @RequestParam("medicationDose1") String medicationDose1,
+                             @RequestParam("medicationName2") String medicationName2,
+                             @RequestParam("medicationDose2") String medicationDose2,
+                             @RequestParam("medicationName3") String medicationName3,
+                             @RequestParam("medicationDose3") String medicationDose3){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = users.findById(patient.getId());
         emergencyContact.setPatient(patient);
         emergencyDao.save(emergencyContact);
-//        patient.setInsurance(insurance);
-//        insuranceDao.save(insurance);
-        patient.setPharmacy(pharmacy);
+
+        Insurance insurance = new Insurance(insuranceImgURL);
+        thisUser.setInsurance(insurance);
+        insuranceDao.save(insurance);
+
+        thisUser.setPharmacy(pharmacy);
         pharmacyDao.save(pharmacy);
 
-
-        surgery1.setPatient(patient);
+        Surgery surgery1 = new Surgery(patient, surgeryDate1, surgeryOperation1);
         surgeryDao.save(surgery1);
-        surgery2.setPatient(patient);
-        surgeryDao.save(surgery2);
-        surgery3.setPatient(patient);
-        surgeryDao.save(surgery3);
 
-        medication1.setPatient(patient);
+        if (!surgeryOperation2.equalsIgnoreCase("")){
+            Surgery surgery2 = new Surgery(patient, surgeryDate2, surgeryOperation2);
+            surgeryDao.save(surgery2);
+        }
+
+        if (!surgeryOperation3.equalsIgnoreCase("")){
+            Surgery surgery3 = new Surgery(patient, surgeryDate3, surgeryOperation3);
+            surgeryDao.save(surgery3);
+        }
+
+        Medication medication1 = new Medication(patient, medicationName1, medicationDose1);
         medicationDao.save(medication1);
-        medication2.setPatient(patient);
-        medicationDao.save(medication2);
-        medication3.setPatient(patient);
-        medicationDao.save(medication3);
 
+        if (!medicationName2.equalsIgnoreCase("")){
+            Medication medication2 = new Medication(patient, medicationName2, medicationDose2);
+            medicationDao.save(medication2);
+        }
+
+        if (!medicationName3.equalsIgnoreCase("")){
+            Medication medication3 = new Medication(patient, medicationName3, medicationDose3);
+            medicationDao.save(medication3);
+        }
+
+        users.save(thisUser);
         return "redirect:/0/dashboard";
     }
 
@@ -90,7 +114,7 @@ public class PatientController {
     public String appointmentCreate(Model model){
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!patient.isPatient()){
-            return "redirect:/doctor/dashboard";
+            return "redirect:/0/dashboard";
         }
 
         //Get list of doctors for that user
@@ -120,6 +144,12 @@ public class PatientController {
         appointment.setPatient(patient);
         appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
         appointmentDao.save(appointment);
+        return "redirect:/0/dashboard";
+    }
+
+    @PostMapping("/patient/appointment/delete/{id}")
+    public String appointmentDelete(@PathVariable long id){
+        appointmentDao.delete(id);
         return "redirect:/0/dashboard";
     }
 }

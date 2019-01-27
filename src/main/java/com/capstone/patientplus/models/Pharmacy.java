@@ -15,13 +15,13 @@ public class Pharmacy {
 
     @NotBlank(message = "pharmacy name is required")
     @Column(nullable = false)
-    private String name;
+    private String pharmacyName;
 
     @Column(nullable = false)
-    private String address;
+    private String pharmacyAddress;
 
     @Column(name = "phone_number")
-    private String phoneNumber;
+    private String pharmacyPhoneNumber;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pharmacy")
     private List<User> patients;
@@ -29,6 +29,11 @@ public class Pharmacy {
 
     public Pharmacy(){}
 
+    public Pharmacy(String pharmacyName, String pharmacyAddress, String pharmacyPhoneNumber) {
+        this.pharmacyName = pharmacyName;
+        this.pharmacyAddress = pharmacyAddress;
+        this.pharmacyPhoneNumber = pharmacyPhoneNumber;
+    }
 
     public long getId() {
         return id;
@@ -38,27 +43,27 @@ public class Pharmacy {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPharmacyName() {
+        return pharmacyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPharmacyName(String pharmacyName) {
+        this.pharmacyName = pharmacyName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPharmacyAddress() {
+        return pharmacyAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPharmacyAddress(String pharmacyAddress) {
+        this.pharmacyAddress = pharmacyAddress;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPharmacyPhoneNumber() {
+        return pharmacyPhoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPharmacyPhoneNumber(String pharmacyPhoneNumber) {
+        this.pharmacyPhoneNumber = pharmacyPhoneNumber;
     }
 }
