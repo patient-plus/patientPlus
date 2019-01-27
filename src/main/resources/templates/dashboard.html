@@ -9,6 +9,9 @@
     .dashboardContainer, .patientDashboardContainer {
         background-color: rgb(241, 243, 244);
     }
+    .findADoctorDashboardCard, .bookAppointmentDashboardCard {
+        background-color:  rgb(242	242	242	);
+    }
     /*.dashboardDisplay {*/
         /*background-color: rgb(241, 243, 244);*/
     /*}*/
@@ -19,6 +22,7 @@
     .table-row{
         cursor:pointer;
     }
+
 </style>
 <body>
 <nav th:replace="partials :: navbar"></nav>
@@ -30,7 +34,8 @@
         <h4 class="pb-0 text-left">Here's your schedule</h4>
 
         <div class="row dashboardPatientRow">
-            <div class="col patientAppointmentsCol" th:each="appointment : ${appointments}">
+            <div class="col patientAppointmentsCol">
+            <!--<div class="col patientAppointmentsCol" th:each="appointment : ${appointments}">-->
                 <div class="card table-responsive table-bordered table-hover">
                     <table class="card-body table table-striped mb-0">
                         <thead class="bg-info">
@@ -38,6 +43,7 @@
                             <th>Doctor</th>
                             <th>Date/Time</th>
                             <th>Location</th>
+                            <th>Edit</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,13 +52,39 @@
                                 <td>Jan 14, 2019 2:00PM</td>
                                 <!--<td th:text="${appointment.time}"></td>-->
                                 <td>Santa Rosa Hospital</td>
+                                <td><button class="btn btn-link" type="button">Edit/Cancel Appointment</button></td>
 
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="col patientOptionCol">
-                    <!--<p th:text="${appointment.time}"></p>-->
+            </div>
+            <div class="container mt-5 pt-0 pb-3 pl-3 pr-3 rounded patientDashboardOptions">
+                <h4 class="pb-0 text-left">What would you like to do?</h4>
+
+                <div class="card-deck">
+                    <div class="card findADoctorDashboardCard">
+                        <div class="card-header bg-info text-center">
+                            Find a Doctor
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="#" class="btn btn-primary">Find now</a>
+                        </div>
+                    </div>
+                    <div class="card bookAppointmentDashboardCard">
+                        <div class="card-header bg-info text-center">
+                            Book Appointment
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Book now</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                    <!--&lt;!&ndash;<p th:text="${appointment.time}"></p>&ndash;&gt;-->
                     <!--This should show up when the user is a doctor-->
                     <!--<form action="get" th:href="">-->
                         <!--Link to paperwork filled out by patient-->
@@ -60,12 +92,10 @@
                     <!--</form>-->
 
                     <!--This should show up if the user is a patient-->
-                    <!--<form action="get" th:href="">-->
+                    <!--<form action="get">-->
                         <!--Link to paperwork for appoitnment-->
                         <!--<button>View Appointment Details</button>-->
                     <!--</form>-->
-                </div>
-
             </div>
         </div>
     </div>
