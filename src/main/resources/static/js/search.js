@@ -20,6 +20,7 @@ $(document).ready(function(){
     let firstName = $(`#doctor-first-name`);
     let lastName = $(`#doctor-last-name`);
     let resultsSection = $(`#results-list`);
+    let doctorSection = $(`#doctor-results`);
 
 
     options.empty();
@@ -58,7 +59,6 @@ $(document).ready(function(){
     };
 
     const setStatesList = (data) => {
-        console.log(data[0]);
         for(let i =0 ; i < data.length; i++){
             let stateVal = `${data[i].name}-${data[i].abbreviation}`;
             state.append($(`<option></option>`).attr('value', stateVal).text(data[i].abbreviation));
@@ -67,9 +67,7 @@ $(document).ready(function(){
 
     const setCitiesList = (data, stateChosen) => {
         for(let state in data){
-            console.log(data);
             if(stateChosen === state){
-                console.log('state matched');
                 for(let i = 0; i < data[`${state}`].length ; i++){
                     let citySlug = (data[`${state}`])[i].toLowerCase().split(' ').join('-');
                     city.append($(`<option></option>`).attr('value', citySlug).text((data[`${state}`])[i]));
@@ -95,17 +93,6 @@ $(document).ready(function(){
             }
         }
     };
-    //
-    // const getRequestUrl = () => {
-    //     var requestUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
-    //
-    //     if(location.val() !== ''){
-    //         requestUrl += `location=${location.val()}&`;
-    //     }
-    //     requestUrl += `skip=0&limit=10&user_key=${api_key}`;
-    //     return requestUrl;
-    //
-    // };
 
     const getDoctorUrl = (locationSlug) => {
         let requestDoctorsUrl = `https://api.betterdoctor.com/2016-03-01/doctors?`;
@@ -116,13 +103,49 @@ $(document).ready(function(){
         return null;
     };
 
-    // const matchesFilter = (doctor, parameterName) => {
-    //     //we get a set of parameter values
-    //     //checks to make sure the search matches the filters given
-    //     //what if we only recieve two parameters
-    //     return (doctor[parameterName] === )
-    //
+    let token = $("meta[name='_csrf']").attr("content");
+    let header = $("meta[name='_csrf_header']").attr("content");
+
+
+    // const AJAXPromise = (requestUrl) => {
+    //     return new Promise((resolve, reject) => {
+    //         $.ajax({
+    //             url: requestUrl,
+    //             type: "GET",
+    //             data: {
+    //                 location_slug: `${locationSlug}`
+    //             },
+    //             beforeSend: function(xhr){
+    //                 xhr.setRequestHeader(header, token);
+    //             },
+    //             dataType: "json",
+    //         }).done(() => {
+    //             return resolve();
+    //         }).fail(() => {
+    //             return reject();
+    //         });
+    //     });
     // };
+    //
+
+    //this one makes the call to the back end using the url
+    doctorSection.on('submit','.doctor-add',(e) => {
+        e.preventDefault();
+        console.log(e);
+        console.log("in ajax");
+
+        console.log("ajax test");
+        $.ajax({
+            url: "/find-doctor",
+            type: "POST",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            data: $(e.currentTarget).serialize()
+        }).done((data) => {
+            console.log(data);
+        });
+    });
 
     request().then((data) => {
         setInsuranceList(data);
@@ -139,8 +162,6 @@ $(document).ready(function(){
 
        requestCities().then((data) => {
            let stateChosen = state.val().split('-')[0];
-           console.log(stateChosen);
-           console.log(state.val());
            setCitiesList(data, stateChosen);
        })
 
@@ -169,7 +190,11 @@ $(document).ready(function(){
 
 
         if(requestUrl !== null){
-            fetch(requestUrl).then(response => response.json())
+            ///////////////////////////////////////////this is where we call the request
+            fetch(requestUrl).then(response => {
+                console.log("in data response");
+                return response.json()
+            })
                 .then(response => response.data)
                 .then(data => {
 
@@ -190,7 +215,7 @@ $(document).ready(function(){
                             "phone_number": data[i].practices[0].phones,
                             "insurance_uids" : data[i].practices[0].insurance_uids,
                             "insurances" : data[i].practices[0].insurances,
-                            "link": `<form action="/find-doctor" method="get" >
+                            "link": `<form action="/find-doctor" method="post" class="doctor-add">
                                 <div class="row">
                                     <div class="col-6">
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
@@ -210,13 +235,11 @@ $(document).ready(function(){
                     return doctorArray;
                 }).then((doctorArray) => {
 
-                for(let i = 0; i < doctorArray.length; i++){
-                    console.log(doctorArray[i].insurance_uids);
-                }
                     //once array is set we can add the listener on the forms
                 searchBtn.click( (e) => {
-                    resultsSection.empty();
                     e.preventDefault();
+
+                    resultsSection.empty();
 
 
                     let parameters = {};
@@ -227,12 +250,10 @@ $(document).ready(function(){
                     if(firstName.val() !== ''){
                         parameters.first_name = firstName.val().toLowerCase().trim();
                         paramNames.push("first_name");
-                        console.log(parameters);
                     }
                     if(lastName.val() !== ''){
                         parameters.last_name = lastName.val().toLowerCase().trim();
                         paramNames.push("last_name");
-                        console.log(parameters);
 
                     }
                     if (options.val().split('-')[0] !== "choose-provider") {
@@ -240,7 +261,6 @@ $(document).ready(function(){
                         if(plans.val() !== "choose-plan"){
                             parameters.insurance_uid = plans.val();
                             paramNames.push("insurance_uid");
-                            console.log(parameters);
                         }
                     }
 
@@ -264,20 +284,11 @@ $(document).ready(function(){
                         }
                     }
 
-                    console.log(doctorResultsArr);
-
+                    //by this point the elements are created
                 });
 
             });
         }
     });
-
-
-
-    // let requestWithLocation = fetch()
-
-
-
-
 });
 
