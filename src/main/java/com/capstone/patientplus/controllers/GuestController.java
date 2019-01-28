@@ -16,6 +16,7 @@ public class GuestController {
     @PostMapping("/find-doctor")
     public String addToDoctors(){
         //code to add doctor
+        //hello
         return "redirect: /home";
     }
 }
