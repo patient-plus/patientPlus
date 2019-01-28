@@ -7,7 +7,7 @@
     body {
         background-color: #1c5d8e;
     }
-    .header, li {
+    li {
         background-color: rgb(241, 243, 244);
     }
 
@@ -18,17 +18,13 @@
 <nav th:replace="partials :: navbar"></nav>
 
 
-    <div class="card">
-        <div class="card-header">
-            Help us help you
-        </div>
-        <div class="card-body">
-            <p class="card-text">To better ensure your experience, please fill out our medical form</p>
-        </div>
-    </div>
+<div class="header text-light text-left ml-5 mt-5 pl-5">
+    <h1 class="ml-5 pl-3">Help us help you</h1>
+    <p class="ml-5 pl-4">Please fill out our medical form</p>
+</div>
 
 
-<div class="container mt-5">
+<div class="container mt-0">
     <div class="card">
         <div class="card-header">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
