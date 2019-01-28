@@ -113,8 +113,21 @@ public class PatientController {
     }
 
     @PostMapping("/patient/appointment/create")
-    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment, @RequestParam("date") String date, @RequestParam("time") String time, @RequestParam("selectedDoctor") String chosenDoctorID){
+    public String appointmentCreateSubmit(@ModelAttribute Appointment appointment,
+                                          @RequestParam("date") String date,
+                                          @RequestParam("time") String time,
+                                          @RequestParam("selectedDoctor") String chosenDoctorID,
+                                          @RequestParam(name = "firstName") String firstName,
+                                          @RequestParam(name = "lastName") String lastName,
+                                          @RequestParam(name = "patient") String isPatient
+    ){
+        boolean patientIndicator = Boolean.parseBoolean(isPatient);
+
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User doctor = new User( firstName, lastName, patientIndicator);
+
+
+
         String dateTime = date + " " + time;
         appointment.setTime(dateTime);
         appointment.setPatient(patient);

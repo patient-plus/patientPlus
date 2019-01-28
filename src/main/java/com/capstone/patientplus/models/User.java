@@ -93,6 +93,16 @@ public class User {
         this.insurances = copy.insurances;
     }
 
+    public User(String firstName, String lastName, boolean patient){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.patient = patient;
+    }
+
     public long getId() {
         return id;
     }

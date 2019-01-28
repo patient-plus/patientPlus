@@ -19,9 +19,7 @@ $(document).ready(function(){
     let searchBtn = $(`#search-btn`);
     let firstName = $(`#doctor-first-name`);
     let lastName = $(`#doctor-last-name`);
-    let location = $(`#location`);
     let resultsSection = $(`#results-list`);
-    let resultsSection2 = $(`#results-results`);
 
 
     options.empty();
@@ -97,17 +95,17 @@ $(document).ready(function(){
             }
         }
     };
-
-    const getRequestUrl = () => {
-        var requestUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
-
-        if(location.val() !== ''){
-            requestUrl += `location=${location.val()}&`;
-        }
-        requestUrl += `skip=0&limit=10&user_key=${api_key}`;
-        return requestUrl;
-
-    };
+    //
+    // const getRequestUrl = () => {
+    //     var requestUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
+    //
+    //     if(location.val() !== ''){
+    //         requestUrl += `location=${location.val()}&`;
+    //     }
+    //     requestUrl += `skip=0&limit=10&user_key=${api_key}`;
+    //     return requestUrl;
+    //
+    // };
 
     const getDoctorUrl = (locationSlug) => {
         let requestDoctorsUrl = `https://api.betterdoctor.com/2016-03-01/doctors?`;
@@ -117,6 +115,14 @@ $(document).ready(function(){
         }
         return null;
     };
+
+    // const matchesFilter = (doctor, parameterName) => {
+    //     //we get a set of parameter values
+    //     //checks to make sure the search matches the filters given
+    //     //what if we only recieve two parameters
+    //     return (doctor[parameterName] === )
+    //
+    // };
 
     request().then((data) => {
         setInsuranceList(data);
@@ -161,7 +167,6 @@ $(document).ready(function(){
 
 
 
-        resultsSection.empty();
 
         if(requestUrl !== null){
             fetch(requestUrl).then(response => response.json())
@@ -174,8 +179,8 @@ $(document).ready(function(){
                         //without making multiple api calls
 
                         doctorArray.push({
-                            "first_name": data[i].profile.first_name,
-                            "last_name" : data[i].profile.last_name,
+                            "first_name": data[i].profile.first_name.toLowerCase(),
+                            "last_name" : data[i].profile.last_name.toLowerCase(),
                             "uid": data[i].uid,
                             "clinic": data[i].practices[0].name,
                             "address": `${data[i].practices[0].visit_address.street} ${data[i].practices[0].visit_address.city},
@@ -185,16 +190,19 @@ $(document).ready(function(){
                             "phone_number": data[i].practices[0].phones,
                             "insurance_uids" : data[i].practices[0].insurance_uids,
                             "insurances" : data[i].practices[0].insurances,
-                            "link": `<form action="/patient/appointment/create" method="post" >
-                                <span>Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
-                                <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
-                                <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
-                                <input type="hidden" name="username" value="doctor${data[i].profile.last_name}"/>
-                                <input type="hidden" name="password" value="Doctorpassword1"/>
-                                <input type="hidden" name="patient" value="${false}"/>
-                                <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones}">
-                                
-                                <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                            "link": `<form action="/patient/appointment/create/test" method="post" >
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
+                                        <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
+                                        <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
+                                        <input type="hidden" name="patient" value="${false}"/>
+                                    </div>
+                                    <div class="col-6">
+                                    
+                                        <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                                    </div>
+                                </div>
                             </form>`
                         });
 
@@ -207,53 +215,57 @@ $(document).ready(function(){
                 }
                     //once array is set we can add the listener on the forms
                 searchBtn.click( (e) => {
+                    resultsSection.empty();
                     e.preventDefault();
-                    let firstNameSearch;
-                    let lastNameSearch;
-                    // let insuranceName;
-                    let planSlug;
-                    let parameters = [];
+
+
+                    let parameters = {};
+                    let paramNames = [];
                     let doctorResultsArr = [];
 
 
                     if(firstName.val() !== ''){
-                        firstNameSearch = firstName.val();
-                        parameters.push("first_name");
-                        console.log(firstNameSearch);
+                        parameters.first_name = firstName.val().toLowerCase().trim();
+                        paramNames.push("first_name");
+                        console.log(parameters);
                     }
                     if(lastName.val() !== ''){
-                        lastNameSearch = lastName.val();
-                        parameters.push("last_name");
-                        console.log(lastNameSearch);
+                        parameters.last_name = lastName.val().toLowerCase().trim();
+                        paramNames.push("last_name");
+                        console.log(parameters);
+
                     }
                     if (options.val().split('-')[0] !== "choose-provider") {
-                        // insuranceName = options.val().split('-')[0];
-                        // parameters.push("")
 
                         if(plans.val() !== "choose-plan"){
-                            planSlug = plans.val();
-                            console.log(planSlug);
+                            parameters.insurance_uid = plans.val();
+                            paramNames.push("insurance_uid");
+                            console.log(parameters);
                         }
                     }
+
+                    //we have a list of parameters that we want to make sure are matches
 
                     for(let i = 0; i < doctorArray.length; i++){
                         console.log('in loop');
-                        let first_name = doctorArray[i].first_name;
-                        let last_name = doctorArray[i].last_name;
-                        let insurances = doctorArray[i].insurance_uids;
-
-                        if(first_name === firstNameSearch || last_name === lastNameSearch || insurances.indexOf(planSlug) >= 0){
-                            console.log('doctor match');
+                        if((doctorArray[i].first_name === parameters.first_name || parameters.first_name === undefined)
+                        && (doctorArray[i].last_name === parameters.last_name || parameters.last_name === undefined)
+                        && (doctorArray[i].insurance_uids.indexOf(parameters.insurance_uid) >= 0 || parameters.insurance_uid === undefined)){
                             doctorResultsArr.push(doctorArray[i]);
+                        }
+
+                    }
+                    if(doctorResultsArr.length === 0){
+                        resultsSection.html(`<li class="list-group-item">No Results Available</li>`);
+                    }
+                    else{
+                        for(let i = 0; i < doctorResultsArr.length; i++){
+                            resultsSection.append($(`<div class="list-group-item"></div>`).html(doctorResultsArr[i].link));
                         }
                     }
 
-
                     console.log(doctorResultsArr);
 
-                    for(let i = 0; i < doctorResultsArr.length; i++){
-                        resultsSection2.append($(`<div class="list-group-item"></div>`).html(doctorResultsArr[i].link));
-                    }
                 });
 
             });
