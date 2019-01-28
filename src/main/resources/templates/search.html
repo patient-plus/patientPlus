@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Find a Doctor')"/>
+<style>
+    body {
+        background-color: #1c5d8e;
+    }
+    .card {
+        background-color: rgb(241, 243, 244);
+    }
+</style>
 
 <body>
 <nav th:replace="partials :: navbar"></nav>
@@ -8,34 +16,39 @@
 * styles shouldn't be applied on top of existing bootstrap classes
 * try to add styles using classes
 -->
-
-<div class="container align-self-center mt-4">
-    <div class="row pt-3">
+<div class="header text-light text-left mt-5 ml-5 pb-0 pl-5">
+    <h1 class="ml-5 pl-3">Find a Doctor</h1>
+</div>
+<div class="container align-self-center mt-0">
+    <div class="row pt-0">
         <!--FORM TO GRAB ALL DOCTORS IN AREA-->
         <div class="col-12 aboutCompanyCol">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col mx-auto">
-                            <div class="card-title">
+                            <div class="card-title mt-2 mb-2">
                                 Enter City and State:
                             </div>
                             <form href="" id="location-form">
-                                <div class="input-group input-group-lg">
-                                    <label for="state">
-                                        State:
-                                        <select type="text" name="state" id="state" class="form-control">
-                                        </select>
-                                    </label>
+                                <div class="form-row">
+                                    <div class="form-group col-6 input-group input-group-lg">
+                                        <label class="w-50" for="state">
+                                            State:
+                                            <select type="text" name="state" id="state" class="form-control">
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group col-6 input-group input-group-lg">
+                                        <label class="w-100" for="city">
+                                            City:
+                                            <select type="text" name="city" id="city" class="form-control">
+                                            </select>
+                                        </label>
+                                    </div>
                                 </div>
 
-                                <div class="input-group input-group-lg">
-                                    <label for="city">
-                                        City:
-                                        <select type="text" name="city" id="city" class="form-control">
-                                        </select>
-                                    </label>
-                                </div>
 
                             </form>
                         </div>
