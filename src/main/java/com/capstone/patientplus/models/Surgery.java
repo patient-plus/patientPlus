@@ -11,7 +11,7 @@ public class Surgery {
     private User patient;
 
     @Column()
-    private String date;
+    private String surgeryDate;
     @Column()
     private String operation;
 
@@ -21,9 +21,9 @@ public class Surgery {
 
     public Surgery(){}
 
-    public Surgery(User patient, String date, String operation) {
+    public Surgery(User patient, String surgeryDate, String operation) {
         this.patient = patient;
-        this.date = date;
+        this.surgeryDate = surgeryDate;
         this.operation = operation;
     }
 
@@ -35,12 +35,12 @@ public class Surgery {
         this.patient = patient;
     }
 
-    public String getDate() {
-        return date;
+    public String getSurgeryDate() {
+        return surgeryDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setSurgeryDate(String surgeryDate) {
+        this.surgeryDate = surgeryDate;
     }
 
     public String getOperation() {
