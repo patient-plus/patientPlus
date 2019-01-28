@@ -1,9 +1,9 @@
 package com.capstone.patientplus.controllers;
 
+import com.capstone.patientplus.models.Appointment;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +16,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -61,7 +62,6 @@ public class UserController {
             //Patient Dashboard info
             model.addAttribute("isPatient", true);
             model.addAttribute("appointments", appointmentDao.findByPatient(user));
-
         } else{
             //Doctor dashboard info
             model.addAttribute("isPatient", false);
@@ -117,5 +117,38 @@ public class UserController {
     @GetMapping("/home")
     public String failedLogin(){
         return "redirect:/";
+    }
+
+    @GetMapping("/user/edit-info")
+    public String editUserInfo(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        model.addAttribute("user", user);
+        return "user-info";
+    }
+
+    @PostMapping("/user/edit-info")
+    public String editUserInfoSubmit(Model model, @RequestParam("password") String password, @RequestParam("username") String username, @RequestParam("phoneNumber") String phoneNumber){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = users.findById(user.getId());
+
+        for (User eachUser : users.findAll()){
+            if (username.equalsIgnoreCase(eachUser.getUsername())){
+                model.addAttribute("sameEmail", true);
+                return "user-info";
+            }
+        }
+        if (!phoneNumber.equalsIgnoreCase("")){
+            thisUser.setPhoneNumber(phoneNumber);
+        }
+        if (!username.equalsIgnoreCase("")){
+            thisUser.setUsername(username);
+        }
+        if (!phoneNumber.equalsIgnoreCase("")){
+            String hash = passwordEncoder.encode(password);
+            thisUser.setPassword(hash);
+        }
+        users.save(thisUser);
+        return "redirect:/0/dashboard";
     }
 }

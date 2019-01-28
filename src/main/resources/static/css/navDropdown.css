@@ -1,0 +1,16 @@
+.dropdown-content {
+    position: absolute !important;
+    top: 50px !important;
+    width: 130px !important;
+    background-color: #f9f9f9 !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+    z-index: 1 !important;
+}
+
+.dropdown-content a {
+    min-width: 130px !important;
+    color: black !important;
+    padding: 12px 16px !important;
+    text-decoration: none !important;
+    display: block !important;
+}

@@ -120,7 +120,13 @@ public class PatientController {
         //Get list of doctors for that user
         List<DoctorPatient> doctorsPatient = doctorPatientDao.findAllDoctorsByPatient(patient);
         List<User> doctors = new ArrayList<>();
+        outerLoop:
         for(DoctorPatient combo : doctorsPatient){
+            for (Appointment appointment : appointmentDao.findByPatient(patient)){
+                if (appointment.getDoctor() == combo.getDoctor()){
+                    continue outerLoop;
+                }
+            }
             doctors.add(combo.getDoctor());
         }
         if (doctors.size() == 0){
