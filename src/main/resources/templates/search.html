@@ -1,30 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Find a Doctor')"/>
-<body id="background">
 
-<form href="#" action="get">
-    <label for="insurances">
-        <select name="insurance-providers" id="insurances">
-            <div id="options"></div>
-        </select>
-    </label>
+<body>
+<nav th:replace="partials :: navbar"></nav>
+<!--
+* styles shouldn't be applied on top of existing bootstrap classes
+* try to add styles using classes
+-->
 
-    <label for="plans">
-        <select name="insurance-plans" id="plans"></select>
-    </label>
+<div class="container align-self-center mt-4">
+    <div class="row pt-3">
+        <!--FORM TO GRAB ALL DOCTORS IN AREA-->
+        <div class="col-12 aboutCompanyCol">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <div class="card-title">
+                                Enter City and State:
+                            </div>
+                            <form href="" id="location-form">
+                                <div class="input-group input-group-lg">
+                                    <label for="state">
+                                        State:
+                                        <select type="text" name="state" id="state" class="form-control">
+                                        </select>
+                                    </label>
+                                </div>
 
-    <label for="doctor-first-name">
-        <input type="text" id="doctor-first-name"/>
-    </label>
+                                <div class="input-group input-group-lg">
+                                    <label for="city">
+                                        City:
+                                        <select type="text" name="city" id="city" class="form-control">
+                                        </select>
+                                    </label>
+                                </div>
 
-    <label for="doctor-last-name">
-        <input type="text" id="doctor-last-name"/>
-    </label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</form>
+    <div class="row pt-3">
+        <!--FORM TO NARROW PARAMETERS-->
+        <div class="col aboutCompanyCol">
+            <div class="card">
+                <div class="card-body companyCard">
+                <h3 class="card-title">Filters</h3>
+                    <form href="" id="search-form">
+                        <div class="input-group input-group-sm">
+                            <label for="doctor-first-name" class="pr-4">
+                                <span>First Name:</span>
+                                <input type="text" class="form-control" id="doctor-first-name"/>
+                            </label>
+                            <label for="doctor-last-name">
+                                <span>Last Name:</span>
+                                <input type="text" id="doctor-last-name" class="form-control"/>
+                            </label>
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3">
+
+                        </div>
 
 
+                        <div class="input-group input-group-sm mb-3">
+                            <label for="insurances">
+                                <span>Insurance Providers: </span>
+                                <select name="insurance-providers" id="insurances" class="form-control">
+                                </select>
+                            </label>
+                        </div>
+
+
+                        <div class="input-group input-group-lg mb-3">
+                            <label for="plans" class="pr-4">
+                                <span>Insurance Plans:</span>
+                                <select name="insurance-plans" id="plans" class="form-control"></select>
+                            </label>
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+                            <label for="location">
+                                <span>Zipcode:</span>
+                                <input name="location" id="location" class="form-control" type="text"/>
+                            </label>
+                        </div>
+                        <button class="btn btn-success btn-lg" id="search-btn">Search</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col formCol">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Results</h3>
+                    <ul class="list-group list-group-flush" id="results-list">
+                        <!--generate list of results with list-group-item class-->
+                        <li class="list-group-item">No Results Available</li>
+                    </ul>
+                    <div id="results-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="partials :: footer"></footer>
 
 <span th:replace="partials :: scripts"/>
 <script src="/js/search.js"></script>
