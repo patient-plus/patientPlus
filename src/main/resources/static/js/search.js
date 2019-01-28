@@ -221,6 +221,7 @@ $(document).ready(function(){
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
                                         <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
                                         <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
+                                        <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones}"/>
                                         <input type="hidden" name="patient" value="${false}"/>
                                     </div>
                                     <div class="col-6">
