@@ -190,7 +190,7 @@ $(document).ready(function(){
                             "phone_number": data[i].practices[0].phones,
                             "insurance_uids" : data[i].practices[0].insurance_uids,
                             "insurances" : data[i].practices[0].insurances,
-                            "link": `<form action="/patient/appointment/create/test" method="post" >
+                            "link": `<form action="/patient/appointment/create" method="post" >
                                 <div class="row">
                                     <div class="col-6">
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
