@@ -140,27 +140,27 @@ public class PatientController {
     public String appointmentCreateSubmit(@ModelAttribute Appointment appointment,
                                           @RequestParam("date") String date,
                                           @RequestParam("time") String time,
-                                          @RequestParam("selectedDoctor") String chosenDoctorID,
-                                          @RequestParam(name = "firstName") String firstName,
-                                          @RequestParam(name = "lastName") String lastName,
-                                          @RequestParam(name = "patient") String isPatient
+                                          @RequestParam("selectedDoctor") String chosenDoctorID
     ){
-        boolean patientIndicator = Boolean.parseBoolean(isPatient);
+//                                          @RequestParam(name = "firstName") String firstName,
+//                                          @RequestParam(name = "lastName") String lastName,
+//                                          @RequestParam(name = "patient") String isPatient
+//        boolean patientIndicator = Boolean.parseBoolean(isPatient);
 
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long id = patient.getId();
-        User doctor = new User( firstName, lastName, patientIndicator);
-        doctor.setPassword("password");
-        doctor.setUsername("doctor" + lastName + firstName);
-        doctor.setPhoneNumber("000-000-0000");
+//        Long id = patient.getId();
+//        User doctor = new User( firstName, lastName, patientIndicator);
+//        doctor.setPassword("password");
+//        doctor.setUsername("doctor" + lastName + firstName);
+//        doctor.setPhoneNumber("000-000-0000");
 
 
         String dateTime = date + " " + time;
         appointment.setTime(dateTime);
         appointment.setPatient(patient);
 
-//        appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
-        appointment.setDoctor(doctor);
+        appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
+//        appointment.setDoctor(doctor);
         appointmentDao.save(appointment);
         return "redirect: /";
     }

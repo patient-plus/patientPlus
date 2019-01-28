@@ -190,7 +190,7 @@ $(document).ready(function(){
                             "phone_number": data[i].practices[0].phones,
                             "insurance_uids" : data[i].practices[0].insurance_uids,
                             "insurances" : data[i].practices[0].insurances,
-                            "link": `<form action="/patient/appointment/create" method="post" >
+                            "link": `<form action="/find-doctor" method="get" >
                                 <div class="row">
                                     <div class="col-6">
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
@@ -200,7 +200,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="col-6">
                                     
-                                        <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                                        <button type="submit" class="btn btn-primary">Add To Doctors</button>
                                     </div>
                                 </div>
                             </form>`
