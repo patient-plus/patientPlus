@@ -31,11 +31,10 @@
 <section th:if="${isPatient == true}">
     <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded patientDashboardContainer">
         <h1 class="pb-0 text-left">Welcome back!</h1>
-        <h4 class="pb-0 text-left">Here's your schedule</h4>
+        <h4 class="pb-0 text-left">Here are your appointments</h4>
 
         <div class="row dashboardPatientRow">
             <div class="col patientAppointmentsCol">
-            <!--<div class="col patientAppointmentsCol" th:each="appointment : ${appointments}">-->
                 <div class="card table-responsive table-bordered table-hover">
                     <table class="card-body table table-striped mb-0">
                         <thead class="bg-info">
@@ -47,13 +46,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-row">
-                                <td>Dr. Name</td>
-                                <td>Jan 14, 2019 2:00PM</td>
-                                <!--<td th:text="${appointment.time}"></td>-->
-                                <td>Santa Rosa Hospital</td>
-                                <td><button class="btn btn-link" type="button">Edit/Cancel Appointment</button></td>
-
+                            <tr class="table-row" th:each="appointment : ${appointments}">
+                                <td th:text="${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></td>
+                                <td th:text="${appointment.time}"></td>
+                                <td th:text="${appointment.location}"></td>
+                                <td>
+                                    <form th:action="@{/patient/appointment/delete/{id}(id = ${appointment.id})}" th:method="POST">
+                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Cancel Appointment</button>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        Are you sure you want to cancel the appointment?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -78,24 +92,10 @@
                         </div>
                         <div class="card-body text-center">
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Book now</a>
-
+                            <a href="/patient/appointment/create" class="btn btn-primary">Book now</a>
                         </div>
                     </div>
                 </div>
-
-                    <!--&lt;!&ndash;<p th:text="${appointment.time}"></p>&ndash;&gt;-->
-                    <!--This should show up when the user is a doctor-->
-                    <!--<form action="get" th:href="">-->
-                        <!--Link to paperwork filled out by patient-->
-                        <!--<button>View Profile</button>-->
-                    <!--</form>-->
-
-                    <!--This should show up if the user is a patient-->
-                    <!--<form action="get">-->
-                        <!--Link to paperwork for appoitnment-->
-                        <!--<button>View Appointment Details</button>-->
-                    <!--</form>-->
             </div>
         </div>
     </div>
@@ -105,7 +105,8 @@
 <section th:if="${isPatient == false}">
     <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded dashboardContainer">
         <h1 class="pb-0 text-left">Welcome back, Doctor!</h1>
-        <h4 class="pb-0 text-left">Here are your appointments</h4>
+        <h4 class="pb-0 text-left">Here's your schedule</h4>
+        <span class="numberOfAppointments" th:id="${#lists.size(appointments)}"></span>
 
 
 
@@ -115,41 +116,17 @@
                 <table class="card-body table table-striped mb-0">
                     <thead class="bg-info">
                     <tr>
-                        <th>Name</th>
+                        <th>Patient's Name</th>
                         <th>Date/Time</th>
                         <th>Profile</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr class="table-row">
-                        <td>Stephen Ray Guedea</td>
-                        <td>Jan 14, 2019 2:00PM</td>
-                        <td><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePatient1">view profile</button></td>
-                            <!--<td class="collapse" id="collapsePatient1">-->
-                                        <!--Patient's Profile here...-->
-                            <!--</td>-->
-                    </tr>
-                    <tr class="table-row">
-                        <td>Liz Bermea</td>
-                        <td>Jan 20, 2019 2:00PM</td>
-                        <td><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePatient2">view profile</button></td>
-                        <!--<td class="collapse" id="collapsePatient2">-->
-                            <!--Patient's Profile here...-->
-                        <!--</td>-->
-                    </tr>
-                    <tr class="table-row">
-                        <td>Stephen Ray Guedea</td>
-                        <td>Jan 24, 2019 2:00PM</td>
-                        <td><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePatient3">view profile</button></td>
-                            <!--<td class="collapse" id="collapsePatient3">-->
-                                        <!--Patient's Profile here...-->
-                            <!--</td>-->
-                    </tr>
-                    <tr class="table-row">
-                        <td>Liz Bermea</td>
-                        <td>Feb 14, 2019 2:00PM</td>
-                        <td><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePatient4">view profile</button></td>
+                    <tr class="table-row" th:each="appointment : ${appointments}">
+                        <td th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></td>
+                        <td class="patient" th:id="${appointment.patient.id}" th:text="${appointment.time}"></td>
+                        <td><button class="btn btn-link" type="button" data-toggle="collapse">view profile</button></td>
 
                     </tr>
                     </tbody>
@@ -166,59 +143,29 @@
                         </thead>
                         <tbody>
 
-                            <tr class="table-row">
-                                <td class="collapse" id="collapsePatient1">
-                                This is where the profile 1</td>
-                                <!--<td class="collapse" id="collapsePatient1">-->
-                                <!--Patient's Profile here...-->
-                                <!--</td>-->
-                            </tr>
-                            <tr class="table-row">
-                                <td class="collapse" id="collapsePatient2">
-                                    This is where the profile 2</td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="collapse" id="collapsePatient3">
-                                    This is where the profile 3</td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="collapse" id="collapsePatient4">
-                                    This is where the profile 4</td>
+                            <tr class="table-row" th:each="appointment : ${appointments}">
+                                <td class="collapse" th:id="'patient' + ${appointment.patient.id}">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title" th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></h5>
+                                            <h6 class="card-subtitle mb-2 text-muted" th:text="'Phone Number: ' + ${appointment.patient.phoneNumber}"></h6>
+                                            <h6 class="card-subtitle mb-2 text-muted" th:text="'DOB: ' + ${appointment.patient.dateOfBirth}"></h6>
+                                            <h6 class="card-subtitle mb-2">Current Medications:</h6>
+                                            <p class="card-text d-inline" th:each="medication : ${appointment.patient.medications}"><span th:text="${medication.medicationName}"></span></p>
+                                            <a href="#" class="card-link d-block text-center">Write Prescription</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
-                        <!--<p class="collapse" id="collapsePatient2">-->
-                            <!--This is where the profile-->
-                        <!--</p>-->
-                        <!--<p class="collapse" id="collapsePatient3">-->
-                            <!--This is where the profile-->
-                        <!--</p>-->
-                        <!--<p class="collapse" id="collapsePatient4">-->
-                            <!--This is where the profile-->
-                        <!--</p>-->
                     </table>
                     </div>
                 </div>
             </div>
         </div>
 </section>
-
-
-<!--<form method="GET" th:action="@{/appointments/{id}(id=${appointment.getId()})}" th:id="${appointment.getId()}">-->
-    <!--<div th:onclick="'document.getElementById(\'' + ${appointment.getId()} + '\').submit();'">-->
-        <!--<h3 th:text="${appointment.getTime()()}"></h3>-->
-        <!--<p th:text="${appointment.getLocation()}"></p>-->
-    <!--</div>-->
-<!--</form>-->
-
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
-<!--<script>-->
-    <!--$(document).ready(function($) {-->
-        <!--$(".table-row").click(function() {-->
-            <!--window.document.location = $(this).data("href");-->
-        <!--});-->
-    <!--});-->
-<!--</script>-->
-
+<script src="/js/doctorDashboard.js"></script>
 </body>
 </html>

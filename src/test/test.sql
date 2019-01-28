@@ -18,7 +18,7 @@ select * from doctor_patient;
 select * from appointments;
 
 insert into doctor_patient (doctor_id, patient_id)
-VALUES  (1, 1);
+VALUES  (5, 4);
 
 
 
