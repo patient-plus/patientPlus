@@ -66,10 +66,9 @@ public class UserController {
             //Doctor dashboard info
             model.addAttribute("isPatient", false);
             model.addAttribute("appointments", appointmentDao.findByDoctor(user));
-
         }
 
-        return "/dashboard";
+        return "dashboard";
     }
 
     @GetMapping("/")

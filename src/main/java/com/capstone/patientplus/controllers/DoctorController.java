@@ -3,6 +3,7 @@ package com.capstone.patientplus.controllers;
 import com.capstone.patientplus.models.Appointment;
 //import com.capstone.patientplus.models.DoctorPatient;
 import com.capstone.patientplus.models.DoctorPatient;
+import com.capstone.patientplus.models.Prescription;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.*;
 //import com.capstone.patientplus.repositories.DoctorPatientRepository;
@@ -10,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -72,6 +74,14 @@ public class DoctorController {
     public String patientProfile(User patient){
         //grab patient and
         return "/doctor/patient-profile";
+    }
+
+    @GetMapping("/doctor/write-prescription/{id}")
+    public String writePrescription(@PathVariable long id, Model model){
+
+        model.addAttribute("prescription", new Prescription());
+
+        return "/prescription";
     }
 
 }

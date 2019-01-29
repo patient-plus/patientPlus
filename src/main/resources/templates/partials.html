@@ -32,6 +32,7 @@
                 <div class="dropdown-content d-none">
                     <a class="text-left" th:href="@{/{id}/dashboard(id=${#authentication.principal.id})}"><i class="fas fa-user mr-1"></i>Dashboard</a>
                     <a class="text-left" href="/user/edit-info"><i class="fas fa-pencil-alt mr-1"></i>Edit Info</a>
+                    <a class="text-left" th:if="(${#authentication.principal.insurance} == null) and (${#authentication.principal.patient} == true)" href="/patient/info"><i class="fas fa-notes-medical mr-1"></i>Medical History</a>
                 </div>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">

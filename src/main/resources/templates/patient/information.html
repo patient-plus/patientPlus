@@ -7,11 +7,6 @@
     body {
         background-color: #1c5d8e;
     }
-    li {
-        background-color: rgb(241, 243, 244);
-    }
-
-
 </style>
 <body>
 
@@ -38,15 +33,15 @@
         <form method="POST" th:action="@{/patient/info}" class="container tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active card-body" role="tabpanel" aria-labelledby="emergency-contact-tab" id="emergency-contact">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="contactName">Name</label>
                         <input type="text" class="form-control" id="contactName" placeholder="Name" th:field="*{emergencyContact.emergencyContactName}"/>
                     </li>
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="contactRelation">Relation</label>
                         <input type="text" class="form-control" id="contactRelation" placeholder="Relation: ex. mom" th:field="*{emergencyContact.relationshipToPatient}"/>
                     </li>
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="contactPhone" class="form-text">Phone Number:</label>
                         <input type="tel" id="contactPhone" name="contactPhone"
                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -69,15 +64,15 @@
             </div>
             <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="pharmacy-tab" id="pharmacy">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="pharmacyName">Name</label>
                         <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name" th:field="*{pharmacy.pharmacyName}"/>
                     </li>
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="pharmacyAddress">Pharmacy Address</label>
                         <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address" th:field="*{pharmacy.pharmacyAddress}"/>
                     </li>
-                    <li class="list-group-item form-group">
+                    <li class="bg-white list-group-item form-group">
                         <label for="pharmacyPhone" class="form-text">Phone Number:</label>
                         <input type="tel" id="pharmacyPhone" name="pharmacyPhone"
                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -93,11 +88,11 @@
                 <section>
                     <small>Surgery One</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryOperation1">Operation</label>
                             <input type="text" class="form-control" id="surgeryOperation1" name="surgeryOperation1" placeholder="Operation"/>
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryDate1" class="form-text">Date of Operation:</label>
                             <input type="date" id="surgeryDate1" name="surgeryDate1"
                                    class="form-control"/>
@@ -108,11 +103,11 @@
                 <section class="d-none">
                     <small>Surgery Two</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryOperation2">Operation</label>
                             <input type="text" class="form-control" id="surgeryOperation2" name="surgeryOperation2" placeholder="Operation"/>
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryDate2" class="form-text">Date of Operation:</label>
                             <input type="date" id="surgeryDate2" name="surgeryDate2"
                                    class="form-control" />
@@ -124,11 +119,11 @@
                 <section class="d-none">
                     <small>Surgery Three</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryOperation3">Operation</label>
                             <input type="text" class="form-control" id="surgeryOperation3" name="surgeryOperation3" placeholder="Operation"/>
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="surgeryDate3" class="form-text">Date of Operation:</label>
                             <input type="date" id="surgeryDate3" name="surgeryDate3"
                                    class="form-control" />
@@ -147,11 +142,11 @@
                 <section>
                     <small>Medication One</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationName1">Medication Name</label>
                             <input type="text" class="form-control" id="medicationName1" name="medicationName1" placeholder="Medication Name" />
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationDose1">Medication Dose</label>
                             <input type="number" class="form-control" id="medicationDose1" name="medicationDose1" placeholder="Medication Dose" />
                         </li>
@@ -161,11 +156,11 @@
                 <section class="d-none">
                     <small>Medication Two</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationName2">Medication Name</label>
                             <input type="text" class="form-control" id="medicationName2" name="medicationName2" placeholder="Medication Name" />
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationDose2">Medication Dose</label>
                             <input type="number" class="form-control" id="medicationDose2" name="medicationDose2" placeholder="Medication Dose" />
                         </li>
@@ -176,11 +171,11 @@
                 <section class="d-none">
                     <small>Medication Three</small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationName3">Medication Name</label>
                             <input type="text" class="form-control" id="medicationName3" name="medicationName3" placeholder="Medication Name"/>
                         </li>
-                        <li class="list-group-item form-group">
+                        <li class="bg-white list-group-item form-group">
                             <label for="medicationDose3">Medication Dose</label>
                             <input type="number" class="form-control" id="medicationDose3" name="medicationDose3" placeholder="Medication Dose"/>
                         </li>
