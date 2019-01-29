@@ -34,7 +34,11 @@ public class Prescription {
     @JoinColumn (name = "patient_id")
     private User user;
 
-    public Prescription(){}
+    public Prescription() {}
+
+    public Prescription(User patient){
+        this.user = patient;
+    }
 
     public long getId() {
         return id;

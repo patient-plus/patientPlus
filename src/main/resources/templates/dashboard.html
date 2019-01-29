@@ -151,8 +151,9 @@
                                             <h6 class="card-subtitle mb-2 text-muted" th:text="'Phone Number: ' + ${appointment.patient.phoneNumber}"></h6>
                                             <h6 class="card-subtitle mb-2 text-muted" th:text="'DOB: ' + ${appointment.patient.dateOfBirth}"></h6>
                                             <h6 class="card-subtitle mb-2">Current Medications:</h6>
-                                            <p class="card-text d-inline" th:each="medication : ${appointment.patient.medications}"><span th:text="${medication.medicationName}"></span></p>
-                                            <a href="#" class="card-link d-block text-center">Write Prescription</a>
+                                            <p class="card-text d-inline" th:if="${#lists.size(appointment.patient.medications)} == 0">No medications for this patient!</p>
+                                            <p class="card-text d-inline" th:if="!${#lists.size(appointment.patient.medications)} == 0" th:each="medication : ${appointment.patient.medications}"><span th:text="${medication.medicationName}"></span></p>
+                                            <a th:href="@{/doctor/write-prescription/{id}(id = ${appointment.patient.id})}" class="card-link d-block text-center">Write Prescription</a>
                                         </div>
                                     </div>
                                 </td>
