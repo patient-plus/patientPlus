@@ -5,6 +5,8 @@ select * from emergency_contacts;
 
 select * from users;
 
+select * from prescriptions;
+
 SELECT * from surgery;
 
 SELECT * from insurance;
@@ -18,7 +20,7 @@ select * from doctor_patient;
 select * from appointments;
 
 insert into doctor_patient (doctor_id, patient_id)
-VALUES  (5, 4);
+VALUES  (2, 1);
 
 
 
