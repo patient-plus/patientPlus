@@ -78,3 +78,7 @@ body {
         border: 1px solid #ccc;
     }
 }
+
+.has-error {
+    border:1px solid #ff0000 !important;
+}
