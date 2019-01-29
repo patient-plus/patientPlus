@@ -197,8 +197,8 @@ $(document).ready(function(){
 
         if(requestUrl !== null){
             ///////////////////////////////////////////this is where we call the request
-            // fetch(requestUrl)
-            fetch(`/json/doctors.json`)
+            // fetch(`/json/doctors.json`)
+            fetch(requestUrl)
                 .then(response => {
                 console.log("in data response");
                 return response.json()
