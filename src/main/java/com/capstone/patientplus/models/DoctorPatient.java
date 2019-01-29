@@ -20,7 +20,7 @@ public class DoctorPatient {
     private User patient;
 
 
-    DoctorPatient(){}
+    public DoctorPatient(){}
 
     public DoctorPatient(User doctor, User patient) {
         this.doctor = doctor;
