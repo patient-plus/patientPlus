@@ -30,11 +30,12 @@
         <ul class="nav justify-content-end">
             <li class="login-container " sec:authorize="!isAuthenticated()">
                 <form th:action="@{/login}" method="POST" class="loginForm">
-                    <span class="mr-xs">Already have an account?</span>
-                    <small th:if="${failedLogin} == true">Invalid Username and/or Password.</small>
-                    <small th:if="${logout} == true">You have been logged out.</small>
-                    <input type="email" required="required" placeholder="Email" name="username" id="username" />
-                    <input type="password" required="required" placeholder="Password" name="password" id="password" />
+                    <span th:if="${failedLogin} == true" class="mr-xs text-danger">Email or Password not valid!</span>
+                    <input th:if="${failedLogin} == true" class="has-error" type="email" required="required" placeholder="Email" name="username" id="username" />
+                    <input th:if="${failedLogin} == true" class="has-error" type="password" required="required" placeholder="Password" name="password" id="password" />
+                    <span th:if="!${failedLogin} == true" class="mr-xs">Already have an account?</span>
+                    <input th:if="!${failedLogin} == true" type="email" required="required" placeholder="Email" name="username" id="username" />
+                    <input th:if="!${failedLogin} == true" type="password" required="required" placeholder="Password" name="password" id="password" />
                     <button type="submit">Login</button>
                 </form>
             </li>

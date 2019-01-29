@@ -7,6 +7,21 @@
 
     <div class="hero"></div>
 
+        <div th:if="${logout} == true" class="modal" tabindex="-1" role="dialog" id="logged">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You have been logged out!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="container align-self-center mt-5">
             <div class="row">
@@ -117,5 +132,6 @@
 
     <!--<footer th:replace="partials :: footer"></footer>-->
     <span th:replace="partials :: scripts"></span>
+    <script src="/js/logout.js"></script>
 </body>
 </html>
