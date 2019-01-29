@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/css/spaces.css"/>
     <link rel="stylesheet" href="/css/homeNavbar.css" />
     <link rel="stylesheet" href="/css/navDropdown.css"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 <body>
 

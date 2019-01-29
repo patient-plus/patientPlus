@@ -93,13 +93,12 @@ public class User {
         this.insurances = copy.insurances;
     }
 
-    public User(String firstName, String lastName, boolean patient){
+    public User(String firstName, String lastName, String username, String phoneNumber, String password, boolean patient){
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.dateOfBirth = dateOfBirth;
         this.patient = patient;
     }
 
