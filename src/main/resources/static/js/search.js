@@ -142,9 +142,15 @@ $(document).ready(function(){
                 xhr.setRequestHeader(header, token);
             },
             data: $(e.currentTarget).serialize()
-        }).done((data) => {
-            console.log(data);
-        });
+        }).done((response) => {
+            if(response.redirect === "true"){
+                window.location.href = response.redirectUrl;
+            } else{
+                alert("login before continuing!");
+            }
+            console.log(response.redirect);
+            // console.log(data.getJSON().redirect_url);
+        }).fail((response)=>console.log(response));
     });
 
     request().then((data) => {
@@ -214,7 +220,7 @@ $(document).ready(function(){
                             ${data[i].practices[0].visit_address.state}, ${data[i].practices[0].visit_address.zip}`,
                             "lat": data[i].practices[0].lat,
                             "lon": data[i].practices[0].lon,
-                            "phone_number": data[i].practices[0].phones,
+                            "phone_number": data[i].practices[0].phones[0].number,
                             "insurance_uids" : data[i].practices[0].insurance_uids,
                             "insurances" : data[i].practices[0].insurances,
                             "link": `<form action="/find-doctor" method="post" class="doctor-add">
@@ -223,7 +229,7 @@ $(document).ready(function(){
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
                                         <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
                                         <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
-                                        <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones}"/>
+                                        <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones[0].number}"/>
                                         <input type="hidden" name="patient" value="${false}"/>
                                     </div>
                                     <div class="col-6">
