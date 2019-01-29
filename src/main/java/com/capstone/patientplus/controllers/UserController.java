@@ -13,10 +13,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -72,16 +70,38 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String showSignUpForm(Model model){
+    public String showSignUpForm(Model model, @RequestParam(required=false) String failedLogin, @RequestParam(required=false) String logout){
         User user;
-        try {
-             user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        } catch(ClassCastException e) {
+        if (!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
+            user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            long userId = user.getId();
+            return "redirect:/" + Long.toString(userId) + "/dashboard";
+        } else {
+            if (failedLogin != null){
+                if (failedLogin.equalsIgnoreCase("true")){
+                    model.addAttribute("failedLogin", true);
+                }
+            }
+            if (logout != null){
+                if (logout.equalsIgnoreCase("true")){
+                    model.addAttribute("logout", true);
+                }
+            }
             model.addAttribute("user", new User());
             return "home";
         }
-            long userId = user.getId();
-            return "redirect:/" + Long.toString(userId) + "/dashboard";
+    }
+
+    @GetMapping("/login-failed")
+    public String failedLogin(RedirectAttributes redirectAttributes){
+        redirectAttributes.addAttribute("failedLogin", "true");
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(RedirectAttributes redirectAttributes){
+        redirectAttributes.addAttribute("logout", "true");
+        return "redirect:/";
     }
 
     @PostMapping("/sign-up")
@@ -111,11 +131,6 @@ public class UserController {
         Authentication authenticatedUser = authenticationManager.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
         return "redirect:/patient/info";
-    }
-
-    @GetMapping("/home")
-    public String failedLogin(){
-        return "redirect:/";
     }
 
     @GetMapping("/user/edit-info")
