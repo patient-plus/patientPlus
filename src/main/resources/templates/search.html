@@ -111,7 +111,7 @@
         </div>
         <div class="col formCol">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="doctor-results">
                     <h3 class="card-title">Results</h3>
                     <ul class="list-group list-group-flush" id="results-list">
                         <!--generate list of results with list-group-item class-->
@@ -127,8 +127,11 @@
 
 <footer th:replace="partials :: footer"></footer>
 
+
 <span th:replace="partials :: scripts"></span>
+
 <script src="/js/search.js"></script>
 
 </body>
 </html>
+

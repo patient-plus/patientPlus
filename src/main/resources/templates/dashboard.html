@@ -83,7 +83,7 @@
                         </div>
                         <div class="card-body text-center">
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn btn-primary">Find now</a>
+                            <a href="/find-doctor" class="btn btn-primary">Find now</a>
                         </div>
                     </div>
                     <div class="card bookAppointmentDashboardCard">
@@ -106,7 +106,7 @@
     <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded dashboardContainer">
         <h1 class="pb-0 text-left">Welcome back, Doctor!</h1>
         <h4 class="pb-0 text-left">Here's your schedule</h4>
-        <span class="numberOfAppointments" th:id="${#lists.size(appointments)}"></span>
+        <span class="numberOfAppointments d-none" th:name="${#lists.size(appointments)}"></span>
 
 
 

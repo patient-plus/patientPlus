@@ -10,8 +10,14 @@
     <link rel="stylesheet" href="/css/spaces.css"/>
     <link rel="stylesheet" href="/css/homeNavbar.css" />
     <link rel="stylesheet" href="/css/navDropdown.css"/>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/footer.css" />
 
+=======
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+>>>>>>> f4366fcbfc93d0935347e4ab818ae67b20689df3
 </head>
 <body>
 
@@ -25,8 +31,8 @@
             <li class="login-container " sec:authorize="!isAuthenticated()">
                 <form th:action="@{/login}" method="POST" class="loginForm">
                     <span class="mr-xs">Already have an account?</span>
-                    <small th:if="${param.error}">Invalid Username and/or Password.</small>
-                    <small th:if="${param.lsmall}">You have been logged out.</small>
+                    <small th:if="${failedLogin} == true">Invalid Username and/or Password.</small>
+                    <small th:if="${logout} == true">You have been logged out.</small>
                     <input type="email" required="required" placeholder="Email" name="username" id="username" />
                     <input type="password" required="required" placeholder="Password" name="password" id="password" />
                     <button type="submit">Login</button>
