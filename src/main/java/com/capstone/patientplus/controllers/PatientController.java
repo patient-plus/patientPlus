@@ -168,7 +168,7 @@ public class PatientController {
         appointment.setDoctor(users.findById(Long.parseLong(chosenDoctorID)));
 //        appointment.setDoctor(doctor);
         appointmentDao.save(appointment);
-        return "redirect: /";
+        return "redirect:/";
     }
 
     @PostMapping("/patient/appointment/delete/{id}")
