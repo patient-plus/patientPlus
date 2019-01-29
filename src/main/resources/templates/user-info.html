@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Update Info')"/>
+<style>
+    body {
+        background-color: #1c5d8e;
+    }
+    .container {
+        background-color: rgb(241, 243, 244);
+    }
+
+</style>
 <body id="background">
 
 <nav th:replace="partials :: navbar"></nav>
 
-<div class="container w-25">
+<div class="container w-25 mt-5">
     <div class="row">
         <header class="col-12 text-center my-3">
             <h4>Edit Info</h4>
@@ -39,6 +48,7 @@
 
 
 
+<footer th:replace="partials :: footer"></footer>
 
 <span th:replace="partials :: scripts"/>
 
