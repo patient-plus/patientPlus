@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -78,10 +79,27 @@ public class DoctorController {
 
     @GetMapping("/doctor/write-prescription/{id}")
     public String writePrescription(@PathVariable long id, Model model){
-
-        model.addAttribute("prescription", new Prescription());
-
-        return "/prescription";
+        User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (doctor.isPatient()){
+            return "redirect:/0/dashboard";
+        }
+        List<DoctorPatient> doctorsPatient = doctorPatientDao.findAllPatientsByDoctor(doctor);
+        for (DoctorPatient combo : doctorsPatient){
+            if (combo.getPatient() == usersDao.findById(id)){
+                model.addAttribute("patientId", id);
+                model.addAttribute("prescription", new Prescription());
+                return "prescription";
+            }
+        }
+        return "redirect:/0/dashboard";
     }
 
+
+    @PostMapping("/doctor/write-prescription/{id}")
+    public String prescriptionSubmit(@PathVariable long id, @ModelAttribute Prescription prescription){
+        User patient = usersDao.findById(id);
+        prescription.setUser(patient);
+        prescriptionDao.save(prescription);
+        return "redirect:/0/dashboard";
+    }
 }

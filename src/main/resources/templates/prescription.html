@@ -4,6 +4,42 @@
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
+<div class="container w-50">
+    <div class="row">
+        <header class="col-12 text-center my-3">
+            <h4>Make Prescription</h4>
+        </header>
+    </div>
+    <form th:action="@{/doctor/write-prescription/{id}(id = ${patientId})}" method="POST" th:object="${prescription}">
+        <div class="row">
+            <div class="col-12 my-3">
+                <label for="name" class="form-text text-muted mb-0">Name of Prescription</label>
+                <input th:field="${prescription.name}" type="text" size="30" required="required" class="form-control" name="name" id="name" />
+            </div>
+            <div class="col-12 my-3">
+                <label for="dosage" class="form-text text-muted mb-0">Dose</label>
+                <input th:field="${prescription.dosage}" type="text" size="30" required="required" class="form-control" name="dosage" id="dosage" />
+            </div>
+            <div class="col-12 my-3">
+                <label for="instructions" class="form-text text-muted mb-0">Prescription Instructions</label>
+                <textarea th:field="${prescription.instructions}" cols="30" rows="10" required="required" class="form-control" name="instructions" id="instructions"></textarea>
+            </div>
+            <div class="col-12 my-3">
+                <label for="startDate" class="form-text text-muted mb-0">Start Date:</label>
+                <input type="date" id="startDate" name="startDate"
+                       class="form-control" />
+            </div>
+            <div class="col-12 my-3">
+                <label for="endDate" class="form-text text-muted mb-0">End Date:</label>
+                <input type="date" id="endDate" name="endDate"
+                       class="form-control" />
+            </div>
+            <div class="col-12 text-center my-3">
+                <button class="btn btn-primary mt-s" type="submit">Submit Prescription</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <footer th:replace="partials :: footer"></footer>
 <span th:replace="partials :: scripts"></span>
