@@ -33,25 +33,26 @@ public class GuestController {
         return "search";
     }
 
-//    @ResponseBody
 
     @PostMapping("/find-doctor")
+    @ResponseBody
     public String addToDoctors(
             @RequestParam (name = "firstName") String firstName,
             @RequestParam (name = "lastName") String lastName,
-            @RequestParam (name = "phoneNumber") String phoneNumber,
             @RequestParam (name = "patient") boolean patient
     ){
+//            @RequestParam (name = "phoneNumber") String phoneNumber,
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if(user.isPatient()){
             System.out.format("%s %s %b", firstName, lastName, patient);
-    //        String phoneNumber = "000-000-0000";
-            String username = Character.toString(firstName.charAt(0)) + lastName;
+            String phoneNumber = "000-000-0000";
+            String username = Character.toString(firstName.charAt(0)) + lastName + "@gmail.com";
             System.out.println(username);
             String password = "Password1";
             String hash = passwordEncoder.encode(password);
             User doctor = new User(firstName, lastName, username, phoneNumber, hash, patient);
+            doctor.setDateOfBirth("07/07/1994");
             User loggedInPatient = new User(user);
 
             System.out.println(usersDao.save(doctor));
