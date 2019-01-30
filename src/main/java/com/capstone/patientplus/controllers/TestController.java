@@ -30,4 +30,9 @@ public class TestController {
         return "search";
     }
 
+    @GetMapping("/meet-the-team")
+    public String testMTT(){
+        return "meet-the-team";
+    }
+
 }
