@@ -59,8 +59,9 @@ public class GuestController {
         if(!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             User loggedInPatient = usersDao.findById(user.getId());
+
             if(usersDao.countByUsername(loggedInPatient.getUsername()) != 0 && loggedInPatient.isPatient()){
-                String username = Character.toString(firstName.charAt(0)) + lastName + "@gmail.com";
+                String username = Character.toString(firstName.charAt(0)).toLowerCase() + lastName.toLowerCase() + "@gmail.com";
                 User doctor;
 
                 if(usersDao.countByUsername(username) == 0 ){
