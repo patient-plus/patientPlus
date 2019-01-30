@@ -155,7 +155,7 @@ public class PatientController {
         //Make new appointment object
         model.addAttribute("appointment", new Appointment());
 
-        return "/appointments/create-edit";
+        return "appointments/create-edit";
     }
 
     @PostMapping("/patient/appointment/create")
