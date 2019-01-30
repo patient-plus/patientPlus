@@ -31,21 +31,13 @@
 /*}*/
 
 body {
-    background-color: rgba(239,236,241,0.94);
-    background-image: url("../img/arms-care-check-905874.jpg");
     min-height: 100vh;
-    background-position: center;
-    height: 500px;
-    background-repeat: no-repeat;
+    background: url("../img/arms-care-check-905874.jpg") no-repeat center;
     background-size: cover;
     position: relative;
-    /*border-top: 10em solid;*/
-    /*border-top-color: rgba(239,236,241,0.94);*/
-
 }
 .hero {
     background-color: rgba(3, 3, 3, 0.5);
-    min-height: 100vh;
     min-width: 100vw;
     top: 0;
     bottom: 0;

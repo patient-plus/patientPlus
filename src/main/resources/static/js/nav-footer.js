@@ -10,7 +10,11 @@ $(document).ready(function () {
     let footerHeight = $('footer').height();
     let footerTop = $('footer').position().top + footerHeight;
 
-    if (footerTop < docHeight) {
-        $('footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+    function positionFooter(){
+        if (footerTop < docHeight) {
+            $('footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+        }
     }
+    positionFooter();
+    $(window).resize(positionFooter());
 });
