@@ -162,11 +162,11 @@ public class PatientController {
     public String appointmentCreateSubmit(@ModelAttribute Appointment appointment,
                                           @RequestParam("date") String date,
                                           @RequestParam("time") String time,
-                                          @RequestParam("selectedDoctor") Long selectedDoctorId
+                                          @RequestParam("selectedDoctor") String selectedDoctorId
     ){
 //        refactored form and controller to use form model binding for the appointment to set the doctor
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User doctor = users.findById(selectedDoctorId);
+        User doctor = users.findById(Long.parseLong(selectedDoctorId));
 
         String dateTime = date + " " + time;
         appointment.setTime(dateTime);

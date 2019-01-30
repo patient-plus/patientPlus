@@ -28,12 +28,10 @@
                             <div class="card-body pt-0 selectDoctorCardBody border-0">
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
                                 <div>
-                                    <p th:text="${doctor.getId()}"></p>
                                     <select class="form-control" id="appointment-doctor-input" name="selectedDoctor" th:field="*{doctor}">
                                         <div th:each="doctorOption : ${doctors}">
-                                            <option  th:value="${doctorOption}"
-                                                     th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}"
-                                                     th:selected="${doctorOption.getId() == newDoctor.getId()}">
+                                            <option  th:value="${doctorOption.getId()}"
+                                                     th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}">
                                             </option>
                                         </div>
                                     </select>
@@ -122,21 +120,6 @@
         <div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">
             <h1 class="pb-0 text-center">Make an appointment</h1>
 
-            <div th:if="${newDoctor.getId()} == ${newDoctor.getId()}">
-                <h1 th:text="${newDoctor.getFirstName()}"></h1>
-            </div>
-            <div th:unless="${newDoctor.getId()} == ${newDoctor.getId()}">
-                <h1>OH NO FAIL UP</h1>
-            </div>
-
-            <div th:if="${newDoctor.getId() == newDoctor.getId()}">
-                <h1 th:text="${newDoctor.getFirstName()}"></h1>
-            </div>
-            <div th:unless="${newDoctor.getId()} == ${newDoctor.getId()}">
-                <h1>OH NO FAIL UP</h1>
-            </div>
-
-
             <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
                 <div class="row bg-white pt-5 pb-5 rounded appointmentSelectionRow">
                     <div class="col-6 pt-0 pb-5 bg-white rounded">
@@ -145,14 +128,20 @@
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
                                 <div>
                                     <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
-                                        <option th:each="doctorOption : ${doctors}"
-                                                th:value="${doctorOption}"
-                                                th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" >
-                                        </option>
-
-                                        <option th:value="${newDoctor}" th:text="${newDoctor.getFirstName()}"
-                                                th:selected="${newDoctor.getId()} == ${newDoctor.getId()}">
-                                        </option>
+                                        <div th:if="${newDoctor != null}">
+                                            <option th:each="doctorOption : ${doctors}"
+                                                    th:value="${doctorOption.getId()}"
+                                                    th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}"
+                                                    th:selected="${doctorOption.getId()} == ${newDoctor.getId()}"
+                                            >
+                                            </option>
+                                        </div>
+                                        <div th:unless="${newDoctor != null}">
+                                            <option th:each="doctorOption : ${doctors}"
+                                                    th:value="${doctorOption.getId()}"
+                                                    th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" >
+                                            </option>
+                                        </div>
                                     </select>
                                 </div>
 
