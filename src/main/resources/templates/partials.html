@@ -19,19 +19,19 @@
 <nav th:fragment="navbar">
 
     <div class="topnav">
-        <a class="nav-bar-brand p-0" href="/">
+        <a class="nav-bar-brand p-0 text-center text-md-left mt-1 mt-sm-0" href="/">
             <img src="/img/patientLogo.png" style="width: 50px;height: 50px;"/>
         </a>
-        <ul class="nav justify-content-end">
-            <li class="login-container " sec:authorize="!isAuthenticated()">
+        <ul class="nav justify-content-md-end justify-content-center">
+            <li class="login-container text-center text-md-left" sec:authorize="!isAuthenticated()">
                 <form th:action="@{/login}" method="POST" class="loginForm">
                     <span th:if="${failedLogin} == true" class="mr-xs text-danger">Email or Password not valid!</span>
                     <input th:if="${failedLogin} == true" class="has-error" type="email" required="required" placeholder="Email" name="username" id="username" />
                     <input th:if="${failedLogin} == true" class="has-error" type="password" required="required" placeholder="Password" name="password" id="password" />
-                    <span th:if="!${failedLogin} == true" class="mr-xs">Already have an account?</span>
+                    <span th:if="!${failedLogin} == true" class="mr-xs d-none d-md-inline">Already have an account?</span>
                     <input th:if="!${failedLogin} == true" type="email" required="required" placeholder="Email" name="username" id="username" />
                     <input th:if="!${failedLogin} == true" type="password" required="required" placeholder="Password" name="password" id="password" />
-                    <button type="submit">Login</button>
+                    <button class="mx-auto my-1 my-sm-auto mx-sm-2 text-center" type="submit">Login</button>
                 </form>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
@@ -55,7 +55,7 @@
 <footer th:fragment="footer">
     <!-- Footer -->
     <div class="fancy-footer row p-4 bg-light justify-content-center mt-2">
-        <div class="col-12 text-white">
+        <div class="col-6 text-white">
             <a class="text-muted" href="/0/dashboard">Home</a>
             <span>|</span>
             <a class="text-muted" href="/find-doctor">Find A Doctor</a>
@@ -63,7 +63,7 @@
             <a class="text-muted" href="/meet-the-team">Meet the Team</a>
         </div>
         <!-- Copyright -->
-        <div class="col-12 text-black">
+        <div class="col-6 text-black text-right">
         © 2019 PatientPlus,
         All Rights Reserved
         </div>
