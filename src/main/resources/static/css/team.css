@@ -1,0 +1,23 @@
+body {
+    background-color: #1c5d8e;
+}
+.card {
+    background-color: rgb(241, 243, 244);
+}
+@media screen and (max-width:768px) {
+    img {
+        width:100%;
+    }
+    .container {
+        max-width:100%;
+        width: 100%;
+    }
+}
+@media (max-width: 1190px) and (min-width: 992px){
+    .mariaName {
+        padding-top: 10px;
+    }
+    .mariaIconRow {
+        padding-top: 23px;
+    }
+}
