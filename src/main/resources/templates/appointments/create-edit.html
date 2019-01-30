@@ -144,11 +144,15 @@
                             <div class="card-body pt-0 selectDoctorCardBody border-0">
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
                                 <div>
-                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor" th:field="*{doctor}">
-                                        <option th:each="doctorOption : ${doctors}" th:value="${doctorOption}"
+                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
+                                        <option th:each="doctorOption : ${doctors}"
+                                                th:value="${doctorOption}"
                                                 th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" >
                                         </option>
-                                        <option th:value="${newDoctor}" th:text='${newDoctor.getFirstName()}' th:selected="${newDoctor.getId()} == ${newDoctor.getId()}"></option>
+
+                                        <option th:value="${newDoctor}" th:text="${newDoctor.getFirstName()}"
+                                                th:selected="${newDoctor.getId()} == ${newDoctor.getId()}">
+                                        </option>
                                     </select>
                                 </div>
 
