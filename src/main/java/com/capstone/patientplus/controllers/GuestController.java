@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.print.Doc;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +57,10 @@ public class GuestController {
     public Map<String, String> addToDoctors(
             @RequestParam (name = "firstName") String firstName,
             @RequestParam (name = "lastName") String lastName,
-            @RequestParam (name = "patient") boolean patient
+            @RequestParam (name = "patient") boolean patient,
+            @RequestParam (name = "address") String address,
+            HttpServletRequest request,
+            Model model
     ){
 //        List<String> results = new ArrayList<>();
 //            @RequestParam (name = "phoneNumber") String phoneNumber,
@@ -77,7 +81,7 @@ public class GuestController {
                     System.out.println("username GuestController:69" + username);
                     String password = "Password1";
                     String hash = passwordEncoder.encode(password);
-                    doctor = new User(firstName, lastName, username, phoneNumber, hash, patient);
+                    doctor = new User(firstName, lastName, username, phoneNumber, hash, patient, address);
                     doctor.setDateOfBirth("07/07/1994");
                     //saves new doctor
                     usersDao.save(doctor);
@@ -98,6 +102,9 @@ public class GuestController {
                     System.out.println("is not a current doctor");
                     doctorPatientDao.save(newDoctor);
                 }
+
+                request.getSession().setAttribute("recentlyAddedDocId", doctor.getId());
+
 
                 //redirects page
 //            results.add("/patient/appointment/create");

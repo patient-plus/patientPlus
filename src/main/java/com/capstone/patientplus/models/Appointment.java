@@ -6,16 +6,14 @@ import javax.persistence.*;
 @Table(name="appointments")
 public class Appointment {
 
-//    @ManyToOne
-//    private DoctorPatient combination;
+    @Id @GeneratedValue
+    private long id;
 
     @Column(nullable = false)
     private String time;
+
     @Column(nullable = false)
     private String location;
-
-    @Id @GeneratedValue
-    private long id;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
@@ -25,11 +23,18 @@ public class Appointment {
     @JoinColumn(name = "doctor_id")
     private User doctor;
 
-    @OneToOne
-    @Column(name = "appt_notes")
-    private String apptNotes;
+    private String notes;
 
     public Appointment(){}
+
+    public Appointment(Appointment copy){
+        this.id = copy.id;
+        this.time = copy.time;
+        this.location = copy.location;
+        this.patient = copy.patient;
+        this.doctor = copy.doctor;
+        this.notes = copy.notes;
+    }
 
     public Appointment(long id, String time, String location, User doctor, User patient){
         this.time = time;
@@ -39,21 +44,12 @@ public class Appointment {
         this.patient = patient;
     }
 
-//    public DoctorPatient getCombination() {
-//        return combination;
-//    }
-//
-//    public void setCombination(DoctorPatient combination) {
-//        this.combination = combination;
-//    }
-
-
-    public String getApptNotes() {
-        return apptNotes;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setApptNotes(String apptNotes) {
-        this.apptNotes = apptNotes;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public String getTime() {

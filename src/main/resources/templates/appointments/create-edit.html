@@ -21,15 +21,18 @@
         <div class="container pt-3 mt-3 rounded">
             <h1 class="pb-0 text-center">Adjust your appointment</h1>
 
-            <form class="col-12" action="@{/patient/appointment/create}" th:method="POST">
+            <form class="col-12" action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
                 <div class="row bg-white pt-5 pb-5 rounded appointmentSelectionRow">
                     <div class="col-6 pt-0 pb-5 bg-white rounded">
                         <div class="card selectDoctorCard border-0">
                             <div class="card-body pt-0 selectDoctorCardBody border-0">
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
                                 <div>
-                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
-                                        <option th:each="doctor : ${doctors}" th:value="${doctor.getId()}" th:text="${doctor.getFirstName()} + ' ' + ${doctor.getLastName()}"></option>
+                                    <p th:text="${doctor.getId()}"></p>
+                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor" th:field="*{doctor}">
+                                        <div th:each="doctorOption : ${doctors}">
+                                            <option  th:value="${doctorOption}" th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" th:selected="${doctorOption.getId() == newDoctor.getId()}"></option>
+                                        </div>
                                     </select>
                                 </div>
                             </div>
@@ -41,7 +44,7 @@
                         </div>
                         <!--Location Submit-->
                         <div>
-                            <textarea rows="5" placeholder="Description" th:field="*{appointment.location}"></textarea>
+                            <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
                         </div>
                     </div>
 
@@ -116,15 +119,18 @@
         <div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">
             <h1 class="pb-0 text-center">Make an appointment</h1>
 
-            <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST">
+            <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
                 <div class="row bg-white pt-5 pb-5 rounded appointmentSelectionRow">
                     <div class="col-6 pt-0 pb-5 bg-white rounded">
                         <div class="card selectDoctorCard border-0">
                             <div class="card-body pt-0 selectDoctorCardBody border-0">
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
                                 <div>
-                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
-                                        <option th:each="doctor : ${doctors}" th:value="${doctor.getId()}" th:text="${doctor.getFirstName()} + ' ' + ${doctor.getLastName()}"></option>
+                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor" th:field="*{doctor}">
+                                        <option th:each="doctorOption : ${doctors}" th:value="${doctorOption.getId()}"
+                                                th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}"
+                                                th:selected="${doctorOption.getId() == newDoctor.getId()}">
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -135,7 +141,7 @@
                         </div>
                         <!--Location Submit-->
                         <div>
-                            <textarea rows="5" placeholder="Description" th:field="*{appointment.location}"></textarea>
+                            <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
                         </div>
                     </div>
 
