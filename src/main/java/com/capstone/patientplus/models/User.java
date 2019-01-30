@@ -46,6 +46,10 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Prescription> prescriptions;
 
+    @OneToOne
+    @Column(name = "clinic_address")
+    private String clinicAddress;
+
     ////insurance connection
     @ManyToOne
     @JoinColumn(name = "patient_insurance_id")
@@ -91,6 +95,7 @@ public class User {
         this.medications = copy.medications;
         this.surgeries = copy.surgeries;
         this.insurances = copy.insurances;
+        this.clinicAddress = copy.clinicAddress;
     }
 
     public User(String firstName, String lastName, String username, String phoneNumber, String password, boolean patient){
@@ -212,5 +217,13 @@ public class User {
 
     public void setPharmacy(Pharmacy pharmacy) {
         this.pharmacy = pharmacy;
+    }
+
+    public String getClinicAddress() {
+        return clinicAddress;
+    }
+
+    public void setClinicAddress(String clinicAddress) {
+        this.clinicAddress = clinicAddress;
     }
 }

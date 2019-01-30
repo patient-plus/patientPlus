@@ -39,9 +39,13 @@ public class GuestController {
 
     @GetMapping("/find-doctor")
     public String getSearchPage(){
-        User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (!doctor.isPatient()){
-            return "redirect:/0/dashboard";
+        //checks if anyone is logged in
+        if(!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
+            User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if (!doctor.isPatient()){
+                return "redirect:/0/dashboard";
+            }
+
         }
         return "search";
     }

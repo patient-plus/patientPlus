@@ -25,6 +25,9 @@ public class Appointment {
     @JoinColumn(name = "doctor_id")
     private User doctor;
 
+    @OneToOne
+    @Column(name = "appt_notes")
+    private String apptNotes;
 
     public Appointment(){}
 
@@ -43,6 +46,15 @@ public class Appointment {
 //    public void setCombination(DoctorPatient combination) {
 //        this.combination = combination;
 //    }
+
+
+    public String getApptNotes() {
+        return apptNotes;
+    }
+
+    public void setApptNotes(String apptNotes) {
+        this.apptNotes = apptNotes;
+    }
 
     public String getTime() {
         return time;
