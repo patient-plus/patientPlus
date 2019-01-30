@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.print.Doc;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,9 +40,13 @@ public class GuestController {
 
     @GetMapping("/find-doctor")
     public String getSearchPage(){
-        User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (!doctor.isPatient()){
-            return "redirect:/0/dashboard";
+        //checks if anyone is logged in
+        if(!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
+            User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if (!doctor.isPatient()){
+                return "redirect:/0/dashboard";
+            }
+
         }
         return "search";
     }
@@ -52,7 +57,10 @@ public class GuestController {
     public Map<String, String> addToDoctors(
             @RequestParam (name = "firstName") String firstName,
             @RequestParam (name = "lastName") String lastName,
-            @RequestParam (name = "patient") boolean patient
+            @RequestParam (name = "patient") boolean patient,
+            @RequestParam (name = "address") String address,
+            HttpServletRequest request,
+            Model model
     ){
 //        List<String> results = new ArrayList<>();
 //            @RequestParam (name = "phoneNumber") String phoneNumber,
@@ -73,7 +81,7 @@ public class GuestController {
                     System.out.println("username GuestController:69" + username);
                     String password = "Password1";
                     String hash = passwordEncoder.encode(password);
-                    doctor = new User(firstName, lastName, username, phoneNumber, hash, patient);
+                    doctor = new User(firstName, lastName, username, phoneNumber, hash, patient, address);
                     doctor.setDateOfBirth("07/07/1994");
                     //saves new doctor
                     usersDao.save(doctor);
@@ -94,6 +102,9 @@ public class GuestController {
                     System.out.println("is not a current doctor");
                     doctorPatientDao.save(newDoctor);
                 }
+
+                request.getSession().setAttribute("recentlyAddedDocId", doctor.getId());
+
 
                 //redirects page
 //            results.add("/patient/appointment/create");

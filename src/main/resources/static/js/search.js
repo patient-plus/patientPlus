@@ -106,28 +106,6 @@ $(document).ready(function(){
     let token = $("meta[name='_csrf']").attr("content");
     let header = $("meta[name='_csrf_header']").attr("content");
 
-
-    // const AJAXPromise = (requestUrl) => {
-    //     return new Promise((resolve, reject) => {
-    //         $.ajax({
-    //             url: requestUrl,
-    //             type: "GET",
-    //             data: {
-    //                 location_slug: `${locationSlug}`
-    //             },
-    //             beforeSend: function(xhr){
-    //                 xhr.setRequestHeader(header, token);
-    //             },
-    //             dataType: "json",
-    //         }).done(() => {
-    //             return resolve();
-    //         }).fail(() => {
-    //             return reject();
-    //         });
-    //     });
-    // };
-    //
-
     //this one makes the call to the back end using the url
     doctorSection.on('submit','.doctor-add',(e) => {
         e.preventDefault();
