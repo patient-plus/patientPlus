@@ -172,6 +172,7 @@ public class PatientController {
         appointment.setTime(dateTime);
         appointment.setPatient(patient);
         appointment.setDoctor(doctor);
+        appointment.setLocation(doctor.getAddress());
 
         appointmentDao.save(appointment);
         return "redirect:/";
