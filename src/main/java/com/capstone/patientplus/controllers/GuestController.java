@@ -39,7 +39,10 @@ public class GuestController {
 
     @GetMapping("/find-doctor")
     public String getSearchPage(){
-//        model.addAttribute("doctor", new User());
+        User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!doctor.isPatient()){
+            return "redirect:/0/dashboard";
+        }
         return "search";
     }
 
