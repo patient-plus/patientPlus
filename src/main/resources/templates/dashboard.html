@@ -52,8 +52,8 @@
                                 <td th:text="${appointment.location}"></td>
                                 <td>
                                     <form th:action="@{/patient/appointment/delete/{id}(id = ${appointment.id})}" th:method="POST">
-                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Cancel Appointment</button>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#deleteAppointment">Cancel Appointment</button>
+                                        <div class="modal fade" id="deleteAppointment" tabindex="-1" role="dialog" aria-labelledby="deleteAppointmentLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -126,7 +126,30 @@
                     <tr class="table-row" th:each="appointment : ${appointments}">
                         <td th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></td>
                         <td class="patient" th:id="${appointment.patient.id}" th:text="${appointment.time}"></td>
-                        <td><button class="btn btn-link" type="button" data-toggle="collapse">view profile</button></td>
+                        <td class="text-center">
+                            <button class="btn btn-link" type="button" data-toggle="collapse">View Profile</button>
+                            <form th:action="@{/doctor/send-appointment-reminder/{id}(id = ${appointment.patient.id})}" th:method="POST">
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#appointmentReminder">Send Appointment Reminder</button>
+                                <div class="modal fade" id="appointmentReminder" tabindex="-1" role="dialog" aria-labelledby="appointmentReminderLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h5 class="modal-title">Create Appointment Reminder</h5>
+                                            </div>
+                                            <div class="modal-body text-left">
+                                                <label for="appointmentReminderInput">Write Message To Patient:</label>
+                                                <textarea cols="40" rows="5" type="text" class="form-control" id="appointmentReminderInput" style="resize: none;" name="messageBody"
+                                                          th:text="'Hello, ' + ${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName} + '. This is a reminder from Dr. ' + ${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName} + ' about your appointment on ' + ${appointment.time} + '.'"></textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-success">Send</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
 
                     </tr>
                     </tbody>
