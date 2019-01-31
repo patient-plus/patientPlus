@@ -20,7 +20,9 @@ select * from doctor_patient;
 select * from appointments;
 
 insert into doctor_patient (doctor_id, patient_id)
-VALUES  (2, 1);
+VALUES  (1, 2);
 
+insert into appointments (doctor_id, patient_id, time, location)
+VALUES  (1, 2, '2019/04/10 11:30', 'Codeup');
 
 

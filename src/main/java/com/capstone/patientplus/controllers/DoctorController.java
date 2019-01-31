@@ -7,13 +7,13 @@ import com.capstone.patientplus.models.Prescription;
 import com.capstone.patientplus.models.User;
 import com.capstone.patientplus.repositories.*;
 //import com.capstone.patientplus.repositories.DoctorPatientRepository;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +100,27 @@ public class DoctorController {
         User patient = usersDao.findById(id);
         prescription.setUser(patient);
         prescriptionDao.save(prescription);
+        return "redirect:/0/dashboard";
+    }
+
+    @PostMapping("/doctor/send-appointment-reminder/{id}")
+    public String sendSMS(@PathVariable long id, @RequestParam("messageBody") String messageBody){
+        String ACCOUNT_SID =
+                "ACf1a1066c8841ea770e51d20ba31dd29e";
+        String AUTH_TOKEN =
+                "f1914cfba05d310559d5d412fd4a8756";
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        //Get Patient Phone Number And Format It
+        User patient = usersDao.findById(id);
+        String number = patient.getPhoneNumber();
+        number = "+1" + number.replaceAll("[\\D]", "");
+
+        Message message = Message
+                .creator(new PhoneNumber(number), // to
+                        new PhoneNumber("+17574186596"), // from
+                        messageBody)
+                .create();
         return "redirect:/0/dashboard";
     }
 }
