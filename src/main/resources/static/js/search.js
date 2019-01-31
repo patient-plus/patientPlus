@@ -124,7 +124,7 @@ $(document).ready(function(){
             if(response.redirect === "true"){
                 window.location.href = response.redirectUrl;
             } else{
-                alert("login before continuing!");
+                alert("Must login or register to continue!");
             }
         }).fail((response)=>console.log(response));
     });
@@ -140,7 +140,7 @@ $(document).ready(function(){
 
     state.change(() => {
        city.empty();
-       city.append('<option selected="true">State</option>');
+       city.append('<option selected="true">City</option>');
 
        requestCities().then((data) => {
            let stateChosen = state.val().split('-')[0];
