@@ -105,7 +105,15 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String saveUser(@Valid User user, Errors validation, Model model, HttpServletRequest request){
+    public String saveUser(
+            @Valid User user,
+            Errors validation,
+            Model model,
+            HttpServletRequest request,
+            @RequestParam ("userType") String userType
+    ){
+        user.setPatient(Boolean.parseBoolean(userType));
+
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("user", user);

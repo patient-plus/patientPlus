@@ -126,8 +126,6 @@ $(document).ready(function(){
             } else{
                 alert("login before continuing!");
             }
-            console.log(response.redirect);
-            // console.log(data.getJSON().redirect_url);
         }).fail((response)=>console.log(response));
     });
 
@@ -174,8 +172,6 @@ $(document).ready(function(){
 
 
         if(requestUrl !== null){
-            ///////////////////////////////////////////this is where we call the request
-            // fetch(`/json/doctors.json`)
             fetch(requestUrl)
                 .then(response => {
                 console.log("in data response");
@@ -207,8 +203,8 @@ $(document).ready(function(){
                                         <span class="text-capitalize">Dr. ${data[i].profile.first_name} ${data[i].profile.last_name}</span>
                                         <input type="hidden" name="firstName" value="${data[i].profile.first_name}"/>
                                         <input type="hidden" name="lastName" value="${data[i].profile.last_name}"/>
-                                        <input type="hidden" name="address" value='"${data[i].practices[0].visit_address.street} ${data[i].practices[0].visit_address.city},
-                            ${data[i].practices[0].visit_address.state}, ${data[i].practices[0].visit_address.zip}"'/>
+                                        <input type="hidden" name="address" value="${data[i].practices[0].visit_address.street} ${data[i].practices[0].visit_address.city},
+                            ${data[i].practices[0].visit_address.state}, ${data[i].practices[0].visit_address.zip}"/>
                                         <input type="hidden" name="phoneNumber" value="${data[i].practices[0].phones[0].number}"/>
                                         <input type="hidden" name="patient" value="${false}"/>
                                     </div>

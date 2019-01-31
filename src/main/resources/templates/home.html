@@ -57,7 +57,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 col-sm-6 col-6 patient-doctor-btn">
                                         <label>
-                                            <input type="radio" name="userType" th:field="*{patient}" th:value="1" checked="checked"/>
+                                            <input type="radio" name="userType" th:value="true" th:checked="checked"/>
                                             <img class="icon-img button-icon" src="/static/img/healthcare.png" th:src="@{/img/healthcare.png}" />
                                             Patient
                                         </label>
@@ -67,7 +67,7 @@
                                         <label>
                                             <!--view automatically checks to this because its false so work the controller to
                                             check the value and then assign true to 0 and false to 1-->
-                                            <input type="radio" name="userType" th:field="*{patient}" th:value="0" checked="" />
+                                            <input type="radio" name="userType" th:value="false"/>
                                             <img class="icon-img button-icon" src="/static/img/stethoscope%20(1).png" th:src="@{/img/stethoscope%20(1).png}" />
                                             Doctor
                                         </label>
