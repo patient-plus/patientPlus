@@ -184,11 +184,20 @@ public class PatientController {
         return "redirect:/0/dashboard";
     }
 
+    @PostMapping("/patient/appointment/update-time/{id}")
+    public String appointmentUpdate(@PathVariable long id, @RequestParam("date") String date, @RequestParam("time") String time){
+        Appointment appointment = appointmentDao.findOne(id);
+
+        String dateTime = date + " " + time;
+        appointment.setTime(dateTime);
+        appointmentDao.save(appointment);
+        return "redirect:/0/dashboard";
+    }
+
     @GetMapping("/patient/directions/{id}")
-    public String getDirections(@PathVariable long id){
-
-
-
+    public String getDirections(@PathVariable long id, Model model){
+        String location = appointmentDao.findOne(id).getLocation();
+        model.addAttribute("location", location);
 
         return "appointments/directions";
     }

@@ -5,6 +5,7 @@ $(document).ready(function() {
     let infoWindow = new google.maps.InfoWindow;
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer();
+    let address = $('#location').val();
 
     function googleMaps() {
         let mapOptions ={
@@ -15,7 +16,6 @@ $(document).ready(function() {
             zoom: 10
         };
         let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        let address = "**Address of Clinic**";
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -38,10 +38,9 @@ $(document).ready(function() {
 
     function calcRoute(pos) {
         let start = new google.maps.LatLng(pos.lat, pos.lng);
-        let end = "600 Navarro St, San Antonio";
         let request = {
             origin: start,
-            destination: end,
+            destination: address,
             travelMode: 'DRIVING'
         };
         directionsService.route(request, function(result, status) {

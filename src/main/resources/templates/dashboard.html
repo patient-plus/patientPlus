@@ -50,10 +50,79 @@
                                 <td th:text="${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></td>
                                 <td th:text="${appointment.time}"></td>
                                 <td>
-                                    <span th:text="${appointment.location}"></span>
-                                    <a th:href="@{/patient/directions/{id}(id = ${appointment.doctor.id})}" class="btn btn-link">Get Directions!</a>
+                                    <div class="my-2" th:text="${appointment.location}"></div>
+                                    <a th:href="@{/patient/directions/{id}(id = ${appointment.id})}" class="btn btn-link p-0">Get Directions</a>
                                 </td>
                                 <td>
+                                    <form th:action="@{/patient/appointment/update-time/{id}(id = ${appointment.id})}" th:method="POST">
+                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#updateAppointment">Change Date</button>
+                                        <div class="modal fade" id="updateAppointment" tabindex="-1" role="dialog" aria-labelledby="updateAppointmentLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header text-center">
+                                                        <h5 class="modal-title">Update Appointment Date and Time</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <label for="appointment-date-input" class="col-form-label">Date</label>
+                                                        <div>
+                                                            <input class="form-control" type="date" value="yyy-MM-dd" id="appointment-date-input" name="date"/>
+                                                        </div>
+                                                        <div>
+                                                            <label for="appointment-time-input" class="col-form-label">Select a Time</label>
+                                                            <div id="appointment-time-input" class="btn-group row" data-toggle="buttons">
+                                                                <div class="col-6">
+                                                                    <div><small>Before Lunch:</small></div>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="1000" value="10:00"/> 10:00 AM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="1030" value="10:30"/> 10:30 AM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="1100" value="11:00"/> 11:00 AM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="1130" value="11:30"/> 11:30 AM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="100" value="1:00"/> &nbsp; 1:00 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="130" value="1:30"/> &nbsp; 1:30 PM
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div><small>After Lunch:</small></div>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="200" value="2:00"/> &nbsp; 2:00 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="230" value="2:30"/> &nbsp; 2:30 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="300" value="3:00"/> &nbsp; 3:00 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="330" value="3:30"/> &nbsp; 3:30 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="400" value="4:00"/> &nbsp; 4:00 PM
+                                                                    </label>
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="time" id="430" value="4:30"/> &nbsp; 4:30 PM
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                     <form th:action="@{/patient/appointment/delete/{id}(id = ${appointment.id})}" th:method="POST">
                                         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#deleteAppointment">Cancel Appointment</button>
                                         <div class="modal fade" id="deleteAppointment" tabindex="-1" role="dialog" aria-labelledby="deleteAppointmentLabel" aria-hidden="true">

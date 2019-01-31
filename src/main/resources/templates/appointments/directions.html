@@ -13,7 +13,7 @@
 <div class="container bg-white rounded mt-3" style="border: 10px solid white">
     <section class="row">
         <h1 class="mx-auto">Directions to Appointment</h1>
-        <input title="clinicLocation" type="hidden" id="clinicLocation" name="clinicLocation"/>
+        <input title="location" type="hidden" id="location" name="location" th:value="${location}"/>
     </section>
     <section class="row mb-2">
         <div class="col-8" id="map" style="height: 100vh; overflow: hidden;"></div>
