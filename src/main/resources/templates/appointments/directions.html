@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Directions')"></head>
+<style>
+    body {
+        background-color: #1c5d8e;
+    }
+</style>
+<body>
+
+<nav th:replace="partials :: navbar"></nav>
+
+<div class="container bg-white rounded mt-3" style="border: 10px solid white">
+    <section class="row">
+        <h1 class="mx-auto">Directions to Appointment</h1>
+        <input title="clinicLocation" type="hidden" id="clinicLocation" name="clinicLocation"/>
+    </section>
+    <section class="row mb-2">
+        <div class="col-8" id="map" style="height: 100vh; overflow: hidden;"></div>
+        <div class="col-4" id="directionsPanel" style="height: 100%"></div>
+    </section>
+</div>
+
+
+<footer th:replace="partials :: footer"></footer>
+<span th:replace="partials :: scripts"></span>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVCLXtazqEfk7wHZoWCaMtzHAaPMSp6Kk"></script>
+<script src="/js/directions.js"></script>
+</body>
+</html>

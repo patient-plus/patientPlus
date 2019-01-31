@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Write Presciption')"></head>
+<style>
+    body {
+        background-color: #1c5d8e;
+    }
+</style>
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
-<div class="container w-50">
+<div class="container rounded bg-white w-50">
     <div class="row">
         <header class="col-12 text-center my-3">
             <h4>Make Prescription</h4>
@@ -22,7 +27,7 @@
             </div>
             <div class="col-12 my-3">
                 <label for="instructions" class="form-text text-muted mb-0">Prescription Instructions</label>
-                <textarea th:field="${prescription.instructions}" cols="30" rows="10" required="required" class="form-control" name="instructions" id="instructions"></textarea>
+                <textarea th:field="${prescription.instructions}" cols="30" rows="5" required="required" class="form-control" name="instructions" id="instructions" style="resize: none;"></textarea>
             </div>
             <div class="col-12 my-3">
                 <label for="startDate" class="form-text text-muted mb-0">Start Date:</label>

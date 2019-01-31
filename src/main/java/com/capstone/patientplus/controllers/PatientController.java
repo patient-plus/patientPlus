@@ -183,4 +183,13 @@ public class PatientController {
         appointmentDao.delete(id);
         return "redirect:/0/dashboard";
     }
+
+    @GetMapping("/patient/directions/{id}")
+    public String getDirections(@PathVariable long id){
+
+
+
+
+        return "appointments/directions";
+    }
 }
