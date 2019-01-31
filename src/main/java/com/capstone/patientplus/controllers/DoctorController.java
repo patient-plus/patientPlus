@@ -112,12 +112,12 @@ public class DoctorController {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         //Get Patient Phone Number And Format It
-        User patient = usersDao.findById(id);
-        String number = patient.getPhoneNumber();
-        number = "+1" + number.replaceAll("[\\D]", "");
+//        User patient = usersDao.findById(id);
+//        String number = patient.getPhoneNumber();
+//        number = "+1" + number.replaceAll("[\\D]", "");
 
         Message message = Message
-                .creator(new PhoneNumber(number), // to
+                .creator(new PhoneNumber("+17577736429"), // to
                         new PhoneNumber("+17574186596"), // from
                         messageBody)
                 .create();
