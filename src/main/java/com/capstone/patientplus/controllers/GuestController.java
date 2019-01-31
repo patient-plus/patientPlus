@@ -28,14 +28,12 @@ public class GuestController {
     private final PasswordEncoder passwordEncoder;
     private final DoctorPatientRepository doctorPatientDao;
     private final UsersRepository usersDao;
-    private final AppointmentRepository appointmentDao;
 
 
     public GuestController(PasswordEncoder passwordEncoder, DoctorPatientRepository doctorPatientDao, UsersRepository usersDao, AppointmentRepository appointmentDao){
         this.passwordEncoder = passwordEncoder;
         this.doctorPatientDao = doctorPatientDao;
         this.usersDao = usersDao;
-        this.appointmentDao = appointmentDao;
     }
 
     @GetMapping("/find-doctor")
@@ -59,12 +57,8 @@ public class GuestController {
             @RequestParam (name = "lastName") String lastName,
             @RequestParam (name = "patient") boolean patient,
             @RequestParam (name = "address") String address,
-            HttpServletRequest request,
-            Model model
+            HttpServletRequest request
     ){
-//        List<String> results = new ArrayList<>();
-//            @RequestParam (name = "phoneNumber") String phoneNumber,
-
         HashMap<String, String> map = new HashMap<>();
         //if user is logged in as a patient
         if(!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
@@ -107,7 +101,6 @@ public class GuestController {
 
 
                 //redirects page
-//            results.add("/patient/appointment/create");
                 map.put("redirect", "true");
                 map.put("redirectUrl", "/patient/appointment/create");
                 return map;
