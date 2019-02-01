@@ -145,7 +145,7 @@ $(document).ready(function(){
 
     state.change(() => {
        city.empty();
-       city.append('<option selected="true">State</option>');
+       city.append('<option selected="true">City</option>');
 
        requestCities().then((data) => {
            let stateChosen = state.val().split('-')[0];
