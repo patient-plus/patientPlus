@@ -240,48 +240,54 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        <!--TABLE FOR PATIENT-->
+            <!--TABLE FOR PATIENT-->
             <div class="col-6 patientProfileToggleCol">
-                    <table class="table table-hover m-0">
-                        <thead class="bg-info">
-                            <tr>
-                                <th>Patient's Profile</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <div th:if="${appointments.length()} == 0">
-                                <tr class="table-row" th:each="appointment : ${appointments}">
-                                    <td class="collapse" th:id="'patient' + ${appointment.patient.id}">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title" th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></h5>
-                                                <h6 class="card-subtitle mb-2 text-muted" th:text="'Phone Number: ' + ${appointment.patient.phoneNumber}"></h6>
-                                                <h6 class="card-subtitle mb-2 text-muted" th:text="'DOB: ' + ${appointment.patient.dateOfBirth}"></h6>
-                                                <h6 class="card-subtitle mb-2">Current Medications:</h6>
-                                                <p class="card-text d-inline" th:if="${#lists.size(appointment.patient.medications)} == 0">No medications for this patient!</p>
-                                                <p class="card-text d-inline" th:if="!${#lists.size(appointment.patient.medications)} == 0" th:each="medication : ${appointment.patient.medications}"><span th:text="${medication.medicationName}"></span></p>
-                                                <a th:href="@{/doctor/write-prescription/{id}(id = ${appointment.patient.id})}" class="card-link d-block text-center">Write Prescription</a>
-                                            </div>
+                <table class="table table-hover m-0">
+                    <thead class="bg-info">
+                    <tr>
+                        <th>Patient's Profile</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row" th:each="appointment : ${appointments}">
+                            <td class="collapse" th:id="'patient' + ${appointment.patient.id}">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title" th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted" th:text="'Phone Number: ' + ${appointment.patient.phoneNumber}"></h6>
+                                        <h6 class="card-subtitle mb-2 text-muted" th:text="'DOB: ' + ${appointment.patient.dateOfBirth}"></h6>
+                                        <div th:if="${#lists.size(appointment.patient.medications)} == 0">
+                                            <h6 class="card-subtitle mb-2">Current Medications:</h6>
+                                            <!--<p class="card-text d-inline" th:if="${#lists.size(appointment.patient.medications)} == 0">No medications for this patient!</p>-->
+                                            <p class="card-text d-inline" th:each="medication : ${appointment.patient.medications}"><span th:text="${medication.medicationName}"></span></p>
                                         </div>
-                                    </td>
-                                </tr>
-                            </div>
-                            <div th:unless="${appointments.length()} == 0">
-                                <tr>
-                                    <td>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Choose a patient to view profile here!
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </div>
+                                        <!--<div th:if="${appointment.patient.insurance} != null">-->
+                                            <!--<img src="${appointment.patient.insurance}" alt="insurance-image"/>-->
+                                        <!--</div>-->
+                                        <a th:href="@{/doctor/write-prescription/{id}(id = ${appointment.patient.id})}" class="card-link d-block text-center">Write Prescription</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    <!--<div th:if="${appointments.size()} == 0">-->
+                        <!--<tr>-->
+                            <!--<td>-->
+                                <!--<div class="card">-->
+                                    <!--<div class="card-body">-->
+                                        <!--Choose a patient to view profile here!-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    <!--</div>-->
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
+
+
             </div>
         </div>
 <footer th:replace="partials :: footer"></footer>
