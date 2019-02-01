@@ -45,9 +45,6 @@ public class PatientController {
         if (!patient.isPatient()){
             return "redirect:/0/dashboard";
         }
-        if (thisUser.getInsurance() != null){
-            return "redirect:/0/dashboard";
-        }
 
         model.addAttribute("emergencyContact", new EmergencyContact());
         model.addAttribute("pharmacy", new Pharmacy());
