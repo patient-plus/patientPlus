@@ -37,14 +37,15 @@ public class GuestController {
     }
 
     @GetMapping("/find-doctor")
-    public String getSearchPage(){
+    public String getSearchPage(Model model){
         //checks if anyone is logged in
         if(!(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String)){
             User doctor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             if (!doctor.isPatient()){
                 return "redirect:/0/dashboard";
             }
-
+        } else {
+            model.addAttribute("notLoggedIn", true);
         }
         return "search";
     }
