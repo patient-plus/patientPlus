@@ -1,6 +1,11 @@
 "use strict";
 
 $(document).ready(function(){
+
+    $(document).on('click', '.add-doc', function () {
+        $('#notLoggedIn').modal('show');
+    });
+
     //example request:
     //https://api.betterdoctor.com/2016-03-01/doctors?
     // location=tx&
@@ -124,7 +129,7 @@ $(document).ready(function(){
             if(response.redirect === "true"){
                 window.location.href = response.redirectUrl;
             } else{
-                alert("login before continuing!");
+                console.log('modal');
             }
         }).fail((response)=>console.log(response));
     });
@@ -210,7 +215,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="col-6">
                                     
-                                        <button type="submit" class="btn btn-primary">Add To Doctors</button>
+                                        <button type="submit" class="add-doc btn btn-primary">Add To Doctors</button>
                                     </div>
                                 </div>
                             </form>`
