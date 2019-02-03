@@ -10,15 +10,30 @@
 
 <nav th:replace="partials :: navbar"></nav>
 
-<div class="container bg-white rounded mt-3" style="border: 10px solid white">
-    <section class="row">
-        <h1 class="mx-auto">Directions to Appointment</h1>
-        <input title="location" type="hidden" id="location" name="location" th:value="${location}"/>
-    </section>
-    <section class="row mb-2">
-        <div class="col-8" id="map" style="height: 100vh; overflow: hidden;"></div>
-        <div class="col-4" id="directionsPanel" style="height: 100%"></div>
-    </section>
+<!--<div class="container mt-3 bg-light">-->
+    <!--<section class="row">-->
+        <!--<h1 class="mx-auto">Directions to Appointment</h1>-->
+        <!--<input title="location" type="hidden" id="location" name="location" th:value="${location}"/>-->
+    <!--</section>-->
+    <!--<section class="row mb-2">-->
+        <!--<div class="col-8 map-style" id="map"></div>-->
+        <!--<div class="col-4 directions" id="directionsPanel"></div>-->
+    <!--</section>-->
+<!--</div>-->
+
+<div class="container mt-3">
+    <div class="card p-3">
+        <div class="card-body">
+            <div class="row">
+                <h1 class="mx-auto">Directions to Appointment</h1>
+                <input title="location" type="hidden" id="location" name="location" th:value="${location}"/>
+            </div>
+            <section class="row mb-2">
+                <div class="col-8 map-style" id="map"></div>
+                <div class="col-4 directions" id="directionsPanel"></div>
+            </section>
+        </div>
+    </div>
 </div>
 
 
