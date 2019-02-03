@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8"/>
     <title th:text="'Ooops, ' + ${error}"></title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/spaces.css"/>
+    <link rel="stylesheet" href="/css/homeNavbar.css" />
+    <link rel="stylesheet" href="/css/navDropdown.css"/>
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/general.css" />
 </head>
-<body>
+<body class="medical-blue">
+
 <nav th:replace="partials :: navbar"></nav>
-<th:block th:switch="${error}">
-    <section>
-        <div th:case="'Not Found'">
-            <h1>Page not found!!</h1>
+
+
+<div class="container-fluid p-4">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card m-4 p-2">
+                <div class="card-body">
+                    <div class="card-title text-center">
+                        <h1>UH OH, 404 Error!</h1>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4 sickIcon pl-4">
+                            <img src="/static/img/sickIcon.png" th:src="@{/img/sickIcon.png}" class="mx-auto"/>
+                        </div>
+                        <div class="col-8 pl-0">
+                            <p>
+                                Looks like this page isn't feeling well and took time off.
+                                Here is the <a th:href="@{/}" th:text="homepage"></a> to help!
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div th:case="'Forbidden'">
-            <h1>You don't have permission to view this page.</h1>
-        </div>
-        <div th:case="'Bad Request'">
-            <h1>No page exists!</h1>
-        </div>
-    </section>
-</th:block>
-<span th:replace="partials :: scripts"></span>
+    </div>
+</div>
+
+<footer th:replace="partials :: footer"></footer>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>
