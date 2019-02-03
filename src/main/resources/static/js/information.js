@@ -42,7 +42,8 @@ $(document).ready(function () {
             thumbnail.id = 'thumbnail';
             thumbnail.src = client.transform(fileData.handle, {
                 resize: {
-                    width: 200
+                    height: 450,
+                    width: 450
                 }
             });
 

@@ -24,7 +24,7 @@
         <a class="nav-bar-brand p-0 text-center text-md-left mt-1 mt-sm-0" href="/">
             <img src="/img/mainnlogo.png" class="mainLogo" style="width: 88px;height: 53px;"/>
         </a>
-        <ul class="nav justify-content-md-end justify-content-center">
+        <ul class="nav justify-content-end">
             <li class="login-container text-center text-md-left" sec:authorize="!isAuthenticated()">
                 <form th:action="@{/login}" method="POST" class="loginForm">
                     <span th:if="${failedLogin} == true" class="mr-xs text-danger">Email or Password not valid!</span>

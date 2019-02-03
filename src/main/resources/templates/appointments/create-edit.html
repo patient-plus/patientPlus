@@ -15,46 +15,51 @@
 
 <nav th:replace="partials :: navbar"></nav>
 
+    <div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">
+        <h1 class="pb-0 text-center">Make an appointment</h1>
 
-
-    <div th:if="${edit}">
-        <div class="container pt-3 mt-3 rounded">
-            <h1 class="pb-0 text-center">Adjust your appointment</h1>
-
-            <form class="col-12" action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
-                <div class="row bg-white pt-5 pb-5 rounded appointmentSelectionRow">
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDoctorCard border-0">
-                            <div class="card-body pt-0 selectDoctorCardBody border-0">
-                                <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
-                                <div>
-                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor" th:field="*{doctor}">
-                                        <div th:each="doctorOption : ${doctors}">
-                                            <option  th:value="${doctorOption.getId()}"
-                                                     th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}">
-                                            </option>
-                                        </div>
-                                    </select>
-                                </div>
+        <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
+            <div class="row bg-white pt-5 rounded appointmentSelectionRow">
+                <div class="col-6 pt-0 pb-5 bg-white rounded">
+                    <div class="card selectDoctorCard border-0">
+                        <div class="card-body pt-0 selectDoctorCardBody border-0">
+                            <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
+                            <div>
+                                <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
+                                    <div th:if="${newDoctor != null}">
+                                        <option th:each="doctorOption : ${doctors}"
+                                                th:value="${doctorOption.getId()}"
+                                                th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}"
+                                                th:selected="${doctorOption.getId()} == ${newDoctor.getId()}"
+                                        >
+                                        </option>
+                                    </div>
+                                    <div th:unless="${newDoctor != null}">
+                                        <option th:each="doctorOption : ${doctors}"
+                                                th:value="${doctorOption.getId()}"
+                                                th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" >
+                                        </option>
+                                    </div>
+                                </select>
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <h2>Need a Different Doctor?</h2>
-                            <a href="/find-doctor" class="btn btn-primary">Find now</a>
-                            <a id="findDoctor" name="searchDoctor" href="/find-doctor" class="btn btn-success btn-lg">Find One Here</a>
-                        </div>
-                        <!--Location Submit-->
-                    </div>
 
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDateAndTimeCard border-0">
-                            <div class="card-body pt-0 selectDateAndTimeCardBody border-0">
-                                <label for="appointment-date-input" class="col-form-label">Date</label>
-                                <div>
-                                    <input class="form-control" type="date" value="yyy-MM-dd" id="appointment-date-input" name="date"/>
-                                </div>
-                                <div>
-                                    <label for="appointment-time-input" class="col-form-label">Select a Time</label>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <h3>Need a different doctor?</h3>
+                        <a id="findDoctor" name="searchDoctor" href="/find-doctor" class="btn btn-success btn-lg">Find One Here</a>
+                    </div>
+                </div>
+
+                <div class="col-6 pt-0 pb-5 bg-white rounded">
+                    <div class="card selectDateAndTimeCard border-0">
+                        <div class="card-body pt-0 selectDateAndTimeCardBody border-0">
+                            <label for="appointment-date-input" class="col-form-label">Date</label>
+                            <div>
+                                <input class="form-control" type="date" value="yyy-MM-dd" id="appointment-date-input" name="date"/>
+                            </div>
+                            <div>
+                                <label for="appointment-time-input" class="col-form-label">Select a Time</label>
                                     <div id="appointment-time-input" class="btn-group row" data-toggle="buttons">
                                         <div class="col-6">
                                             <div><small>Before Lunch:</small></div>
@@ -99,126 +104,17 @@
                                             </label>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row bg-white pt-0 pb-5 rounded">
-                    <div class="col text-right mr-5 pr-0 createAppointmentSubmitBtn">
-                        <button class="btn btn-primary btn-lg" type="submit">Book appointment!</button>
-                    </div>
+            </div>
+            <div class="row bg-white pt-0 pb-4 rounded">
+                <div class="col text-right mr-5 pr-0 createAppointmentSubmitBtn">
+                    <button class="btn btn-primary btn-lg" type="submit">Book appointment!</button>
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <div th:if="${create}">
-        <div class="container mt-5 pt-5 pb-0 pl-0 pr-0 rounded createAppointmentContainer">
-            <h1 class="pb-0 text-center">Make an appointment</h1>
-
-            <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
-                <div class="row bg-white pt-5 pb-5 rounded appointmentSelectionRow">
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDoctorCard border-0">
-                            <div class="card-body pt-0 selectDoctorCardBody border-0">
-                                <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
-                                <div>
-                                    <select class="form-control" id="appointment-doctor-input" name="selectedDoctor">
-                                        <div th:if="${newDoctor != null}">
-                                            <option th:each="doctorOption : ${doctors}"
-                                                    th:value="${doctorOption.getId()}"
-                                                    th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}"
-                                                    th:selected="${doctorOption.getId()} == ${newDoctor.getId()}"
-                                            >
-                                            </option>
-                                        </div>
-                                        <div th:unless="${newDoctor != null}">
-                                            <option th:each="doctorOption : ${doctors}"
-                                                    th:value="${doctorOption.getId()}"
-                                                    th:text="${doctorOption.getFirstName()} + ' ' + ${doctorOption.getLastName()}" >
-                                            </option>
-                                        </div>
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <h3>Need a different doctor?</h3>
-                            <a id="findDoctor" name="searchDoctor" href="/find-doctor" class="btn btn-success btn-lg">Find One Here</a>
-                        </div>
-                        <!--Location Submit-->
-                        <div>
-                            <textarea rows="5" placeholder="Description" th:field="*{location}"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-6 pt-0 pb-5 bg-white rounded">
-                        <div class="card selectDateAndTimeCard border-0">
-                            <div class="card-body pt-0 selectDateAndTimeCardBody border-0">
-                                <label for="appointment-date-input" class="col-form-label">Date</label>
-                                <div>
-                                    <input class="form-control" type="date" value="yyy-MM-dd" id="appointment-date-input" name="date"/>
-                                </div>
-                                <div>
-                                    <label for="appointment-time-input" class="col-form-label">Select a Time</label>
-                                        <div id="appointment-time-input" class="btn-group row" data-toggle="buttons">
-                                            <div class="col-6">
-                                                <div><small>Before Lunch:</small></div>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="1000" value="10:00"/> 10:00 AM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="1030" value="10:30"/> 10:30 AM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="1100" value="11:00"/> 11:00 AM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="1130" value="11:30"/> 11:30 AM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="100" value="1:00"/> &nbsp; 1:00 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="130" value="1:30"/> &nbsp; 1:30 PM
-                                                </label>
-                                            </div>
-                                            <div class="col-6">
-                                                <div><small>After Lunch:</small></div>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="200" value="2:00"/> &nbsp; 2:00 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="230" value="2:30"/> &nbsp; 2:30 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="300" value="3:00"/> &nbsp; 3:00 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="330" value="3:30"/> &nbsp; 3:30 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="400" value="4:00"/> &nbsp; 4:00 PM
-                                                </label>
-                                                <label class="btn btn-primary">
-                                                    <input type="radio" name="time" id="430" value="4:30"/> &nbsp; 4:30 PM
-                                                </label>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row bg-white pt-0 pb-5 rounded">
-                    <div class="col text-right mr-5 pr-0 createAppointmentSubmitBtn">
-                        <button class="btn btn-primary btn-lg" type="submit">Book appointment!</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 
 
