@@ -15,7 +15,7 @@ $(document).ready(function() {
             },
             zoom: 10
         };
-        let map = new google.maps.Map($('#map'), mapOptions);
+        let map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
                 };
 
                 directionsDisplay.setMap(map);
-                directionsDisplay.setPanel($('#directionsPanel'));
+                directionsDisplay.setPanel(document.getElementById('directionsPanel'));
                 calcRoute(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter(), map);
