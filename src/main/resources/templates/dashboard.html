@@ -52,14 +52,14 @@
                         <tbody class="bg-light">
                             <div th:each="appointment : ${appointments}">
                                 <tr>
-                                    <td th:text="${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></td>
-                                    <td th:text="${appointment.time}"></td>
+                                    <td class="pt-4" th:text="${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></td>
+                                    <td class="pt-4" th:text="${appointment.time}"></td>
                                     <td>
                                         <div class="my-2" th:text="${appointment.location}"></div>
                                         <a th:href="@{/patient/directions/{id}(id = ${appointment.id})}" class="btn btn-link p-0">Get Directions</a>
                                     </td>
                                     <td>
-                                        <div class="row">
+                                        <div class="row pt-3">
                                             <div class="col-12 col-md-6 justify-content-center">
                                                 <form th:action="@{/patient/appointment/update-time/{id}(id = ${appointment.id})}" th:method="POST">
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateAppointment">Edit</button>
@@ -167,7 +167,7 @@
                             Find a Doctor
                         </div>
                         <div class="card-body text-center">
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">As a member of PatientPlus, it is now easy to find a doctor in your city with your insurance plan. See for yourself right now!</p>
                             <a href="/find-doctor" class="btn btn-primary">Find now</a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             Book Appointment
                         </div>
                         <div class="card-body text-center">
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text">PatientPlus members can now book a doctor's appointment whenever and wherever. It's that simple!</p>
                             <a href="/patient/appointment/create" class="btn btn-primary">Book now</a>
                         </div>
                     </div>
