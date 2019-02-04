@@ -5,7 +5,7 @@
 }
 
 .main-bg {
-    background-color: var(--main-background-color) !important;
+    background-color: var(--main-background-color);
 }
 
 .icon-img{
@@ -30,7 +30,8 @@
 
 /*}*/
 
-body {
+body,
+.homepage-bg{
     min-height: 100vh;
     background: url("../img/arms-care-check-905874.jpg") no-repeat center;
     background-size: cover;
@@ -80,11 +81,4 @@ body {
 
 }
 
-.patient-doctor-btn {
-
-}
-
-.patient-doctor-btn img:hover{
-
-}
 
