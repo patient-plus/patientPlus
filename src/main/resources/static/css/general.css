@@ -34,13 +34,13 @@ body,
 }
 
 @media screen and (max-width:768px) {
-    .map-style,
-    .directions{
-        height: 20em;
+    .map-style{
+        height: 10em;
+        overflow: hidden;
     }
 
-    .map-style{
-        overflow: hidden;
+    .directions{
+        height: 20em;
     }
 
     img {
