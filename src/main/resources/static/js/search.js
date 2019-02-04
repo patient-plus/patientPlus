@@ -226,7 +226,7 @@ $(document).ready(function(){
                 }).then((doctorArray) => {
 
                     //once array is set we can add the listener on the forms
-                searchBtn.click( (e) => {
+                searchBtn.on('click', (e) => {
                     e.preventDefault();
 
                     resultsSection.empty();
