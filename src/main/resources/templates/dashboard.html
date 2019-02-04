@@ -56,7 +56,7 @@
                             <div th:each="appointment : ${appointments}">
                                 <tr>
                                     <td class="pt-4">
-                                        <span th:text="${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></span>
+                                        <span th:text="Dr. +' ' + ${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></span>
                                         <a th:href="@{/patient/directions/{id}(id = ${appointment.id})}" class="btn btn-success d-lg-none">Directions</a>
                                     </td>
                                     <td class="pt-4" th:text="${appointment.time}"></td>
@@ -86,43 +86,43 @@
                                                                             <div class="col-6">
                                                                                 <div><small>Before Lunch:</small></div>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="1000" value="10:00"/> 10:00 AM
+                                                                                    <input type="radio" name="time" id="1000" value="10:00 AM"/> 10:00 AM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="1030" value="10:30"/> 10:30 AM
+                                                                                    <input type="radio" name="time" id="1030" value="10:30 AM"/> 10:30 AM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="1100" value="11:00"/> 11:00 AM
+                                                                                    <input type="radio" name="time" id="1100" value="11:00 AM"/> 11:00 AM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="1130" value="11:30"/> 11:30 AM
+                                                                                    <input type="radio" name="time" id="1130" value="11:30 AM"/> 11:30 AM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="100" value="1:00"/> &nbsp; 1:00 PM
+                                                                                    <input type="radio" name="time" id="100" value="1:00 PM"/> &nbsp; 1:00 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="130" value="1:30"/> &nbsp; 1:30 PM
+                                                                                    <input type="radio" name="time" id="130" value="1:30 PM"/> &nbsp; 1:30 PM
                                                                                 </label>
                                                                             </div>
                                                                             <div class="col-6">
                                                                                 <div><small>After Lunch:</small></div>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="200" value="2:00"/> &nbsp; 2:00 PM
+                                                                                    <input type="radio" name="time" id="200" value="2:00 PM"/> &nbsp; 2:00 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="230" value="2:30"/> &nbsp; 2:30 PM
+                                                                                    <input type="radio" name="time" id="230" value="2:30 PM"/> &nbsp; 2:30 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="300" value="3:00"/> &nbsp; 3:00 PM
+                                                                                    <input type="radio" name="time" id="300" value="3:00 PM"/> &nbsp; 3:00 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="330" value="3:30"/> &nbsp; 3:30 PM
+                                                                                    <input type="radio" name="time" id="330" value="3:30 PM"/> &nbsp; 3:30 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="400" value="4:00"/> &nbsp; 4:00 PM
+                                                                                    <input type="radio" name="time" id="400" value="4:00 PM"/> &nbsp; 4:00 PM
                                                                                 </label>
                                                                                 <label class="btn btn-primary">
-                                                                                    <input type="radio" name="time" id="430" value="4:30"/> &nbsp; 4:30 PM
+                                                                                    <input type="radio" name="time" id="430" value="4:30 PM"/> &nbsp; 4:30 PM
                                                                                 </label>
                                                                             </div>
                                                                         </div>

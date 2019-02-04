@@ -164,7 +164,7 @@ public class PatientController {
         User patient = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User doctor = users.findById(Long.parseLong(selectedDoctorId));
 
-        String dateTime = date + " " + time;
+        String dateTime = date + " | " + time;
         appointment.setTime(dateTime);
         appointment.setPatient(patient);
         appointment.setDoctor(doctor);
