@@ -1,3 +1,4 @@
+body,
 .medical-blue{
     background-color: #1c5d8e;
 }
@@ -5,4 +6,56 @@
 .mapCard {
     /*background-color: rgb(241, 243,	244);*/
     background-color: rgb(248, 249, 250);
+}
+
+.map-style,
+.directions{
+    height: 30em;
+}
+.overflow-list,
+.directions {
+    overflow-y: auto;
+}
+
+.results-size{
+    height: 29.75em;
+}
+
+.list-size{
+    height: 23em;
+}
+
+.map-style{
+    overflow: hidden;
+}
+
+.card {
+    background-color: rgb(241, 243, 244);
+}
+
+@media screen and (max-width:768px) {
+    .map-style,
+    .directions{
+        height: 20em;
+    }
+
+    .map-style{
+        overflow: hidden;
+    }
+
+    img {
+        width:100%;
+    }
+    .container {
+        max-width:100%;
+        width: 100%;
+    }
+}
+@media (max-width: 1190px) and (min-width: 992px){
+    .mariaName {
+        padding-top: 10px;
+    }
+    .mariaIconRow {
+        padding-top: 23px;
+    }
 }
