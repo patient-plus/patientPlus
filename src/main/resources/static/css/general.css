@@ -29,10 +29,6 @@ body,
     overflow: hidden;
 }
 
-.card {
-    background-color: rgb(241, 243, 244);
-}
-
 @media screen and (max-width:768px) {
     .map-style{
         height: 10em;
