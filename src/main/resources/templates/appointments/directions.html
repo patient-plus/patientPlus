@@ -5,24 +5,13 @@
 <body class="medical-blue">
 <nav th:replace="partials :: navbar"></nav>
 
-<!--<div class="container mt-3 bg-light">-->
-    <!--<section class="row">-->
-        <!--<h1 class="mx-auto">Directions to Appointment</h1>-->
-        <!--<input title="location" type="hidden" id="location" name="location" th:value="${location}"/>-->
-    <!--</section>-->
-    <!--<section class="row mb-2">-->
-        <!--<div class="col-8 map-style" id="map"></div>-->
-        <!--<div class="col-4 directions" id="directionsPanel"></div>-->
-    <!--</section>-->
-<!--</div>-->
-
-<div class="container mt-3">
+<div class="container mt-5 mb-2">
+    <div class="header text-light text-left">
+        <h1>Directions to Appointment</h1>
+        <input title="location" type="hidden" id="location" name="location" th:value="${location}"/>
+    </div>
     <div class="card p-3 mapCard">
         <div class="card-body">
-            <div class="row">
-                <h1 class="mx-auto">Directions to Appointment</h1>
-                <input title="location" type="hidden" id="location" name="location" th:value="${location}"/>
-            </div>
             <section class="row mb-2">
                 <div class="col-lg-8 col-12 map-style pl-lg-0 pl-1" id="map"></div>
                 <!--made bg white so it stands out when scrolling-->
