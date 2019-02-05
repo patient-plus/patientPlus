@@ -13,185 +13,184 @@
 
 <nav th:replace="partials :: navbar"></nav>
 
-
-<div class="header text-light text-left ml-5 mt-5 pl-5">
-    <h1 class="ml-5 pl-3">Help us help you</h1>
-    <p class="ml-5 pl-4">Please fill out our medical form</p>
-</div>
-
-
-<div class="container mt-0">
-    <div class="card">
-        <div class="card-header">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="emergency-contact-tab" data-toggle="tab" href="#emergency-contact" role="tab" aria-controls="emergency-contact" aria-selected="true">Emergency Contact</a>
-                <a class="nav-item nav-link" id="insurance-tab" data-toggle="tab" href="#insurance" role="tab" aria-controls="insurance" aria-selected="false">Insurance</a>
-                <a class="nav-item nav-link" id="pharmacy-tab" data-toggle="tab" href="#pharmacy" role="tab" aria-controls="pharmacy" aria-selected="false">Pharmacy</a>
-                <a class="nav-item nav-link" id="surgery-tab" data-toggle="tab" href="#surgery" role="tab" aria-controls="surgery" aria-selected="false">Surgery</a>
-                <a class="nav-item nav-link" id="medications-tab" data-toggle="tab" href="#medications" role="tab" aria-controls="medications" aria-selected="false">Medication</a>
-            </div>
-        </div>
-        <form method="POST" th:action="@{/patient/info}" class="container tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active card-body" role="tabpanel" aria-labelledby="emergency-contact-tab" id="emergency-contact">
-                <ul class="list-group list-group-flush">
-                    <li class="bg-white list-group-item form-group">
-                        <label for="contactName">Name</label>
-                        <input type="text" class="form-control" id="contactName" placeholder="Name" th:field="*{emergencyContact.emergencyContactName}"/>
-                    </li>
-                    <li class="bg-white list-group-item form-group">
-                        <label for="contactRelation">Relation</label>
-                        <input type="text" class="form-control" id="contactRelation" placeholder="Relation: ex. mom" th:field="*{emergencyContact.relationshipToPatient}"/>
-                    </li>
-                    <li class="bg-white list-group-item form-group">
-                        <label for="contactPhone" class="form-text">Phone Number:</label>
-                        <input type="tel" id="contactPhone" name="contactPhone"
-                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                               required="required" class="form-control" placeholder="000-000-0000" th:field="*{emergencyContact.emergencyContactPhoneNumber}" />
-                    </li>
-                </ul>
-                <a class="btn btn-outline-primary btnNext float-right mt-2 mb-20px">Next</a>
-            </div>
-            <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance" style="height: 515px">
-                <div class="text-center">
-                    <h5>Please upload a photo of your insurance card.</h5>
-                    <div id="inline" style="width:50%;height:400px;padding:20px; margin-left: auto; margin-right: auto"></div>
-                    <div id="thumbnail-container"></div>
-                </div>
-                <input type="hidden" class="form-control" id="insuranceUrl" name="insuranceUrl"/>
-                <div class="mt-2">
-                    <a class="btn btn-outline-primary btnPrevious">Previous</a>
-                    <a class="btn btn-outline-primary btnNext float-right">Next</a>
+<div class="container mt-5">
+    <div class="header text-light text-left">
+        <h1>Help us help you</h1>
+    </div>
+    <section class="bg-white rounded">
+        <h4 class="p-2 m-0 bg-light" style="border-radius: .25rem .25rem 0 0;">Please fill out our medical form</h4>
+        <div class="card border-0">
+            <div class="card-header bg-light">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="emergency-contact-tab" data-toggle="tab" href="#emergency-contact" role="tab" aria-controls="emergency-contact" aria-selected="true">Emergency Contact</a>
+                    <a class="nav-item nav-link" id="insurance-tab" data-toggle="tab" href="#insurance" role="tab" aria-controls="insurance" aria-selected="false">Insurance</a>
+                    <a class="nav-item nav-link" id="pharmacy-tab" data-toggle="tab" href="#pharmacy" role="tab" aria-controls="pharmacy" aria-selected="false">Pharmacy</a>
+                    <a class="nav-item nav-link" id="surgery-tab" data-toggle="tab" href="#surgery" role="tab" aria-controls="surgery" aria-selected="false">Surgery</a>
+                    <a class="nav-item nav-link" id="medications-tab" data-toggle="tab" href="#medications" role="tab" aria-controls="medications" aria-selected="false">Medication</a>
                 </div>
             </div>
-            <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="pharmacy-tab" id="pharmacy">
-                <ul class="list-group list-group-flush">
-                    <li class="bg-white list-group-item form-group">
-                        <label for="pharmacyName">Name</label>
-                        <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name" th:field="*{pharmacy.pharmacyName}"/>
-                    </li>
-                    <li class="bg-white list-group-item form-group">
-                        <label for="pharmacyAddress">Pharmacy Address</label>
-                        <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address" th:field="*{pharmacy.pharmacyAddress}"/>
-                    </li>
-                    <li class="bg-white list-group-item form-group">
-                        <label for="pharmacyPhone" class="form-text">Phone Number:</label>
-                        <input type="tel" id="pharmacyPhone" name="pharmacyPhone"
-                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                               required="required" class="form-control" placeholder="000-000-0000" th:field="*{pharmacy.pharmacyPhoneNumber}"/>
-                    </li>
-                </ul>
-                <div class="mt-2">
-                    <a class="btn btn-outline-primary btnPrevious">Previous</a>
-                    <a class="btn btn-outline-primary btnNext float-right">Next</a>
+            <form method="POST" th:action="@{/patient/info}" class="container tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active card-body" role="tabpanel" aria-labelledby="emergency-contact-tab" id="emergency-contact">
+                    <ul class="list-group list-group-flush">
+                        <li class="bg-white list-group-item form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Name" th:field="*{emergencyContact.emergencyContactName}"/>
+                        </li>
+                        <li class="bg-white list-group-item form-group">
+                            <label for="contactRelation">Relation</label>
+                            <input type="text" class="form-control" id="contactRelation" placeholder="Relation: ex. mom" th:field="*{emergencyContact.relationshipToPatient}"/>
+                        </li>
+                        <li class="bg-white list-group-item form-group">
+                            <label for="contactPhone" class="form-text">Phone Number:</label>
+                            <input type="tel" id="contactPhone" name="contactPhone"
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   required="required" class="form-control" placeholder="000-000-0000" th:field="*{emergencyContact.emergencyContactPhoneNumber}" />
+                        </li>
+                    </ul>
+                    <a class="btn btn-outline-primary btnNext float-right mt-2 mb-20px">Next</a>
                 </div>
-            </div>
-            <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="surgery-tab" id="surgery">
-                <section>
-                    <small>Surgery One</small>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryOperation1">Operation</label>
-                            <input type="text" class="form-control" id="surgeryOperation1" name="surgeryOperation1" placeholder="Operation"/>
-                        </li>
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryDate1" class="form-text">Date of Operation:</label>
-                            <input type="date" id="surgeryDate1" name="surgeryDate1"
-                                   class="form-control"/>
-                        </li>
-                    </ul>
-                    <button type="button" name="mt-3 " class="mt-3 add-more btn btn-primary">Add More</button>
-                </section>
-                <section class="d-none">
-                    <small>Surgery Two</small>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryOperation2">Operation</label>
-                            <input type="text" class="form-control" id="surgeryOperation2" name="surgeryOperation2" placeholder="Operation"/>
-                        </li>
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryDate2" class="form-text">Date of Operation:</label>
-                            <input type="date" id="surgeryDate2" name="surgeryDate2"
-                                   class="form-control" />
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btn-danger remove-me mt-3" >Remove</button>
-                    <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
-                </section>
-                <section class="d-none">
-                    <small>Surgery Three</small>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryOperation3">Operation</label>
-                            <input type="text" class="form-control" id="surgeryOperation3" name="surgeryOperation3" placeholder="Operation"/>
-                        </li>
-                        <li class="bg-white list-group-item form-group">
-                            <label for="surgeryDate3" class="form-text">Date of Operation:</label>
-                            <input type="date" id="surgeryDate3" name="surgeryDate3"
-                                   class="form-control" />
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btn-danger remove-me mt-3" >Remove</button>
-                </section>
-                <div class="form-group">
+                <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="insurance-tab" id="insurance" style="height: 515px">
+                    <div class="text-center">
+                        <h5>Please upload a photo of your insurance card.</h5>
+                        <div id="inline" style="width:50%;height:400px;padding:20px; margin-left: auto; margin-right: auto"></div>
+                        <div id="thumbnail-container"></div>
+                    </div>
+                    <input type="hidden" class="form-control" id="insuranceUrl" name="insuranceUrl"/>
                     <div class="mt-2">
                         <a class="btn btn-outline-primary btnPrevious">Previous</a>
                         <a class="btn btn-outline-primary btnNext float-right">Next</a>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="medications-tab" id="medications">
-                <section>
-                    <small>Medication One</small>
+                <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="pharmacy-tab" id="pharmacy">
                     <ul class="list-group list-group-flush">
                         <li class="bg-white list-group-item form-group">
-                            <label for="medicationName1">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName1" name="medicationName1" placeholder="Medication Name" />
+                            <label for="pharmacyName">Name</label>
+                            <input type="text" class="form-control" id="pharmacyName" placeholder="Pharmacy Name" th:field="*{pharmacy.pharmacyName}"/>
                         </li>
                         <li class="bg-white list-group-item form-group">
-                            <label for="medicationDose1">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose1" name="medicationDose1" placeholder="Medication Dose" />
+                            <label for="pharmacyAddress">Pharmacy Address</label>
+                            <input type="text" class="form-control" id="pharmacyAddress" placeholder="Pharmacy Address" th:field="*{pharmacy.pharmacyAddress}"/>
+                        </li>
+                        <li class="bg-white list-group-item form-group">
+                            <label for="pharmacyPhone" class="form-text">Phone Number:</label>
+                            <input type="tel" id="pharmacyPhone" name="pharmacyPhone"
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   required="required" class="form-control" placeholder="000-000-0000" th:field="*{pharmacy.pharmacyPhoneNumber}"/>
                         </li>
                     </ul>
-                    <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
-                </section>
-                <section class="d-none">
-                    <small>Medication Two</small>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-white list-group-item form-group">
-                            <label for="medicationName2">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName2" name="medicationName2" placeholder="Medication Name" />
-                        </li>
-                        <li class="bg-white list-group-item form-group">
-                            <label for="medicationDose2">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose2" name="medicationDose2" placeholder="Medication Dose" />
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btn-danger remove-me mt-3">Remove</button>
-                    <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
-                </section>
-                <section class="d-none">
-                    <small>Medication Three</small>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-white list-group-item form-group">
-                            <label for="medicationName3">Medication Name</label>
-                            <input type="text" class="form-control" id="medicationName3" name="medicationName3" placeholder="Medication Name"/>
-                        </li>
-                        <li class="bg-white list-group-item form-group">
-                            <label for="medicationDose3">Medication Dose</label>
-                            <input type="number" class="form-control" id="medicationDose3" name="medicationDose3" placeholder="Medication Dose"/>
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btn-danger  mt-3">Remove</button>
-                </section>
-                <div class="form-group">
                     <div class="mt-2">
                         <a class="btn btn-outline-primary btnPrevious">Previous</a>
-                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                        <a class="btn btn-outline-primary btnNext float-right">Next</a>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
+                <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="surgery-tab" id="surgery">
+                    <section>
+                        <small>Surgery One</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryOperation1">Operation</label>
+                                <input type="text" class="form-control" id="surgeryOperation1" name="surgeryOperation1" placeholder="Operation"/>
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryDate1" class="form-text">Date of Operation:</label>
+                                <input type="date" id="surgeryDate1" name="surgeryDate1"
+                                       class="form-control"/>
+                            </li>
+                        </ul>
+                        <button type="button" name="mt-3 " class="mt-3 add-more btn btn-primary">Add More</button>
+                    </section>
+                    <section class="d-none">
+                        <small>Surgery Two</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryOperation2">Operation</label>
+                                <input type="text" class="form-control" id="surgeryOperation2" name="surgeryOperation2" placeholder="Operation"/>
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryDate2" class="form-text">Date of Operation:</label>
+                                <input type="date" id="surgeryDate2" name="surgeryDate2"
+                                       class="form-control" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-danger remove-me mt-3" >Remove</button>
+                        <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
+                    </section>
+                    <section class="d-none">
+                        <small>Surgery Three</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryOperation3">Operation</label>
+                                <input type="text" class="form-control" id="surgeryOperation3" name="surgeryOperation3" placeholder="Operation"/>
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="surgeryDate3" class="form-text">Date of Operation:</label>
+                                <input type="date" id="surgeryDate3" name="surgeryDate3"
+                                       class="form-control" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-danger remove-me mt-3" >Remove</button>
+                    </section>
+                    <div class="form-group">
+                        <div class="mt-2">
+                            <a class="btn btn-outline-primary btnPrevious">Previous</a>
+                            <a class="btn btn-outline-primary btnNext float-right">Next</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade card-body" role="tabpanel" aria-labelledby="medications-tab" id="medications">
+                    <section>
+                        <small>Medication One</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationName1">Medication Name</label>
+                                <input type="text" class="form-control" id="medicationName1" name="medicationName1" placeholder="Medication Name" />
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationDose1">Medication Dose</label>
+                                <input type="number" class="form-control" id="medicationDose1" name="medicationDose1" placeholder="Medication Dose" />
+                            </li>
+                        </ul>
+                        <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
+                    </section>
+                    <section class="d-none">
+                        <small>Medication Two</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationName2">Medication Name</label>
+                                <input type="text" class="form-control" id="medicationName2" name="medicationName2" placeholder="Medication Name" />
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationDose2">Medication Dose</label>
+                                <input type="number" class="form-control" id="medicationDose2" name="medicationDose2" placeholder="Medication Dose" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-danger remove-me mt-3">Remove</button>
+                        <button type="button" name="add-more" class="mt-3 add-more btn btn-primary">Add More</button>
+                    </section>
+                    <section class="d-none">
+                        <small>Medication Three</small>
+                        <ul class="list-group list-group-flush">
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationName3">Medication Name</label>
+                                <input type="text" class="form-control" id="medicationName3" name="medicationName3" placeholder="Medication Name"/>
+                            </li>
+                            <li class="bg-white list-group-item form-group">
+                                <label for="medicationDose3">Medication Dose</label>
+                                <input type="number" class="form-control" id="medicationDose3" name="medicationDose3" placeholder="Medication Dose"/>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-danger  mt-3">Remove</button>
+                    </section>
+                    <div class="form-group">
+                        <div class="mt-2">
+                            <a class="btn btn-outline-primary btnPrevious">Previous</a>
+                            <button type="submit" class="btn btn-primary float-right">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
 
 

@@ -147,7 +147,6 @@ public class PatientController {
         }
         model.addAttribute("doctors", doctors);
 
-        model.addAttribute("Title", "Create Appointment");
         //Make new appointment object
         model.addAttribute("appointment", new Appointment());
 

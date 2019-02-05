@@ -35,8 +35,12 @@
 <div class="container-fluid">
     <!--PATIENT SECTION-->
     <div th:if="${isPatient == true}">
-        <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded patientDashboardContainer">
-            <h1 class="pb-0 text-left">Welcome back!</h1>
+        <div class="container mt-5 p-0">
+            <div class="header text-light text-left">
+                <h1>Welcome back!</h1>
+            </div>
+        </div>
+        <div class="container p-3 rounded patientDashboardContainer">
             <h4 class="pb-0 text-left">Here are your appointments</h4>
 
             <div class="row dashboardPatientRow">
@@ -195,8 +199,12 @@
 
     <!--DOCTOR SECTION-->
     <div th:if="${isPatient == false}">
-        <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded dashboardContainer">
-            <h1 class="pb-0 text-left">Welcome back, Doctor!</h1>
+        <div class="container mt-5 p-0">
+            <div class="header text-light text-left">
+                <h1>Welcome back, Doctor!</h1>
+            </div>
+        </div>
+        <div class="container p-3 rounded dashboardContainer">
             <h4 class="pb-0 text-left">Here's your schedule</h4>
             <span class="numberOfAppointments d-none" th:name="${#lists.size(appointments)}"></span>
 
