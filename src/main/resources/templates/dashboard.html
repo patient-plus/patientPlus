@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head(${name} + '\'s Dashboard')"></head>
-<style>
-    body {
-        background-color: #1c5d8e;
-    }
+<!--<style>-->
+    <!--body {-->
+        <!--background-color: #1c5d8e;-->
+    <!--}-->
 
-    .dashboardContainer, .patientDashboardContainer {
-        background-color: rgb(241, 243, 244);
-    }
-    .findADoctorDashboardCard, .bookAppointmentDashboardCard {
-        background-color:  rgb(242	242	242	);
-    }
-    /*.dashboardDisplay {*/
-        /*background-color: rgb(241, 243, 244);*/
-    /*}*/
-    /*td { vertical-align: top;*/
-        /*height: 40px; overflow: hidden;*/
-    /*}*/
-    /*td { height: 40px; overflow: hidden; }*/
-    .table-cursor,
-    .mobile-button{
-        cursor:pointer;
-    }
+    <!--.dashboardContainer, .patientDashboardContainer {-->
+        <!--background-color: rgb(241, 243, 244);-->
+    <!--}-->
+    <!--.findADoctorDashboardCard, .bookAppointmentDashboardCard {-->
+        <!--background-color:  rgb(242	242	242	);-->
+    <!--}-->
+    <!--/*.dashboardDisplay {*/-->
+        <!--/*background-color: rgb(241, 243, 244);*/-->
+    <!--/*}*/-->
+    <!--/*td { vertical-align: top;*/-->
+        <!--/*height: 40px; overflow: hidden;*/-->
+    <!--/*}*/-->
+    <!--/*td { height: 40px; overflow: hidden; }*/-->
+    <!--.table-cursor,-->
+    <!--.mobile-button{-->
+        <!--cursor:pointer;-->
+    <!--}-->
 
-    .border{
-        border-radius: 20%;
-    }
+    <!--.border{-->
+        <!--border-radius: 20%;-->
+    <!--}-->
 
-</style>
+<!--</style>-->
 <body>
 <nav th:replace="partials :: navbar"></nav>
+<h1 class="pb-0 text-white">Welcome back!</h1>
 
 <div class="container-fluid">
     <!--PATIENT SECTION-->
     <div th:if="${isPatient == true}">
         <div class="container mt-5 pt-5 pb-3 pl-3 pr-3 rounded patientDashboardContainer">
-            <h1 class="pb-0 text-left">Welcome back!</h1>
+            <!--<h1 class="pb-0 text-left">Welcome back!</h1>-->
             <h4 class="pb-0 text-left">Here are your appointments</h4>
 
             <div class="row dashboardPatientRow">
