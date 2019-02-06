@@ -17,7 +17,8 @@
     <div class="header text-light text-left">
         <h1>Help us help you</h1>
     </div>
-<div class="row mx-auto d-lg-none">
+    <!--d-lg-none-->
+<div class="row mx-auto ">
     <div class="col-8">
         <div class="card">
             <div class="card-title">
@@ -27,20 +28,24 @@
                 <form method="POST" th:action="@{/patient/info}">
                     <ul class="list-group">
                         <!--Trigger for emergency contact-->
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light">
                             <div class="row">
-                                <div class="col-11">
-                                    Emergency Contact
-                                </div>
-                                <div class="col-1">
-                                    <i class="fas fa-sort-down"></i>
+                                <div class="col-12">
+                                    <div class="row bg-light">
+                                        <div class="col-11">
+                                            Emergency Contact
+                                        </div>
+                                            <button class="col-1 btn btn-light" id="drop-down-menu-1">
+                                                <i class="fas fa-sort-down"></i>
+                                            </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card bg-white pt-3" id="ec-card">
-                                <div class="card-body">
-                                    <!--form-->
-                                    <div class="row">
-                                        <div class="col-10">
+                            <div class="row d-none mt-3" id="collapsible-ec">
+                                <div class="col-12">
+                                    <div class="card bg-light pt-3">
+                                        <div class="card-body">
+                                            <!--form-->
                                             <label for="name">Name</label>
                                             <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{emergencyContact.emergencyContactName}"/>
 
@@ -52,28 +57,33 @@
                                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                                    required="required" class="form-control" placeholder="000-000-0000" th:field="*{emergencyContact.emergencyContactPhoneNumber}" />
 
+                                             <button class="btn btn-primary" id="ec-next">Next</button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </li>
 
                         <!--Insurance form-->
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light">
                             <div class="row">
-                                <div class="col-11">
-                                    Insurance
-                                </div>
-                                <div class="col-1">
-                                    <i class="fas fa-sort-down"></i>
+                                <div class="col-12">
+                                    <div class="row bg-light">
+                                        <div class="col-11">
+                                            Insurance
+                                        </div>
+                                        <button class="col-1 btn btn-light">
+                                            <i class="fas fa-sort-down"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card bg-white pt-3">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-10">
+                            <div class="row d-none mt-3" id="collapsible-insurance">
+                                <div class="col-12">
+                                    <div class="card bg-light pt-3" >
+                                        <div class="card-body">
 
+                                            <button class="btn btn-primary" id="insurance-next">Next</button>
                                         </div>
                                     </div>
                                 </div>
@@ -81,37 +91,81 @@
                         </li>
 
                         <!--Pharmacy form-->
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light">
                             <div class="row">
-                                <div class="col-11">
-                                    Pharmacy
+                                <div class="col-12">
+                                    <div class="row bg-light">
+                                        <div class="col-11">
+                                            Pharmacy
+                                        </div>
+                                        <button class="col-1 btn btn-light">
+                                            <i class="fas fa-sort-down"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-1">
-                                    <i class="fas fa-sort-down"></i>
+                            </div>
+                            <div class="row d-none mt-3" id="collapsible-pharmacy">
+                                <div class="col-12">
+                                    <div class="card bg-light pt-3" >
+                                        <div class="card-body">
+
+                                            <button class="btn btn-primary" id="pharmacy-next">Next</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
 
                         <!--Surgeries form-->
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light">
                             <div class="row">
-                                <div class="col-11">
-                                    Surgeries
+                                <div class="col-12">
+                                    <div class="row bg-light">
+                                        <div class="col-11">
+                                            Surgeries
+                                        </div>
+                                        <button class="col-1 btn btn-light">
+                                            <i class="fas fa-sort-down"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-1">
-                                    <i class="fas fa-sort-down"></i>
+                            </div>
+                            <div class="row d-none mt-3" id="collapsible-surgeries">
+                                <div class="col-12">
+                                    <div class="card bg-light pt-3" >
+                                        <div class="card-body">
+
+                                            <button class="btn btn-primary" id="surgeries-next">Next</button>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
 
                         <!--Medications form-->
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light">
                             <div class="row">
-                                <div class="col-11">
-                                    Medications
+                                <div class="col-12">
+                                    <div class="row bg-light">
+                                        <div class="col-11">
+                                            Medications
+                                        </div>
+                                        <button class="col-1 btn btn-light">
+                                            <i class="fas fa-sort-down"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-1">
-                                    <i class="fas fa-sort-down"></i>
+                            </div>
+                            <div class="row d-none mt-3" id="collapsible-medications">
+                                <div class="col-12">
+                                    <div class="card bg-light pt-3" >
+                                        <div class="card-body">
+
+                                            <button class="btn btn-primary" id="medications-next">Next</button>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
