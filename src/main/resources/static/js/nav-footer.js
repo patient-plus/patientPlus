@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
     let counter = 1;
-    let sections = ['ec', 'insurance', 'pharmacy', 'surgeries', 'medications'];
-    let sectionBtns = ['insurance', 'pharmacy', 'surgeries', 'medications'];
+    let tabs = ['emergency-contact','insurance', 'pharmacy', 'surgery', 'medications'];
 
     $('.dropdown').click(function () {
         (counter++) % 2 === 1 ? $(this).next().removeClass('d-none') : $(this).next().addClass('d-none');
@@ -15,23 +14,24 @@ $(document).ready(function () {
 
 
 
-
-    for(let i = 0; i < sections.length; i++){
+    //sections that interact with changing footer
+    for(let i = 0; i < tabs.length; i++){
         $(`#drop-down-menu-${i}`).on('click', (e) => {
             e.preventDefault(); //prevents submitting button
-            $(`#collapsible-${sections[i]}`).toggleClass('d-none');
+            $(`#collapsible-${tabs[i]}`).toggleClass('d-none');
             footerPosition();
         });
-    }
 
-
-    for(let i = 0 ; i < sectionBtns.length ; i++){
-        $(`#to-${sectionBtns[i]}`).on('click', (e) => {
+        $(`#to-${tabs[i]}`).on('click', (e) => {
             e.preventDefault();
-            if($(`#`))
-            $(`#collapsible-${sections[i]}`).toggleClass('d-none');
-            $(`#collapsible-${sections[i + 1]}`).toggleClass('d-none');
+            $(`#collapsible-${tabs[i]}`).toggleClass('d-none');
+            $(`#collapsible-${tabs[i + 1]}`).toggleClass('d-none');
+            footerPosition();
+        });
+
+        $(`#${tabs[i]}-tab`).on('click', () => {
             footerPosition();
         });
     }
+
 });
