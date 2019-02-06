@@ -56,6 +56,21 @@ body,
     border-radius: 20%;
 }
 
+.insurance-thumbnail-div{
+    width:50%;
+    height:400px;
+    padding:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.insurance-add{
+    height: 515px;
+}
+
+.fine-text{
+    font-size: x-small;
+}
 
 @media screen and (max-width:768px) {
     .map-style{
@@ -74,6 +89,18 @@ body,
         max-width:100%;
         width: 100%;
     }
+
+    .insurance-thumbnail-div{
+        width:100%;
+        height:200px;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*#__filestack-picker{*/
+        /*min-width: 0;*/
+    /*}*/
 }
 @media (max-width: 1190px) and (min-width: 992px){
     .mariaName {
