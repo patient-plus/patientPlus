@@ -92,11 +92,15 @@ body,
 
     .insurance-thumbnail-div{
         width:100%;
-        height:400px;
+        height:200px;
         padding: 0;
         margin-left: auto;
         margin-right: auto;
     }
+
+    /*#__filestack-picker{*/
+        /*min-width: 0;*/
+    /*}*/
 }
 @media (max-width: 1190px) and (min-width: 992px){
     .mariaName {
