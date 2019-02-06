@@ -58,46 +58,47 @@
                                                                     </div>
                                                                     <div>
                                                                         <label for="appointment-time-input" class="col-form-label">Select a Time</label>
-                                                                        <div id="appointment-time-input" class="btn-group row" data-toggle="buttons">
-                                                                            <div class="col-6">
+                                                                        <div id="appointment-time-input" class="row" data-toggle="buttons">
+                                                                            <div class="col-4 offset-1">
                                                                                 <div><small>Before Lunch:</small></div>
-                                                                                <label class="btn btn-primary">
+                                                                                <div></div>
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="1000" value="10:00 AM"/> 10:00 AM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="1030" value="10:30 AM"/> 10:30 AM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="1100" value="11:00 AM"/> 11:00 AM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="1130" value="11:30 AM"/> 11:30 AM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="100" value="1:00 PM"/> &nbsp; 1:00 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="130" value="1:30 PM"/> &nbsp; 1:30 PM
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="col-6">
+                                                                            <div class="col-4 offset-2">
                                                                                 <div><small>After Lunch:</small></div>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="200" value="2:00 PM"/> &nbsp; 2:00 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="230" value="2:30 PM"/> &nbsp; 2:30 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="300" value="3:00 PM"/> &nbsp; 3:00 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="330" value="3:30 PM"/> &nbsp; 3:30 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="400" value="4:00 PM"/> &nbsp; 4:00 PM
                                                                                 </label>
-                                                                                <label class="btn btn-primary">
+                                                                                <label class="btn btn-primary btn-block">
                                                                                     <input type="radio" name="time" id="430" value="4:30 PM"/> &nbsp; 4:30 PM
                                                                                 </label>
                                                                             </div>
@@ -200,7 +201,7 @@
                                     <td th:text="${appointment.patient.firstName} + ' ' + ${appointment.patient.lastName}"></td>
                                     <td class="patient" th:id="${appointment.patient.id}" th:text="${appointment.time}"></td>
                                     <td class="text-center">
-                                        <button class="btn btn-primary mb-2" type="button" data-toggle="collapse" style="width: 135px;">View Profile</button>
+                                        <button class="btn btn-primary mb-2" id="view-btn" type="button" data-toggle="collapse" style="width: 135px;">View Profile</button>
                                         <form th:action="@{/doctor/send-appointment-reminder/{id}(id = ${appointment.patient.id})}" th:method="POST">
                                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#appointmentReminder">Send Reminder</button>
                                             <div class="modal fade" id="appointmentReminder" tabindex="-1" role="dialog" aria-labelledby="appointmentReminderLabel" aria-hidden="true">
@@ -256,8 +257,8 @@
                                             </div>
                                             <div class="col-6">
                                                 <h6 class="card-subtitle mb-2" th:if="${#lists.size(appointment.patient.prescriptions)} != 0">Current Prescriptions:</h6>
-                                                <p class="card-text d-inline" th:if="${#lists.size(appointment.patient.prescriptions)} == 0">No prescriptions for this patient!</p>
-                                                <p class="card-text d-inline" th:if="${#lists.size(appointment.patient.prescriptions)} != 0" th:each="prescription : ${appointment.patient.prescriptions}">-<span th:text="${prescription.name}"></span></p>
+                                                <p class="card-text" th:if="${#lists.size(appointment.patient.prescriptions)} == 0">No prescriptions for this patient!</p>
+                                                <p class="card-text" th:if="${#lists.size(appointment.patient.prescriptions)} != 0" th:each="prescription : ${appointment.patient.prescriptions}">-<span th:text="${prescription.name}"></span></p>
                                                 <a th:href="@{/doctor/write-prescription/{id}(id = ${appointment.patient.id})}" class="card-link d-block text-center">Write Prescription</a>
                                             </div>
                                         </div>
@@ -268,10 +269,7 @@
                         </table>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
 </div>
