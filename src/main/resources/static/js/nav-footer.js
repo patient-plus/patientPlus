@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     let counter = 1;
-    let sections = ['ec', 'insurance', 'pharmacy', 'surgeries', 'medications'];
+    let sections = ['ec', 'pharmacy', 'surgeries', 'medications'];
     let sectionBtns = ['insurance', 'pharmacy', 'surgeries', 'medications'];
 
     $('.dropdown').click(function () {
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 
 
-
+    //sections that interact with changing footer
     for(let i = 0; i < sections.length; i++){
         $(`#drop-down-menu-${i}`).on('click', (e) => {
             e.preventDefault(); //prevents submitting button
