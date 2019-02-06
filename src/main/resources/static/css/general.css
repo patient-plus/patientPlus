@@ -2,7 +2,6 @@ body,
 .medical-blue{
     background-color: #1c5d8e;
     font-family: 'Quicksand', sans-serif;
-
 }
 
 .mapCard {
@@ -86,9 +85,8 @@ body,
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    text-align: center;
 }
