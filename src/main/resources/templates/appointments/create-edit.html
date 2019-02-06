@@ -10,14 +10,14 @@
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
-    <div class="container mt-5 p-0 createAppointmentContainer">
+    <div class="container mt-5 mb-xxxl p-0 createAppointmentContainer">
         <div class="header text-light text-left">
             <h1>Book an Appointment</h1>
         </div>
-        <section class="rounded bg-light">
+        <section class="rounded mx-2 bg-light">
             <form class="col-12" th:action="@{/patient/appointment/create}" th:method="POST" th:object="${appointment}">
                 <div class="row pt-5 rounded appointmentSelectionRow">
-                    <div class="col-6 pt-0 pb-5 rounded">
+                    <div class="col-12 col-md-6 pt-0 pb-5 rounded">
                         <div class="card selectDoctorCard border-0">
                             <div class="card-body pt-0 selectDoctorCardBody border-0">
                                 <label for="appointment-doctor-input" class="col-form-label">Select a Doctor</label>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6 pt-0 pb-5 rounded">
+                    <div class="col-12 col-md-6 pt-0 pb-5 rounded">
                         <div class="card selectDateAndTimeCard border-0">
                             <div class="card-body pt-0 selectDateAndTimeCardBody border-0">
                                 <label for="appointment-date-input" class="col-form-label">Date</label>

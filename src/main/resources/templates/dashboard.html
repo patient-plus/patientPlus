@@ -12,12 +12,12 @@
                 <h1>Welcome back!</h1>
             </div>
         </div>
-        <div class="container p-3 rounded patientDashboardContainer">
+        <div class="container mb-xxxl p-3 rounded patientDashboardContainer">
             <h4 class="pb-0 text-left">Here are your appointments</h4>
 
             <div class="row dashboardPatientRow">
                 <div class="col patientAppointmentsCol rounded">
-                    <div class="table-responsive">
+                    <div class="table-responsive overflow-hidden">
                         <table class="table m-0 border border-light table-cursor">
                             <thead class="bg-info">
                             <tr>
@@ -44,7 +44,7 @@
                                         <div class="row pt-3">
                                             <div class="col-12 col-md-6 justify-content-center">
                                                 <form th:action="@{/patient/appointment/update-time/{id}(id = ${appointment.id})}" th:method="POST">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateAppointment">Edit</button>
+                                                    <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#updateAppointment">Edit</button>
                                                     <div class="modal fade" id="updateAppointment" tabindex="-1" role="dialog" aria-labelledby="updateAppointmentLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -116,7 +116,7 @@
                                             </div>
                                             <div class="col-12 col-md-6 mt-2 mt-md-0 justify-content-center">
                                                 <form th:action="@{/patient/appointment/delete/{id}(id = ${appointment.id})}" th:method="POST">
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAppointment">Cancel</button>
+                                                    <button type="button" class="btn btn-danger w-100" data-toggle="modal" data-target="#deleteAppointment">Cancel</button>
                                                     <div class="modal fade" id="deleteAppointment" tabindex="-1" role="dialog" aria-labelledby="deleteAppointmentLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
